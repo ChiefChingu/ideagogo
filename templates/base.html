@@ -1,27 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='css/style.css')}}"
-      type="text/css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+  <link rel="stylesheet" href="{{url_for('static', filename='css/override.css')}}" type="text/css" />
 
-    <title>Document</title>
-  </head>
-  <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  </body>
+  {% if title %}
+  <title>Rate it - {{ title }}</title>
+  {% else %}
+  <title>Rate it! - Problems and Solutions</title>
+  {% endif %}
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="{{url_for('home')}}">Home</a></li>
+          <li><a href="{{url_for('ideas')}}">Ideas</a></li>
+          <li><a href="{{url_for('problems')}}">Problems</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="{{url_for('home')}}">Home</a></li>
+      <li><a href="{{url_for('ideas')}}">Ideas</a></li>
+      <li><a href="{{url_for('problems')}}">Problems</a></li>
+    </ul>
+
+
+  </header>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <!-- <script src="{{url_for('static', filename='materialize-src/js/bin/materialize.min.js')}}"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+    });
+  </script>
+
+</body>
+
 </html>

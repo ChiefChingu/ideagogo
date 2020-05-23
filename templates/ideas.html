@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Ideas</h1>
+
+{% for idea in ideas %}
+<ul>
+  <li>{{idea.idea_title}}</li>
+  {{idea.idea_summary}}
+</ul>
+{% endfor %}
+
+<a href="{{url_for('addidea')}}" class="waves-effect waves-light btn">add idea</a>
+
+
+{% endblock %}
