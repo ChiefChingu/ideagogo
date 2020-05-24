@@ -2,7 +2,6 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-
 from os import path
 
 if path.exists("env.py"):
@@ -29,9 +28,22 @@ def ideas():
     return render_template("ideas.html", title="Ideas", ideas=mongo.db.ideas.find())
 
 
+@app.route("/idea-details/<idea_id>")
+def idea_details(idea_id):
+    the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
+    return render_template("idea-details.html", title="Idea details", idea=the_idea)
+
+
 @app.route("/addidea")
 def addidea():
     return render_template("addidea.html", title="Add Idea")
+
+
+# @app.route("/insertidea", methods=["POST"])
+# def insert_idea():
+#     ideas = mongo.db.ideas
+#     ideas.insert_one(request.form.to_dict())
+#     return redirect(url_for("idea-details"))
 
 
 @app.route("/problems")

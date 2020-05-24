@@ -1,7 +1,13 @@
+
+/static/materialize-src
+
+# Python #
+###################
+*.pyo
+*.pyc
 .env
 /env
 env.py
-/static/materialize-src
 
 # Compiled source #
 ###################

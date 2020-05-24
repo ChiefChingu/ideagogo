@@ -3,11 +3,26 @@
 <h1>Ideas</h1>
 
 {% for idea in ideas %}
-<ul>
-  <li>{{idea.idea_title}}</li>
-  {{idea.idea_summary}}
-</ul>
+<a href="{{url_for('idea_details', idea_id=idea._id)}}">
+  <h3>{{idea.idea_title}}</h3>
+  <p>{{idea.idea_summary}}</p>
+  <p>{{idea._id}}</>
+</a>
+
 {% endfor %}
+
+
+<!-- {% for idea in ideas %}
+<a href="{{url_for('idea_details')}}">
+  <h3>{{idea.idea_title}}</h3>
+  <p>{{idea.idea_summary}}</p>
+</a>
+
+
+
+{% endfor %}
+ -->
+
 
 <a href="{{url_for('addidea')}}" class="waves-effect waves-light btn">add idea</a>
 
