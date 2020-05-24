@@ -39,11 +39,23 @@ def addidea():
     return render_template("addidea.html", title="Add Idea")
 
 
-# @app.route("/insertidea", methods=["POST"])
-# def insert_idea():
-#     ideas = mongo.db.ideas
-#     ideas.insert_one(request.form.to_dict())
-#     return redirect(url_for("idea-details"))
+@app.route("/insertidea", methods=["POST"])
+def insert_idea():
+    ideas = mongo.db.ideas
+    ideas.insert_one(request.form.to_dict())
+    return redirect(url_for("ideas"))
+    # redirect to idea_details: cannot get it to work...
+
+
+# return redirect(url_for("idea-details/<idea_id>", {"_id": ObjectId(idea_id)}))
+# the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
+# return redirect(url_for("idea_details"), title="Idea details", idea=the_idea)
+
+
+@app.route("/delete_idea/<idea_id>")
+def delete_idea(idea_id):
+    mongo.db.ideas.remove({"_id": ObjectId(idea_id)})
+    return redirect(url_for("ideas"))
 
 
 @app.route("/problems")

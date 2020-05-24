@@ -2,4 +2,33 @@
 
 {% block content %}
 <h1>Add idea</h1>
+<div class="row">
+    <form action="{{ url_for('insert_idea') }}" method="POST" class="col s12">
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">assignment</i>
+                    <input id="idea_title" name="idea_title" type="text" />
+                    <label for="icon_prefix">Idea Name</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="idea_summary" id="idea_summary" class="materialize-textarea"></textarea>
+                <label for="icon_telephone">Task Description</label>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">
+                Add Idea
+                <i class="material-icons right">playlist_add</i>
+            </button>
+        </div>
+    </form>
+</div>
 {% endblock %}
