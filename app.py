@@ -52,7 +52,7 @@ def login():
     if form.validate_on_submit():
         login_user = users.find_one({"email": form.email.data})
         if check_password_hash(login_user["password"], request.form["password"]):
-            # session["username"] = request.form["username"]
+            session["username"] = request.form["email"]
             flash(f"You have been logged in! Welcome {form.email.data}!", "success")
             return redirect(url_for("home"))
         flash("Login Unsuccessful. Please check username and password", "danger")
@@ -98,7 +98,6 @@ def update_idea(idea_id):
             "idea_summary": request.form.get("idea_summary"),
         },
     )
-
     return redirect(url_for("idea_details", idea_id=idea_id))
 
 
