@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, flash
+from flask import Flask, render_template, redirect, request, url_for, flash, session
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 from os import path
@@ -32,9 +32,8 @@ def home():
 def register():
     form = RegistrationForm()
     users = mongo.db.users
-
     if form.validate_on_submit():
-        hashed_password = generate_password_hash(form.password.data)
+        hashed_password = generate_password_hash(form.password.data, "sha256")
         users.insert(
             {
                 "username": request.form.get("username"),
@@ -42,24 +41,22 @@ def register():
                 "password": hashed_password,
             }
         )
-
         flash(f"Account created for {form.username.data}!", "success")
         return redirect(url_for("login"))
-
     return render_template("register.html", title="Register", form=form)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
+    users = mongo.db.users
     if form.validate_on_submit():
-        x = mongo.db.users.find_one({"email": form.email.data})
-        encodeX = x["password"].encode("utf-8")
-        if check_password_hash(encodeX["password"], form.password):
+        login_user = users.find_one({"email": form.email.data})
+        if check_password_hash(login_user["password"], request.form["password"]):
+            # session["username"] = request.form["username"]
             flash(f"You have been logged in! Welcome {form.email.data}!", "success")
-        return redirect(url_for("home"))
-        # else:
-        #     flash("Login Unsuccessful. Please check username and password", "danger")
+            return redirect(url_for("home"))
+        flash("Login Unsuccessful. Please check username and password", "danger")
     return render_template("login.html", title="Login", form=form)
 
 
