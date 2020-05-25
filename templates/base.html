@@ -26,6 +26,8 @@
           <li><a href="{{url_for('home')}}">Home</a></li>
           <li><a href="{{url_for('ideas')}}">Ideas</a></li>
           <li><a href="{{url_for('problems')}}">Problems</a></li>
+          <li><a href="{{url_for('register')}}">Register</a></li>
+          <li><a href="{{url_for('login')}}">Log in</a></li>
         </ul>
       </div>
     </nav>
@@ -34,10 +36,21 @@
       <li><a href="{{url_for('home')}}">Home</a></li>
       <li><a href="{{url_for('ideas')}}">Ideas</a></li>
       <li><a href="{{url_for('problems')}}">Problems</a></li>
+      <li><a href="{{url_for('register')}}">Register</a></li>
+      <li><a href="{{url_for('login')}}">Log in</a></li>
     </ul>
 
   </header>
   <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
     {% block content %}
     {% endblock %}
   </div>

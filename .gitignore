@@ -1,5 +1,6 @@
 
 /static/materialize-src
+*.pyc
 
 # Python #
 ###################

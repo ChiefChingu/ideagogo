@@ -1,8 +1,11 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 from os import path
+from forms import RegistrationForm, LoginForm
+import email_validator
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 if path.exists("env.py"):
@@ -14,6 +17,7 @@ MONGODB_URI = os.environ.get("bashrc")
 
 app.config["MONGO_DBNAME"] = "ideas"
 app.config["MONGO_URI"] = MONGODB_URI
+app.config["SECRET_KEY"] = "5791628bb0b13ce0c676dfde280ba245"
 
 mongo = PyMongo(app)
 
@@ -22,6 +26,41 @@ mongo = PyMongo(app)
 @app.route("/home")
 def home():
     return render_template("home.html")
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    form = RegistrationForm()
+    users = mongo.db.users
+
+    if form.validate_on_submit():
+        hashed_password = generate_password_hash(form.password.data)
+        users.insert(
+            {
+                "username": request.form.get("username"),
+                "email": request.form.get("email"),
+                "password": hashed_password,
+            }
+        )
+
+        flash(f"Account created for {form.username.data}!", "success")
+        return redirect(url_for("login"))
+
+    return render_template("register.html", title="Register", form=form)
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        x = mongo.db.users.find_one({"email": form.email.data})
+        encodeX = x["password"].encode("utf-8")
+        if check_password_hash(encodeX["password"], form.password):
+            flash(f"You have been logged in! Welcome {form.email.data}!", "success")
+        return redirect(url_for("home"))
+        # else:
+        #     flash("Login Unsuccessful. Please check username and password", "danger")
+    return render_template("login.html", title="Login", form=form)
 
 
 @app.route("/ideas")
