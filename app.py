@@ -17,8 +17,7 @@ MONGODB_URI = os.environ.get("bashrc")
 
 app.config["MONGO_DBNAME"] = "ideas"
 app.config["MONGO_URI"] = MONGODB_URI
-app.config["SECRET_KEY"] = "5791628bb0b13ce0c676dfde280ba245"
-
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
