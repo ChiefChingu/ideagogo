@@ -8,6 +8,7 @@
 .env
 /env
 env.py
+__pycache__/*
 
 # Compiled source #
 ###################
