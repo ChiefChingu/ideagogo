@@ -8,7 +8,7 @@
 .env
 /env
 env.py
-__pycache__/*
+__pycache__/app.*
 
 # Compiled source #
 ###################
