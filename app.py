@@ -27,7 +27,11 @@ def home():
     return render_template("pages/home.html")
 
 
+#########################
 # User related
+#########################
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     form = RegistrationForm()
@@ -78,7 +82,9 @@ def logout():
     return render_template("pages/home.html")
 
 
-# Idea related
+#########################
+# Ideas
+#########################
 
 
 @app.route("/ideas")
@@ -92,13 +98,15 @@ def ideas():
 def idea_details(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
     return render_template(
-        "pages/idea-details.html", title="Idea details", idea=the_idea
+        "pages/idea-details.html", idea=the_idea, title="Idea details"
     )
 
 
 @app.route("/addidea")
 def addidea():
-    return render_template("pages/addidea.html", title="Add Idea")
+    return render_template(
+        "pages/addidea.html", title="Add Idea", categories=mongo.db.categories.find()
+    )
 
 
 @app.route("/insertidea", methods=["POST"])
@@ -111,7 +119,13 @@ def insert_idea():
 @app.route("/edit_idea/<idea_id>")
 def edit_idea(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
-    return render_template("pages/editidea.html", title="Edit Idea", idea=the_idea)
+    all_categories = mongo.db.categories.find()
+    return render_template(
+        "pages/editidea.html",
+        title="Edit Idea",
+        idea=the_idea,
+        categories=all_categories,
+    )
 
 
 @app.route("/update_idea/<idea_id>", methods=["POST"])
@@ -121,6 +135,7 @@ def update_idea(idea_id):
         {"_id": ObjectId(idea_id)},
         {
             "idea_title": request.form.get("idea_title"),
+            "category_name": request.form.get("category_name"),
             "idea_summary": request.form.get("idea_summary"),
         },
     )
@@ -131,6 +146,9 @@ def update_idea(idea_id):
 def delete_idea(idea_id):
     mongo.db.ideas.remove({"_id": ObjectId(idea_id)})
     return redirect(url_for("ideas"))
+
+
+# Problems
 
 
 @app.route("/problems")

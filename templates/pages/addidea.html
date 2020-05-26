@@ -1,6 +1,7 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
+
 <h1>Add idea</h1>
 <div class="row">
     <form action="{{ url_for('insert_idea') }}" method="POST" class="col s12">
@@ -12,13 +13,28 @@
                     <label for="icon_prefix">Idea Name</label>
                 </div>
             </div>
-
         </div>
+
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">poll</i>
+                    <select id="category" name="category_name">
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                        <option value="{{category.category_name}}">{{category.category_name}}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Select a category for your idea</label>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
                 <textarea name="idea_summary" id="idea_summary" class="materialize-textarea"></textarea>
-                <label for="icon_telephone">Task Description</label>
+                <label for="icon_telephone">Idea Description</label>
             </div>
         </div>
 
@@ -31,4 +47,6 @@
         </div>
     </form>
 </div>
+
+
 {% endblock %}
