@@ -27,6 +27,7 @@ def home():
     return render_template("pages/home.html")
 
 
+# User related
 @app.route("/register", methods=["GET", "POST"])
 def register():
     form = RegistrationForm()
@@ -59,10 +60,25 @@ def login():
     return render_template("pages/login.html", title="Login", form=form)
 
 
+@app.route("/account")
+def account():
+    if not session.get("username") is None:
+        username = session.get("username")
+        return render_template("pages/account.html")
+    else:
+        return redirect(url_for("register"))
+
+
+# make all user data available at a later stage - nice to have
+
+
 @app.route("/logout")
 def logout():
     session.pop("username")
     return render_template("pages/home.html")
+
+
+# Idea related
 
 
 @app.route("/ideas")
