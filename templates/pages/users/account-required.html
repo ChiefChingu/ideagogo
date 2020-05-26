@@ -1,0 +1,7 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<h1>Oops, that did not work...yet</>
+    <p>In order to do more than reading what others say, you need to be logged in.</p>
+    <p>Do you have an account? Please log in <a href="{{url_for('login')}}">here</a>.</p>
+    <p>If not, sign up <a href="{{url_for('register')}}">here<a>.</p>
+    {% endblock %}

@@ -85,6 +85,11 @@ def logout():
     return render_template("pages/home.html")
 
 
+@app.route("/account_required")
+def account_required():
+    return render_template("pages/users/account-required.html")
+
+
 #########################
 # Ideas
 #########################
@@ -100,18 +105,28 @@ def ideas():
 @app.route("/idea-details/<idea_id>")
 def idea_details(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
+    users = mongo.db.users.find()
     return render_template(
-        "pages/ideas/idea_details.html", idea=the_idea, title="Idea details"
+        "pages/ideas/idea_details.html",
+        idea=the_idea,
+        title="Idea details",
+        users=users,
     )
 
 
+# maybe use uathor of idea_owner to prevent confusion while passing variables/db names
 @app.route("/addidea")
 def addidea():
-    return render_template(
-        "pages/ideas/add_idea.html",
-        title="Add Idea",
-        categories=mongo.db.categories.find(),
-    )
+    if not session.get("username") is None:
+        username = session.get("username")
+        return render_template(
+            "pages/ideas/add_idea.html",
+            title="Add Idea",
+            categories=mongo.db.categories.find(),
+            # username=username,
+        )
+    else:
+        return redirect(url_for("account_required"))
 
 
 @app.route("/insertidea", methods=["POST"])
