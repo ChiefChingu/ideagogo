@@ -58,6 +58,9 @@ def login():
         login_user = users.find_one({"email": form.email.data})
         if check_password_hash(login_user["password"], request.form["password"]):
             session["username"] = request.form["email"]
+            if login_user["email"] == "admin@admin.com":
+                session["username"] = "Master"
+                print(session["username"])
             flash(f"You have been logged in! Welcome {form.email.data}!", "success")
             return redirect(url_for("home"))
         flash("Login Unsuccessful. Please check username and password", "danger")
@@ -154,6 +157,19 @@ def delete_idea(idea_id):
 @app.route("/problems")
 def problems():
     return render_template("pages/problems.html", title="Problems")
+
+
+#########################
+# Admin pages
+#########################
+
+
+@app.route("/admin")
+def admin():
+    if session.get("username") == "Master":
+        return render_template("pages/admin.html")
+    else:
+        return redirect(url_for("home"))
 
 
 if __name__ == "__main__":
