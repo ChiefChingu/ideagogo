@@ -47,7 +47,7 @@ def register():
         )
         flash(f"Account created for {form.username.data}!", "success")
         return redirect(url_for("login"))
-    return render_template("pages/register.html", title="Register", form=form)
+    return render_template("pages/users/register.html", title="Register", form=form)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -64,14 +64,14 @@ def login():
             flash(f"You have been logged in! Welcome {form.email.data}!", "success")
             return redirect(url_for("home"))
         flash("Login Unsuccessful. Please check username and password", "danger")
-    return render_template("pages/login.html", title="Login", form=form)
+    return render_template("pages/users/login.html", title="Login", form=form)
 
 
 @app.route("/account")
 def account():
     if not session.get("username") is None:
         username = session.get("username")
-        return render_template("pages/account.html")
+        return render_template("pages/users/account.html")
     else:
         return redirect(url_for("register"))
 
@@ -93,7 +93,7 @@ def logout():
 @app.route("/ideas")
 def ideas():
     return render_template(
-        "pages/ideas.html", title="Ideas", ideas=mongo.db.ideas.find()
+        "pages/ideas/ideas.html", title="Ideas", ideas=mongo.db.ideas.find()
     )
 
 
@@ -101,14 +101,16 @@ def ideas():
 def idea_details(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
     return render_template(
-        "pages/idea-details.html", idea=the_idea, title="Idea details"
+        "pages/ideas/idea_details.html", idea=the_idea, title="Idea details"
     )
 
 
 @app.route("/addidea")
 def addidea():
     return render_template(
-        "pages/addidea.html", title="Add Idea", categories=mongo.db.categories.find()
+        "pages/ideas/add_idea.html",
+        title="Add Idea",
+        categories=mongo.db.categories.find(),
     )
 
 
@@ -124,7 +126,7 @@ def edit_idea(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
     all_categories = mongo.db.categories.find()
     return render_template(
-        "pages/editidea.html",
+        "pages/ideas/edit_idea.html",
         title="Edit Idea",
         idea=the_idea,
         categories=all_categories,
@@ -168,7 +170,7 @@ def problems():
 def admin():
     if session.get("username") == "Master":
         return render_template(
-            "pages/admin.html", categories=mongo.db.categories.find()
+            "pages/categories/admin.html", categories=mongo.db.categories.find()
         )
     else:
         return redirect(url_for("home"))
@@ -183,7 +185,7 @@ def delete_category(category_id):
 @app.route("/edit_category/<category_id>")
 def edit_category(category_id):
     return render_template(
-        "pages/edit_category.html",
+        "pages/categories/edit_category.html",
         category=mongo.db.categories.find_one({"_id": ObjectId(category_id)}),
     )
 
@@ -206,7 +208,7 @@ def insert_category():
 
 @app.route("/add_category")
 def add_category():
-    return render_template("pages/add_category.html")
+    return render_template("pages/categories/add_category.html")
 
 
 if __name__ == "__main__":

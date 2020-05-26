@@ -8,6 +8,10 @@
 <br>
 <p>Problems</p>
 
+{% if session["username"] == "Master" %}
 
+<a href="{{url_for('admin')}}">Admin</a>
+
+{% endif %}
 
 {% endblock %}
