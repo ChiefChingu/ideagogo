@@ -167,9 +167,46 @@ def problems():
 @app.route("/admin")
 def admin():
     if session.get("username") == "Master":
-        return render_template("pages/admin.html")
+        return render_template(
+            "pages/admin.html", categories=mongo.db.categories.find()
+        )
     else:
         return redirect(url_for("home"))
+
+
+@app.route("/delete_category/<category_id>")
+def delete_category(category_id):
+    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    return redirect(url_for("admin"))
+
+
+@app.route("/edit_category/<category_id>")
+def edit_category(category_id):
+    return render_template(
+        "pages/edit_category.html",
+        category=mongo.db.categories.find_one({"_id": ObjectId(category_id)}),
+    )
+
+
+@app.route("/update_category/<category_id>", methods=["POST"])
+def update_category(category_id):
+    mongo.db.categories.update(
+        {"_id": ObjectId(category_id)},
+        {"category_name": request.form.get("category_name")},
+    )
+    return redirect(url_for("admin"))
+
+
+@app.route("/insert_category", methods=["POST"])
+def insert_category():
+    category_doc = {"category_name": request.form.get("category_name")}
+    mongo.db.categories.insert_one(category_doc)
+    return redirect(url_for("admin"))
+
+
+@app.route("/add_category")
+def add_category():
+    return render_template("pages/add_category.html")
 
 
 if __name__ == "__main__":
