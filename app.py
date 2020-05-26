@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    return render_template("pages/home.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -42,7 +42,7 @@ def register():
         )
         flash(f"Account created for {form.username.data}!", "success")
         return redirect(url_for("login"))
-    return render_template("register.html", title="Register", form=form)
+    return render_template("pages/register.html", title="Register", form=form)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -56,23 +56,33 @@ def login():
             flash(f"You have been logged in! Welcome {form.email.data}!", "success")
             return redirect(url_for("home"))
         flash("Login Unsuccessful. Please check username and password", "danger")
-    return render_template("login.html", title="Login", form=form)
+    return render_template("pages/login.html", title="Login", form=form)
+
+
+@app.route("/logout")
+def logout():
+    session.pop("username")
+    return render_template("pages/home.html")
 
 
 @app.route("/ideas")
 def ideas():
-    return render_template("ideas.html", title="Ideas", ideas=mongo.db.ideas.find())
+    return render_template(
+        "pages/ideas.html", title="Ideas", ideas=mongo.db.ideas.find()
+    )
 
 
 @app.route("/idea-details/<idea_id>")
 def idea_details(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
-    return render_template("idea-details.html", title="Idea details", idea=the_idea)
+    return render_template(
+        "pages/idea-details.html", title="Idea details", idea=the_idea
+    )
 
 
 @app.route("/addidea")
 def addidea():
-    return render_template("addidea.html", title="Add Idea")
+    return render_template("pages/addidea.html", title="Add Idea")
 
 
 @app.route("/insertidea", methods=["POST"])
@@ -85,7 +95,7 @@ def insert_idea():
 @app.route("/edit_idea/<idea_id>")
 def edit_idea(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
-    return render_template("editidea.html", title="Edit Idea", idea=the_idea)
+    return render_template("pages/editidea.html", title="Edit Idea", idea=the_idea)
 
 
 @app.route("/update_idea/<idea_id>", methods=["POST"])
@@ -109,7 +119,7 @@ def delete_idea(idea_id):
 
 @app.route("/problems")
 def problems():
-    return render_template("problems.html", title="Problems")
+    return render_template("pages/problems.html", title="Problems")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,33 @@
+{% block navigation %}
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="{{url_for('home')}}">Home</a></li>
+            <li><a href="{{url_for('ideas')}}">Ideas</a></li>
+            <li><a href="{{url_for('problems')}}">Problems</a></li>
+            {% if 'username' in session %}
+            <li><a href="#">{{session["username"]}}</a></li>
+            <li><a class="nav-link" href="{{url_for('logout')}}">Log Out</a></li>
+            {% endif %}
+            {% if not 'username' in session %}
+            <li><a href="{{url_for('register')}}">Register</a></li>
+            <li><a href="{{url_for('login')}}">Log in</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="{{url_for('home')}}">Home</a></li>
+    <li><a href="{{url_for('ideas')}}">Ideas</a></li>
+    <li><a href="{{url_for('problems')}}">Problems</a></li>
+    {% if 'username' in session %}
+    <li><a href="#">{{session["username"]}}</a></li>
+    {% endif %}
+    {% if not 'username' in session %}
+    <li><a href="{{url_for('register')}}">Register</a></li>
+    <li><a href="{{url_for('login')}}">Log in</a></li>
+    {% endif %}
+</ul>
+{% endblock %}

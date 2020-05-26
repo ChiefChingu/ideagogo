@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html'%} {% block content %}
+<h1>Problems</h1>
+
+{% if 'username' in session %}
+<p>Logged in user: {{session["username"]}}</p>
+
+{% else %}
+No user logged in!
+
+{% endif %}
+
+{% endblock %}
