@@ -162,9 +162,11 @@ def update_idea(idea_id):
     ideas.update(
         {"_id": ObjectId(idea_id)},
         {
+            "username": request.form.get("username"),
             "idea_title": request.form.get("idea_title"),
             "category_name": request.form.get("category_name"),
             "idea_summary": request.form.get("idea_summary"),
+            "idea_details": request.form.get("idea_details"),
         },
     )
     return redirect(url_for("idea_details", idea_id=idea_id))

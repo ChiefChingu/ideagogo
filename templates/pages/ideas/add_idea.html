@@ -5,7 +5,7 @@
 <div class="row">
     <form action="{{ url_for('insert_idea') }}" method="POST" class="col s12">
 
-        <!-- Set username -->
+        <!-- Fixed username -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
@@ -15,14 +15,14 @@
             </div>
         </div>
 
-
         <!-- Set idea name -->
         <div class=" row">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">assignment</i>
-                    <input id="idea_title" name="idea_title" type="text" />
-                    <label for="icon_prefix">Idea Name</label>
+                    <textarea id="textarea1" name="idea_title" class="materialize-textarea" data-length="30"
+                        maxlength="30"></textarea></textarea>
+                    <label for="icon_prefix">Idea Name (max. 30 characters)</label>
                 </div>
             </div>
         </div>
@@ -47,8 +47,9 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                <textarea name="idea_summary" id="idea_summary" class="materialize-textarea"></textarea>
-                <label for="icon_telephone">Idea Description</label>
+                <textarea name="idea_summary" id="textarea2" class="materialize-textarea" data-length="120"
+                    maxlength="120"></textarea>
+                <label for="icon_telephone">Describe your idea in a short sentence (max. 130 characters)</label>
             </div>
         </div>
 
@@ -56,7 +57,8 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                <textarea name="idea_details" id="idea_details" class="materialize-textarea"></textarea>
+                <textarea name="idea_details" id="textarea3" class="materialize-textarea" data-length="1000"
+                    maxlength="1000"></textarea>
                 <label for="icon_telephone">Idea Details</label>
             </div>
         </div>

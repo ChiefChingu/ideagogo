@@ -4,16 +4,30 @@
 <h1>Edit idea</h1>
 <div class="row">
     <form action="{{ url_for('update_idea', idea_id=idea._id) }}" method="POST" class="col s12">
+
+        <!-- Fixed username -->
         <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="username" id="idea_author" class="materialize-textarea"
+                    readonly>{{session["username"]}}</textarea>
+                <label for="icon_telephone">Idea owner</label>
+            </div>
+        </div>
+
+        <!-- Set idea name -->
+        <div class=" row">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">assignment</i>
-                    <input id="idea_title" name="idea_title" type="text" value="{{idea.idea_title}}" />
-                    <label for="icon_prefix">Idea Name</label>
+                    <textarea id="textarea1" name="idea_title" class="materialize-textarea" data-length="30"
+                        maxlength="30">{{idea.idea_title}}</textarea>
+                    <label for="icon_prefix">Idea Name (max. 30 characters)</label>
                 </div>
             </div>
         </div>
 
+        <!-- Set category -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">poll</i>
@@ -30,15 +44,25 @@
             </div>
         </div>
 
+        <!-- Set short description -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                <textarea name="idea_summary" id="idea_summary"
-                    class="materialize-textarea">{{idea.idea_summary}}</textarea>
-                <label for="icon_telephone">Task Description</label>
+                <textarea name="idea_summary" id="textarea2" class="materialize-textarea" data-length="120"
+                    maxlength="120">{{idea.idea_summary}}</textarea>
+                <label for="icon_telephone">Describe your idea in a short sentence (max. 130 characters)</label>
             </div>
         </div>
 
+        <!-- Set details -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="idea_details" id="textarea3" class="materialize-textarea" data-length="1000"
+                    maxlength="1000">{{idea.idea_details}}</textarea>
+                <label for="icon_telephone">Idea Details</label>
+            </div>
+        </div>
 
         <div class="row">
             <button class="btn waves-effect waves-light" type="submit" name="action">
