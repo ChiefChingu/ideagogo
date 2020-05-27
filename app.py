@@ -56,12 +56,18 @@ def login():
     users = mongo.db.users
     if form.validate_on_submit():
         login_user = users.find_one({"email": form.email.data})
+        login_username = users.find_one(
+            {"email": form.email.data}, {"_id": 0, "username": 1}
+        )
         if check_password_hash(login_user["password"], request.form["password"]):
             session["username"] = request.form["email"]
             if login_user["email"] == "admin@admin.com":
                 session["username"] = "Master"
                 print(session["username"])
-            flash(f"You have been logged in! Welcome {form.email.data}!", "success")
+            flash(
+                f"You have been logged in! Welcome {login_username} with email: {form.email.data}!",
+                "success",
+            )
             return redirect(url_for("home"))
         flash("Login Unsuccessful. Please check username and password", "danger")
     return render_template("pages/users/login.html", title="Login", form=form)
@@ -123,7 +129,7 @@ def addidea():
             "pages/ideas/add_idea.html",
             title="Add Idea",
             categories=mongo.db.categories.find(),
-            # username=username,
+            users=mongo.db.users.find(),
         )
     else:
         return redirect(url_for("account_required"))
@@ -140,11 +146,13 @@ def insert_idea():
 def edit_idea(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
     all_categories = mongo.db.categories.find()
+    all_users = mongo.db.users.find()
     return render_template(
         "pages/ideas/edit_idea.html",
         title="Edit Idea",
         idea=the_idea,
         categories=all_categories,
+        users=all_users,
     )
 
 

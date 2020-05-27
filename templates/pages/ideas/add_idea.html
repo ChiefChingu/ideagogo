@@ -7,13 +7,14 @@
 
         <!-- Set username -->
         <div class="row">
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">assignment</i>
-                    <input id="users" name="username" value="{{session["username"]}}" disabled selected />
-                </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="username" id="idea_author" class="materialize-textarea"
+                    readonly>{{session["username"]}}</textarea>
+                <label for="icon_telephone">Idea owner</label>
             </div>
         </div>
+
 
         <!-- Set idea name -->
         <div class=" row">
