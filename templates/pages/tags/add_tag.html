@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html'%} {% block content %}
+<h3>Add Tags</h3>
+<div class="row">
+    <h3>Tags</h3>
+    {% for tag in tags %}
+    <div class="chip">
+        {{tag.tag_name}}
+    </div>
+    {% endfor %}
+</div>
+
+<form action="{{ url_for('insert_tag') }}" method="POST" class="col s12" name="formfocus">
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="material-icons prefix">poll</i>
+            <input id="tag_name" name="tag_name" type="text" class="validate" />
+            <label for="tag_name">Tag Name</label>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+            Add Tag
+            <i class="material-icons right">playlist_add</i>
+        </button>
+    </div>
+</form>
+
+<a href="{{url_for('admin')}}">back</a>
+
+{% endblock %}

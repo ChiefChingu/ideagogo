@@ -27,7 +27,18 @@
     </a>
 </div>
 
-
-Add and edit tags
+<div class="row">
+    <h3>Tags</h3>
+    {% for tag in tags %}
+    <div class="chip">
+        {{tag.tag_name}}
+    </div>
+    {% endfor %}
+</div>
+<div class="row">
+    <a href="{{url_for('add_tag')}}" class="waves-effect waves-light btn">
+        <i class="material-icons right">playlist_add</i>Add Tag
+    </a>
+</div>
 
 {% endblock %}

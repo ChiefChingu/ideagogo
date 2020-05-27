@@ -195,10 +195,17 @@ def problems():
 def admin():
     if session.get("username") == "Master":
         return render_template(
-            "pages/categories/admin.html", categories=mongo.db.categories.find()
+            "pages/categories/admin.html",
+            categories=mongo.db.categories.find(),
+            tags=mongo.db.tags.find(),
         )
     else:
         return redirect(url_for("home"))
+
+
+#########################
+# Categories
+#########################
 
 
 @app.route("/delete_category/<category_id>")
@@ -234,6 +241,23 @@ def insert_category():
 @app.route("/add_category")
 def add_category():
     return render_template("pages/categories/add_category.html")
+
+
+#########################
+# Tags
+#########################
+
+
+@app.route("/insert_tag", methods=["POST"])
+def insert_tag():
+    tag_doc = {"tag_name": request.form.get("tag_name")}
+    mongo.db.tags.insert_one(tag_doc)
+    return redirect(url_for("add_tag"))
+
+
+@app.route("/add_tag")
+def add_tag():
+    return render_template("pages/tags/add_tag.html", tags=mongo.db.tags.find())
 
 
 if __name__ == "__main__":
