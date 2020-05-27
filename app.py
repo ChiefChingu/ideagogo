@@ -235,17 +235,41 @@ def update_category(category_id):
 def insert_category():
     category_doc = {"category_name": request.form.get("category_name")}
     mongo.db.categories.insert_one(category_doc)
-    return redirect(url_for("admin"))
+    return redirect(url_for("add_category"))
 
 
 @app.route("/add_category")
 def add_category():
-    return render_template("pages/categories/add_category.html")
+    return render_template(
+        "pages/categories/add_category.html", categories=mongo.db.categories.find()
+    )
 
 
 #########################
 # Tags
 #########################
+
+
+@app.route("/delete_tag/<tag_id>")
+def delete_tag(tag_id):
+    mongo.db.tags.remove({"_id": ObjectId(tag_id)})
+    return redirect(url_for("admin"))
+
+
+@app.route("/edit_tag/<tag_id>")
+def edit_tag(tag_id):
+    return render_template(
+        "pages/tags/edit_tag.html",
+        tag=mongo.db.tags.find_one({"_id": ObjectId(tag_id)}),
+    )
+
+
+@app.route("/update_tag/<tag_id>", methods=["POST"])
+def update_tag(tag_id):
+    mongo.db.tags.update(
+        {"_id": ObjectId(tag_id)}, {"tag_name": request.form.get("tag_name")},
+    )
+    return redirect(url_for("admin"))
 
 
 @app.route("/insert_tag", methods=["POST"])

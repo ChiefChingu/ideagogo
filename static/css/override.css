@@ -8,6 +8,14 @@
     grid-gap: 1rem;
 }
 
-.set-color {
-    background-color: gainsboro;
+.my-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 1025px) {
+
+    .my-grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
 }

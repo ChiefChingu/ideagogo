@@ -1,5 +1,13 @@
 {% extends 'layouts/base.html'%} {% block content %}
 <h3>Add Category</h3>
+<div class="row">
+    <h3>Categories</h3>
+    {% for cat in categories %}
+    <div class="chip">
+        {{cat.category_name}}
+    </div>
+    {% endfor %}
+</div>
 <form action="{{ url_for('insert_category') }}" method="POST" class="col s12">
     <div class="row">
         <div class="input-field col s12">
@@ -15,4 +23,5 @@
         </button>
     </div>
 </form>
+<a href="{{url_for('admin')}}">back</a>
 {% endblock %}
