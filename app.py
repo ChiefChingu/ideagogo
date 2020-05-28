@@ -155,6 +155,7 @@ def edit_idea(idea_id):
         idea=the_idea,
         categories=all_categories,
         users=all_users,
+        all_tags=all_tags,
     )
 
 
@@ -169,7 +170,7 @@ def update_idea(idea_id):
             "category_name": request.form.get("category_name"),
             "idea_summary": request.form.get("idea_summary"),
             "idea_details": request.form.get("idea_details"),
-            "tag_name": request.form.get("tag_name"),
+            "idea_tags": request.form.get("idea_tags"),
         },
     )
     return redirect(url_for("idea_details", idea_id=idea_id))

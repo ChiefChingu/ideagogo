@@ -23,7 +23,8 @@
                 <i class="material-icons prefix">poll</i>
                 <select id="category" name="category_name">
                     <option value="" disabled selected>Choose Category</option>
-                    {% for cat in categories %} {% if cat.category_name ==
+                    {% for cat in categories %}
+                    {% if cat.category_name ==
                 idea.category_name%}
                     <option value="{{cat.category_name}}" selected>{{cat.category_name}}</option>
                     {% else %}
@@ -51,6 +52,25 @@
                 <textarea name="idea_details" id="textarea3" class="materialize-textarea" data-length="1000"
                     maxlength="1000">{{idea.idea_details}}</textarea>
                 <label for="icon_telephone">Idea Details</label>
+            </div>
+        </div>
+
+        <!-- Set tag -->
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">poll</i>
+                    <select id="idea_tags" name="idea_tags">
+                        <option value="" disabled selected>Choose Tag</option>
+                        {% for tag in all_tags %} {% if tag.tag_name ==
+                    idea.idea_tags%}
+                        <option value="{{tag.tag_name}}" selected>{{tag.tag_name}}</option>
+                        {% else %}
+                        <option value="{{tag.tag_name}}">{{tag.tag_name}}</option>
+                        {% endif %} {% endfor %}
+                    </select>
+                    <label>Select a tag for your idea</label>
+                </div>
             </div>
         </div>
 
