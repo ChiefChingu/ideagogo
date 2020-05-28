@@ -71,12 +71,8 @@
 
         <!-- Fixed username -->
         <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">subject</i>
-                <textarea name="username" id="idea_author" class="materialize-textarea"
-                    readonly>{{session["username"]}}</textarea>
-                <label for="icon_telephone">Idea owner</label>
-            </div>
+            <input type="hidden" name="username" id="idea_author" class="materialize-textarea"
+                value="{{session['username']}}">
         </div>
 
         <div class="row">
