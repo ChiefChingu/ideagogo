@@ -128,9 +128,9 @@ def addidea():
         return render_template(
             "pages/ideas/add_idea.html",
             title="Add Idea",
-            categories=mongo.db.categories.find(),
+            categories=mongo.db.categories.find().sort("category_name"),
             users=mongo.db.users.find(),
-            all_tags=mongo.db.tags.find(),
+            all_tags=mongo.db.tags.find().sort("tag_name"),
         )
     else:
         return redirect(url_for("account_required"))
@@ -146,9 +146,9 @@ def insert_idea():
 @app.route("/edit_idea/<idea_id>")
 def edit_idea(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
-    all_categories = mongo.db.categories.find()
+    all_categories = mongo.db.categories.find().sort("category_name")
     all_users = mongo.db.users.find()
-    all_tags = mongo.db.tags.find()
+    all_tags = mongo.db.tags.find().sort("tag_name")
     return render_template(
         "pages/ideas/edit_idea.html",
         title="Edit Idea",
@@ -200,8 +200,8 @@ def admin():
     if session.get("username") == "Master":
         return render_template(
             "pages/categories/admin.html",
-            categories=mongo.db.categories.find(),
-            tags=mongo.db.tags.find(),
+            categories=mongo.db.categories.find().sort("category_name"),
+            tags=mongo.db.tags.find().sort("tag_name"),
         )
     else:
         return redirect(url_for("home"))
