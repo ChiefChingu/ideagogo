@@ -130,6 +130,7 @@ def addidea():
             title="Add Idea",
             categories=mongo.db.categories.find(),
             users=mongo.db.users.find(),
+            all_tags=mongo.db.tags.find(),
         )
     else:
         return redirect(url_for("account_required"))
@@ -147,6 +148,7 @@ def edit_idea(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
     all_categories = mongo.db.categories.find()
     all_users = mongo.db.users.find()
+    all_tags = mongo.db.tags.find()
     return render_template(
         "pages/ideas/edit_idea.html",
         title="Edit Idea",
@@ -167,6 +169,7 @@ def update_idea(idea_id):
             "category_name": request.form.get("category_name"),
             "idea_summary": request.form.get("idea_summary"),
             "idea_details": request.form.get("idea_details"),
+            "tag_name": request.form.get("tag_name"),
         },
     )
     return redirect(url_for("idea_details", idea_id=idea_id))

@@ -53,6 +53,22 @@
             </div>
         </div>
 
+        <!-- Set tag -->
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">poll</i>
+                    <select id="idea_tags" name="idea_tags">
+                        <option value="" disabled selected>Choose tag</option>
+                        {% for tag in all_tags %}
+                        <option value="{{tag.tag_name}}">{{tag.tag_name}}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Select a category for your idea</label>
+                </div>
+            </div>
+        </div>
+
         <!-- Fixed username -->
         <div class="row">
             <div class="input-field col s12">

@@ -7,6 +7,7 @@
 <p>{{idea.idea_summary}}</p>
 <p>{{idea.category_name}}</p>
 <p>{{idea.idea_details}}</p>
+<p>{{idea.idea_tags}}</p>
 
 {% if idea.username == session["username"] %}
 <a href="{{url_for('edit_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn">edit idea</a>
