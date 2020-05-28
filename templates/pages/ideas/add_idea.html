@@ -53,15 +53,43 @@
             </div>
         </div>
 
-        <!-- Set tag -->
+        <!-- Set tags -->
         <div class="row">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">poll</i>
-                    <select id="idea_tags" name="idea_tags">
+                    <select id="idea_tags1" name="idea_tag1">
                         <option value="" disabled selected>Choose tag</option>
                         {% for tag in all_tags %}
                         <option value="{{tag.tag_name}}">{{tag.tag_name}}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Select a tag for your idea</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">poll</i>
+                    <select id="idea_tags2" name="idea_tag2">
+                        <option value="" disabled selected>Choose tag</option>
+                        {% for tag2 in all_tags_two %}
+                        <option value="{{tag2.tag_name}}">{{tag2.tag_name}}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Select a tag for your idea</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">poll</i>
+                    <select id="idea_tags3" name="idea_tag3">
+                        <option value="" disabled selected>Choose tag</option>
+                        {% for tag3 in all_tags_three %}
+                        <option value="{{tag3.tag_name}}">{{tag3.tag_name}}</option>
                         {% endfor %}
                     </select>
                     <label>Select a tag for your idea</label>

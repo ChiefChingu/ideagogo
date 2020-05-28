@@ -131,6 +131,8 @@ def addidea():
             categories=mongo.db.categories.find().sort("category_name"),
             users=mongo.db.users.find(),
             all_tags=mongo.db.tags.find().sort("tag_name"),
+            all_tags_two=mongo.db.tags.find().sort("tag_name"),
+            all_tags_three=mongo.db.tags.find().sort("tag_name"),
         )
     else:
         return redirect(url_for("account_required"))
@@ -149,6 +151,8 @@ def edit_idea(idea_id):
     all_categories = mongo.db.categories.find().sort("category_name")
     all_users = mongo.db.users.find()
     all_tags = mongo.db.tags.find().sort("tag_name")
+    all_tags_two = mongo.db.tags.find().sort("tag_name")
+    all_tags_three = mongo.db.tags.find().sort("tag_name")
     return render_template(
         "pages/ideas/edit_idea.html",
         title="Edit Idea",
@@ -156,6 +160,8 @@ def edit_idea(idea_id):
         categories=all_categories,
         users=all_users,
         all_tags=all_tags,
+        all_tags_two=all_tags_two,
+        all_tags_three=all_tags_three,
     )
 
 
@@ -170,7 +176,9 @@ def update_idea(idea_id):
             "category_name": request.form.get("category_name"),
             "idea_summary": request.form.get("idea_summary"),
             "idea_details": request.form.get("idea_details"),
-            "idea_tags": request.form.get("idea_tags"),
+            "idea_tag1": request.form.get("idea_tag1"),
+            "idea_tag2": request.form.get("idea_tag2"),
+            "idea_tag3": request.form.get("idea_tag3"),
         },
     )
     return redirect(url_for("idea_details", idea_id=idea_id))

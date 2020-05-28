@@ -60,10 +60,10 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">poll</i>
-                    <select id="idea_tags" name="idea_tags">
+                    <select id="idea_tag1" name="idea_tag1">
                         <option value="" disabled selected>Choose Tag</option>
                         {% for tag in all_tags %} {% if tag.tag_name ==
-                    idea.idea_tags%}
+                    idea.idea_tag1%}
                         <option value="{{tag.tag_name}}" selected>{{tag.tag_name}}</option>
                         {% else %}
                         <option value="{{tag.tag_name}}">{{tag.tag_name}}</option>
@@ -73,6 +73,41 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">poll</i>
+                    <select id="idea_tag2" name="idea_tag2">
+                        <option value="" disabled selected>Choose Tag</option>
+                        {% for tag2 in all_tags_two %} {% if tag2.tag_name ==
+                    idea.idea_tag2%}
+                        <option value="{{tag2.tag_name}}" selected>{{tag2.tag_name}}</option>
+                        {% else %}
+                        <option value="{{tag2.tag_name}}">{{tag2.tag_name}}</option>
+                        {% endif %} {% endfor %}
+                    </select>
+                    <label>Select a tag for your idea</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">poll</i>
+                    <select id="idea_tags3" name="idea_tag3">
+                        <option value="" disabled selected>Choose Tag</option>
+                        {% for tag3 in all_tags_three %} {% if tag3.tag_name ==
+                    idea.idea_tag3%}
+                        <option value="{{tag3.tag_name}}" selected>{{tag3.tag_name}}</option>
+                        {% else %}
+                        <option value="{{tag3.tag_name}}">{{tag3.tag_name}}</option>
+                        {% endif %} {% endfor %}
+                    </select>
+                    <label>Select a tag for your idea</label>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Fixed username -->
         <div class="row">
