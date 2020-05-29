@@ -7,15 +7,18 @@
 <p>{{idea.idea_summary}}</p>
 <p>{{idea.category_name}}</p>
 <p>{{idea.idea_details}}</p>
+
 <div class="chip">
     {{idea.idea_tag1}}
 </div>
+
 <div class="chip">
     {{idea.idea_tag2}}
 </div>
 <div class="chip">
     {{idea.idea_tag3}}
 </div>
+
 
 <div>
     {% if (idea.username == session["username"]) or (session["username"] == "Master") %}

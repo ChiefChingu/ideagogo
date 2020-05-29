@@ -59,11 +59,11 @@ def login():
         login_username = users.find_one(
             {"email": form.email.data}, {"_id": 0, "username": 1}
         )
+        print(login_username["username"])
         if check_password_hash(login_user["password"], request.form["password"]):
-            session["username"] = request.form["email"]
+            session["username"] = login_username["username"]
             if login_user["email"] == "admin@admin.com":
                 session["username"] = "Master"
-                print(session["username"])
             flash(
                 f"You have been logged in! Welcome {login_username} with email: {form.email.data}!",
                 "success",
@@ -120,7 +120,6 @@ def idea_details(idea_id):
     )
 
 
-# maybe use uathor of idea_owner to prevent confusion while passing variables/db names
 @app.route("/addidea")
 def addidea():
     if not session.get("username") is None:
