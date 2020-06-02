@@ -203,8 +203,10 @@ def upvote():
     votes = mongo.db.votes
     searchTitle = request.form.get("idea_title")
     votes.update(
-        {"_id": searchTitle},
-        {"$push": {"user_votes": {"$each": [request.form.get("username")]}}},
+        {"_id": searchTitle}, 
+        {"$push": 
+        {"user_votes": {"$each": [request.form.get("username")]}}}
+    
     )
 
     return redirect(url_for("ideas"))
