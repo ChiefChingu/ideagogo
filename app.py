@@ -211,6 +211,9 @@ def upvote_idea(idea_id):
             "$push": {"user_votes": {"$each": [request.form.get("username")]}},
         },
     )
+    flash(
+        f"Thanks for voting!", "success",
+    )
     # Create a has voted boolean to disable the vote button/show another button
 
     return redirect(url_for("idea_details", idea_id=idea_id))
