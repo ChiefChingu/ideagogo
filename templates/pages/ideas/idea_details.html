@@ -19,8 +19,8 @@
     {{idea.idea_tag3}}
 </div>
 
-<form action="{{ url_for('upvote') }}" method="POST">
-    <input type="hidden" name="idea_title" id="idea_author" class="materialize-textarea" value="{{idea.idea_title}}">
+<form action="{{ url_for('upvote_idea', idea_id=idea._id) }}" method="POST">
+    <!-- <input type="hidden" name="idea_title" id="idea_author" class="materialize-textarea" value="{{idea.idea_title}}"> -->
     <input type="hidden" name="username" id="idea_author" class="materialize-textarea" value="{{session['username']}}">
     <div class="row">
         <button class="btn waves-effect waves-light" type="submit" name="action">

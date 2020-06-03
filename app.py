@@ -112,13 +112,11 @@ def ideas():
 def idea_details(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
     users = mongo.db.users.find()
-    votes = mongo.db.votes.find()
     return render_template(
         "pages/ideas/idea_details.html",
         idea=the_idea,
         title="Idea details",
         users=users,
-        votes=votes,
     )
 
 
@@ -143,9 +141,10 @@ def addidea():
 def insert_idea():
     ideas = mongo.db.ideas
     x = ideas.insert_one(request.form.to_dict())
-    votes = mongo.db.votes
-    searchTitle = request.form.get("idea_title")
-    votes.insert_one({"_id": searchTitle})
+    # {"_id": ObjectId(x.inserted_id)},
+    # {"$set": {"total_votes": 0}}
+
+    # if numeric value cannot be parsed via form, set the total_votes here...
     return redirect(url_for("idea_details", idea_id=x.inserted_id))
 
 
@@ -183,6 +182,7 @@ def update_idea(idea_id):
             "idea_tag1": request.form.get("idea_tag1"),
             "idea_tag2": request.form.get("idea_tag2"),
             "idea_tag3": request.form.get("idea_tag3"),
+            "total_votes": request.form.get("total_votes"),
         },
     )
     return redirect(url_for("idea_details", idea_id=idea_id))
@@ -199,12 +199,24 @@ def delete_idea(idea_id):
 #########################
 
 
-# def countVotes():
-#     totalVotes
-#     mongo.db.votes.aggregate({"$project": {totalVotes: {"$size": "$user_votes"}}})
+@app.route("/upvote/<idea_id>", methods=["POST"])
+def upvote_idea(idea_id):
+    # the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
+    print("updated!")
+    ideas = mongo.db.ideas
+    ideas.update_one(
+        {"_id": ObjectId(idea_id)},
+        {
+            "$inc": {"total_votes": 1},
+            "$push": {"user_votes": {"$each": [request.form.get("username")]}},
+        },
+    )
+    # Create a has voted boolean to disable the vote button/show another button
+
+    return redirect(url_for("idea_details", idea_id=idea_id))
 
 
-@app.route("/upvote", methods=["POST"])
+""" @app.route("/upvote", methods=["POST"])
 def upvote():
     votes = mongo.db.votes
     searchTitle = request.form.get("idea_title")
@@ -222,7 +234,7 @@ def upvote():
     )
     # print(countVotes())
 
-    return redirect(url_for("ideas"))
+    return redirect(url_for("ideas")) """
 
 
 #########################
