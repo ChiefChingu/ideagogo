@@ -174,15 +174,15 @@ def update_idea(idea_id):
     ideas.update(
         {"_id": ObjectId(idea_id)},
         {
-            "username": request.form.get("username"),
-            "idea_title": request.form.get("idea_title"),
-            "category_name": request.form.get("category_name"),
-            "idea_summary": request.form.get("idea_summary"),
-            "idea_details": request.form.get("idea_details"),
-            "idea_tag1": request.form.get("idea_tag1"),
-            "idea_tag2": request.form.get("idea_tag2"),
-            "idea_tag3": request.form.get("idea_tag3"),
-            "total_votes": request.form.get("total_votes"),
+            "$set": {
+                "idea_title": request.form.get("idea_title"),
+                "category_name": request.form.get("category_name"),
+                "idea_summary": request.form.get("idea_summary"),
+                "idea_details": request.form.get("idea_details"),
+                "idea_tag1": request.form.get("idea_tag1"),
+                "idea_tag2": request.form.get("idea_tag2"),
+                "idea_tag3": request.form.get("idea_tag3"),
+            }
         },
     )
     return redirect(url_for("idea_details", idea_id=idea_id))
