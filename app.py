@@ -141,10 +141,8 @@ def addidea():
 def insert_idea():
     ideas = mongo.db.ideas
     x = ideas.insert_one(request.form.to_dict())
-    # {"_id": ObjectId(x.inserted_id)},
-    # {"$set": {"total_votes": 0}}
-
-    # if numeric value cannot be parsed via form, set the total_votes here...
+    idea_id = x.inserted_id
+    ideas.update({"_id": ObjectId(idea_id)}, {"$set": {"total_votes": 0}})
     return redirect(url_for("idea_details", idea_id=x.inserted_id))
 
 
@@ -217,27 +215,6 @@ def upvote_idea(idea_id):
     # Create a has voted boolean to disable the vote button/show another button
 
     return redirect(url_for("idea_details", idea_id=idea_id))
-
-
-""" @app.route("/upvote", methods=["POST"])
-def upvote():
-    votes = mongo.db.votes
-    searchTitle = request.form.get("idea_title")
-    searchUserVote = mongo.db.votes.find(
-        {"_id": searchTitle, "user_votes": request.form.get("username")}
-    )
-    print(searchUserVote)
-
-    if request.form.get("username") == user_votes:
-        flash(f"You already voted", "warning")
-        return redirect(url_for("ideas"))
-    votes.update(
-        {"_id": searchTitle},
-        {"$push": {"user_votes": {"$each": [request.form.get("username")]}}},
-    )
-    # print(countVotes())
-
-    return redirect(url_for("ideas")) """
 
 
 #########################

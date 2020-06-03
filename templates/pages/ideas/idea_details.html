@@ -31,13 +31,16 @@
     </div>
 
 </form>
-<p>Voted users:</p>
+<p>Voted users:{{idea.user_votes}}</p>
 
 
 
 <div class="likes">
     <a href="#"><img src="/static/images/thumb_up-black-18dp.svg" alt="thumb up"></a>
-    <p>Number of likes:</p>
+    <p>Number of likes: {% if idea.total_votes > 0 %}
+        {{idea.total_votes}}
+        {% endif %}
+    </p>
 </div>
 
 <div>
