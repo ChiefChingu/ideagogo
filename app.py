@@ -112,11 +112,13 @@ def ideas():
 def idea_details(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
     users = mongo.db.users.find()
+    votes = mongo.db.votes.find()
     return render_template(
         "pages/ideas/idea_details.html",
         idea=the_idea,
         title="Idea details",
         users=users,
+        votes=votes,
     )
 
 
@@ -197,25 +199,30 @@ def delete_idea(idea_id):
 #########################
 
 
+# def countVotes():
+#     totalVotes
+#     mongo.db.votes.aggregate({"$project": {totalVotes: {"$size": "$user_votes"}}})
+
+
 @app.route("/upvote", methods=["POST"])
 def upvote():
-
     votes = mongo.db.votes
     searchTitle = request.form.get("idea_title")
+    searchUserVote = mongo.db.votes.find(
+        {"_id": searchTitle, "user_votes": request.form.get("username")}
+    )
+    print(searchUserVote)
+
+    if request.form.get("username") == user_votes:
+        flash(f"You already voted", "warning")
+        return redirect(url_for("ideas"))
     votes.update(
         {"_id": searchTitle},
         {"$push": {"user_votes": {"$each": [request.form.get("username")]}}},
     )
+    # print(countVotes())
 
     return redirect(url_for("ideas"))
-
-    # vote_id = mongo.db.votes.find_one({"_id": request.form.get("idea_title")})
-
-    # if votes[_id] is None:
-    #     votes.insert_one({"_id": request.form.get("idea_title")})
-
-    # x = votes.insert_one(request.form.to_dict())
-    # return redirect(url_for("idea_details", idea_id=x.inserted_id))
 
 
 #########################
