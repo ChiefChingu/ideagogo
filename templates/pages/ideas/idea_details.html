@@ -23,16 +23,7 @@
 
 
 
-<form action="{{ url_for('upvote_idea', idea_id=idea._id) }}" method="POST">
-    <input type="hidden" name="username" id="idea_author" class="materialize-textarea" value="{{session['username']}}">
-    <div class="row">
-        <button class="btn waves-effect waves-light" type="submit" name="action">
-            Like this idea!
 
-        </button>
-    </div>
-
-</form>
 
 <div class="likes">
     <a href="#"><img src="/static/images/thumb_up-black-18dp.svg" alt="thumb up"></a>
@@ -59,6 +50,21 @@
 {{cannotVoteAgain}}
 {% endfor %}
 {{ns.found}}
+{% if ns.found == true %}
+Hide button
+{% else %}
+<form action="{{ url_for('upvote_idea', idea_id=idea._id) }}" method="POST">
+    <input type="hidden" name="username" id="idea_author" class="materialize-textarea" value="{{session['username']}}">
+    <div class="row">
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+            Like this idea!
+
+        </button>
+    </div>
+
+</form>
+{% endif %}
+
 <h5>session["username"] == {{session["username"]}}</h5>
 
 {% endblock %}
