@@ -220,23 +220,21 @@ def delete_idea(idea_id):
 
 
 #########################
-# Upvote
+# Upvote & downvote
 #########################
 
 
 @app.route("/upvote/<idea_id>", methods=["POST"])
 def upvote_idea(idea_id):
     ideas = mongo.db.ideas
+    username = session.get("username")
     # push username of vote to idea document
     ideas.update_one(
         {"_id": ObjectId(idea_id)},
-        {
-            "$inc": {"total_votes": 1},
-            "$push": {"user_votes": {"$each": [request.form.get("username")]}},
-        },
+        {"$inc": {"total_votes": 1}, "$push": {"user_votes": {"$each": [username]}},},
     )
     # push idea id to user profile
-    username = session.get("username")
+
     users = mongo.db.users
     users.update_one(
         {"username": username},
@@ -247,7 +245,28 @@ def upvote_idea(idea_id):
         f"Thanks for voting!", "success",
     )
 
-    # Create a has voted boolean to disable the vote button/show another button
+    return redirect(url_for("idea_details", idea_id=idea_id))
+
+
+@app.route("/downvote/<idea_id>", methods=["POST"])
+def downvote_idea(idea_id):
+    username = session.get("username")
+    ideas = mongo.db.ideas
+    # pull username of vote to idea document
+    ideas.update_one(
+        {"_id": ObjectId(idea_id)},
+        {"$inc": {"total_votes": -1}, "$pull": {"user_votes": username},},
+    )
+    # pop idea id to user profile
+    username = session.get("username")
+    users = mongo.db.users
+    users.update_one(
+        {"username": username}, {"$pull": {"voted_ideas": [ObjectId(idea_id)]}},
+    )
+
+    flash(
+        f"Vote is removed!", "success",
+    )
 
     return redirect(url_for("idea_details", idea_id=idea_id))
 
