@@ -88,7 +88,6 @@ def account():
 @app.route("/logout")
 def logout():
     session.pop("username")
-    # return render_template("pages/ideas.html")
     return redirect(url_for("ideas"))
 
 
@@ -112,31 +111,12 @@ def ideas():
 @app.route("/idea-details/<idea_id>")
 def idea_details(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
-    print(the_idea)
-
     users = mongo.db.users.find()
     username = session.get("username")
-    # print(mongo.db.ideas.find({"user_votes": username}))
-    # voted_projects = mongo.db.ideas.find({"user_votes": username})
 
-    # for docs in voted_projects:
-    #     #     print({idea_title})
-    #     #     if "_id" == the_idea:
-    #     #         print("user has voted!")
-    #     print(docs)
+    # Control statement to check output in terminal
+    print(the_idea)
 
-    # x = []
-    # cur = mongo.db.ideas.find({"user_votes": username})
-    # for i in cur:
-    #     x.append(i)
-    # print(x)
-
-    # if mongo.db.ideas.find({"user_votes": [username]}):
-    #     print({"user_votes": username})
-    #     # print(user_has_voted)
-    # else:
-    #     user_has_voted = False
-    #     print(user_has_voted)
     return render_template(
         "pages/ideas/idea_details.html",
         idea=the_idea,
@@ -168,8 +148,6 @@ def insert_idea():
     x = ideas.insert_one(request.form.to_dict())
     idea_id = x.inserted_id
     ideas.update({"_id": ObjectId(idea_id)}, {"$set": {"total_votes": 0}})
-
-    # {"_id": ObjectId(idea_id)}, {"$set": {"total_votes": 0, "user_votes": []}}
     return redirect(url_for("idea_details", idea_id=x.inserted_id))
 
 
@@ -228,13 +206,14 @@ def delete_idea(idea_id):
 def upvote_idea(idea_id):
     ideas = mongo.db.ideas
     username = session.get("username")
+
     # push username of vote to idea document
     ideas.update_one(
         {"_id": ObjectId(idea_id)},
         {"$inc": {"total_votes": 1}, "$push": {"user_votes": {"$each": [username]}},},
     )
-    # push idea id to user profile
 
+    # push idea id to user profile
     users = mongo.db.users
     users.update_one(
         {"username": username},
@@ -252,12 +231,14 @@ def upvote_idea(idea_id):
 def downvote_idea(idea_id):
     username = session.get("username")
     ideas = mongo.db.ideas
-    # pull username of vote to idea document
+
+    # pull username of vote from idea document
     ideas.update_one(
         {"_id": ObjectId(idea_id)},
         {"$inc": {"total_votes": -1}, "$pull": {"user_votes": username},},
     )
-    # pop idea id to user profile
+
+    # pull idea id from user profile
     username = session.get("username")
     users = mongo.db.users
     users.update_one(
