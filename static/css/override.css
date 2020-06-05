@@ -1,6 +1,10 @@
-/* nav ul a {
-    color: black;
-} */
+p {
+    color: pink;
+}
+
+.search-route ul li a{
+    background-color: gainsboro;
+}
 
 .my-grid {
     display: grid;

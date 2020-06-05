@@ -101,10 +101,13 @@ def account_required():
 #########################
 
 
-@app.route("/ideas")
+@app.route("/ideas", methods=["GET", "POST"])
 def ideas():
     return render_template(
-        "pages/ideas/ideas.html", title="Ideas", ideas=mongo.db.ideas.find()
+        "pages/ideas/ideas.html",
+        title="Ideas",
+        ideas=mongo.db.ideas.find(),
+        categories=mongo.db.categories.find().sort("category_name"),
     )
 
 
@@ -195,6 +198,17 @@ def update_idea(idea_id):
 def delete_idea(idea_id):
     mongo.db.ideas.remove({"_id": ObjectId(idea_id)})
     return redirect(url_for("ideas"))
+
+
+#########################
+# Search routes
+#########################
+
+
+@app.route("/search_by_category", methods=["POST"])
+def search_by_category():
+    searched_category = request.form.get("category_name")
+    return render_template("pages/problems.html", queried_category=searched_category)
 
 
 #########################
