@@ -108,6 +108,7 @@ def ideas():
         title="Ideas",
         ideas=mongo.db.ideas.find(),
         categories=mongo.db.categories.find().sort("category_name"),
+        tags=mongo.db.tags.find().sort("tag_name"),
     )
 
 
@@ -210,12 +211,26 @@ def search_by_category():
     ideas = mongo.db.ideas
     searched_category = request.form.get("category_name")
     results_searched_category = ideas.find({"category_name": searched_category})
-
     return render_template(
-        "pages/problems.html",
+        "pages/search/category_search.html",
         queried_category=results_searched_category,
         ideas=mongo.db.ideas.find(),
         categories=mongo.db.categories.find().sort("category_name"),
+        searched_category=searched_category,
+    )
+
+
+@app.route("/search_by_tag", methods=["POST"])
+def search_by_tag():
+    ideas = mongo.db.ideas
+    searched_tag = request.form.get("tag_name")
+    results_searched_tag = ideas.find({"idea_tag1": searched_tag})
+    return render_template(
+        "pages/search/tag_search.html",
+        queried_tag=results_searched_tag,
+        ideas=mongo.db.ideas.find(),
+        tags=mongo.db.tags.find().sort("tag_name"),
+        searched_tag=searched_tag,
     )
 
 

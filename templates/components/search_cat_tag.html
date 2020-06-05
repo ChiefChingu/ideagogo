@@ -11,3 +11,17 @@
         </div>
     </div>
 </form>
+
+<form action="{{ url_for('search_by_tag') }}" method="POST" class="col s12">
+    <div class="row">
+        <div class="input-field col s3">
+            <i class="material-icons prefix">search</i>
+            <select id="tag" name="tag_name" onchange='if(this.value != "") { this.form.submit(); }'>
+                <option value="" disabled selected>Search by Tag</option>
+                {% for tag in tags %}
+                <option value="{{tag.tag_name}}">{{tag.tag_name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</form>
