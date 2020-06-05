@@ -207,8 +207,16 @@ def delete_idea(idea_id):
 
 @app.route("/search_by_category", methods=["POST"])
 def search_by_category():
+    ideas = mongo.db.ideas
     searched_category = request.form.get("category_name")
-    return render_template("pages/problems.html", queried_category=searched_category)
+    results_searched_category = ideas.find({"category_name": searched_category})
+
+    return render_template(
+        "pages/problems.html",
+        queried_category=results_searched_category,
+        ideas=mongo.db.ideas.find(),
+        categories=mongo.db.categories.find().sort("category_name"),
+    )
 
 
 #########################
