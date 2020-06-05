@@ -2,8 +2,12 @@ p {
     color: pink;
 }
 
-.search-route ul li a{
-    background-color: gainsboro;
+.background {
+    background-color: lightgrey;
+}
+
+.make-black .a {
+    color: black;
 }
 
 .my-grid {

@@ -1,4 +1,16 @@
 {% extends 'layouts/base.html'%} {% block content %}
+
+
+<nav>
+    <div class="nav-wrapper background">
+        <div class="col s12">
+            <a href="{{url_for('ideas')}}" class="breadcrumb">Ideas</a>
+            <a class="breadcrumb">Search by {{searched_category}}</a>
+        </div>
+    </div>
+</nav>
+
+
 <h1>Search results for {{searched_category}}</h1>
 
 {% for idea in queried_category %}
