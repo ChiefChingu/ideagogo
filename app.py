@@ -241,27 +241,34 @@ def search_by_tag():
 
 @app.route("/upvote/<idea_id>", methods=["POST"])
 def upvote_idea(idea_id):
-    ideas = mongo.db.ideas
-    username = session.get("username")
+    if not session.get("username") is None:
 
-    # push username of vote to idea document
-    ideas.update_one(
-        {"_id": ObjectId(idea_id)},
-        {"$inc": {"total_votes": 1}, "$push": {"user_votes": {"$each": [username]}},},
-    )
+        ideas = mongo.db.ideas
+        username = session.get("username")
 
-    # push idea id to user profile
-    users = mongo.db.users
-    users.update_one(
-        {"username": username},
-        {"$push": {"voted_ideas": {"$each": [ObjectId(idea_id)]}},},
-    )
+        # push username of vote to idea document
+        ideas.update_one(
+            {"_id": ObjectId(idea_id)},
+            {
+                "$inc": {"total_votes": 1},
+                "$push": {"user_votes": {"$each": [username]}},
+            },
+        )
 
-    flash(
-        f"Thanks for voting!", "success",
-    )
+        # push idea id to user profile
+        users = mongo.db.users
+        users.update_one(
+            {"username": username},
+            {"$push": {"voted_ideas": {"$each": [ObjectId(idea_id)]}},},
+        )
 
-    return redirect(url_for("idea_details", idea_id=idea_id))
+        flash(
+            f"Thanks for voting!", "success",
+        )
+
+        return redirect(url_for("idea_details", idea_id=idea_id))
+    else:
+        return redirect(url_for("account_required"))
 
 
 @app.route("/downvote/<idea_id>", methods=["POST"])
