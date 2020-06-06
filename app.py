@@ -117,15 +117,19 @@ def idea_details(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
     users = mongo.db.users.find()
     username = session.get("username")
+    # filename = the_idea({"image_name"}) #Not possible, dict object is not callable. So, need to do another query and put that in here...
+    # filename = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)}, {"image_name"})
 
     # Control statement to check output in terminal
     print(the_idea)
+    # print(filename)
 
     return render_template(
         "pages/ideas/idea_details.html",
         idea=the_idea,
         title="Idea details",
         users=users,
+        # filename=mongo.db.ideas.find_one({"_id": ObjectId(idea_id)}, {"image_name"}),
     )
 
 
@@ -146,12 +150,25 @@ def addidea():
         return redirect(url_for("account_required"))
 
 
+@app.route("/file/<filename>")
+def file(filename):
+    return mongo.send_file(filename)
+
+
 @app.route("/insertidea", methods=["POST"])
 def insert_idea():
     ideas = mongo.db.ideas
+
     x = ideas.insert_one(request.form.to_dict())
     idea_id = x.inserted_id
     ideas.update({"_id": ObjectId(idea_id)}, {"$set": {"total_votes": 0}})
+    if "image" in request.files:
+        image = request.files["image"]
+        mongo.save_file(image.filename, image)
+        ideas.update(
+            {"_id": ObjectId(idea_id)}, {"$set": {"image_name": image.filename}}
+        )
+
     return redirect(url_for("idea_details", idea_id=x.inserted_id))
 
 

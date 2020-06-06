@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Add idea</h1>
 <div class="row">
-    <form action="{{ url_for('insert_idea') }}" method="POST" class="col s12">
+    <form action="{{ url_for('insert_idea') }}" method="POST" class="col s12" enctype="multipart/form-data">
 
         <!-- Set idea name -->
         <div class=" row">
@@ -52,6 +52,15 @@
                 <label for="icon_telephone">Idea Details</label>
             </div>
         </div>
+
+        <!-- Select image -->
+        <div class="row">
+
+            <div class="input-field col s12">
+                <input type="file" name="image" id="image">
+            </div>
+        </div>
+        <br><br><br>
 
         <!-- Set tags -->
         <div class="row">
