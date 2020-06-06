@@ -14,27 +14,7 @@
 <h1>Search results for {{searched_category}}</h1>
 
 {% for idea in queried_category %}
-<div class="card activator">
-    <div class="card-image waves-effect waves-block waves-light">
-        <!-- <img class="activator" src="images/office.jpg"> -->
-    </div>
-    <div class="card-content activator">
-        <span class="card-title grey-text text-darken-4"><i class="material-icons right"></i>
-
-            <h5 class="activator">{{idea.idea_title}}</h5>
-
-            <h6 class="activator">{{idea.category_name}}</h6>
-            <h6 class="activator"><img src="/static/images/thumb_up-black-18dp.svg" alt="thumb up">{{idea.total_votes}}
-            </h6>
-        </span>
-    </div>
-    <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-        <p>{{idea.idea_summary}}</p>
-        <p><a href="{{url_for('idea_details', idea_id=idea._id)}}">view details</a></p>
-    </div>
-</div>
-
+{% include 'components/idea_card.html' %}
 {% endfor %}
 
 {% endblock %}
