@@ -18,8 +18,34 @@
 <div class="chip">
     {{idea.idea_tag3}}
 </div>
-{{filename}}
-<img src="{{ url_for('file', filename=idea.image_name) }}">
+
+<img class="image-container__detail" src="{{ url_for('file', filename=idea.image_name) }}">
+
+
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Edit picture</a>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Edit picture</h4>
+        <form action="{{ url_for('insert_image', idea_id=idea._id) }}" method="POST" class="col s12"
+            enctype="multipart/form-data">
+            <div class="input-field col s12">
+                <input type="file" name="image" id="image">
+            </div>
+            <div class="modal-footer">
+                <button class="btn waves-effect waves-light" type="submit">Save new picture</button>
+                <a href="{{url_for('idea_details', idea_id=idea._id)}}" class="waves-effect waves-light btn">cancel</a>
+            </div>
+
+        </form>
+
+
+    </div>
+</div>
+
+
 <div class="likes">
     <a href="#"><img src="/static/images/thumb_up-black-18dp.svg" alt="thumb up"></a>
     <p>Number of likes: {% if idea.total_votes > 0 %}
