@@ -99,6 +99,8 @@ def account_required():
 #########################
 # Images
 #########################
+
+
 @app.route("/file/<filename>")
 def file(filename):
     return mongo.send_file(filename)
@@ -106,9 +108,6 @@ def file(filename):
 
 @app.route("/insert_image/<idea_id>", methods=["POST"])
 def insert_image(idea_id):
-    # the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
-    # return print(the_idea)
-
     ideas = mongo.db.ideas
     if "image" in request.files:
         image = request.files["image"]
@@ -117,7 +116,6 @@ def insert_image(idea_id):
             {"_id": ObjectId(idea_id)}, {"$set": {"image_name": image.filename}}
         )
     return redirect(url_for("idea_details", idea_id=idea_id))
-
 
 
 #########################
