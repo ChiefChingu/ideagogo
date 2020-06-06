@@ -137,10 +137,13 @@ def ideas():
 
 @app.route("/idea-details/<idea_id>")
 def idea_details(idea_id):
+    ideas = mongo.db.ideas
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
     users = mongo.db.users.find()
     username = session.get("username")
-
+    ideas.update_one(
+        {"_id": ObjectId(idea_id)}, {"$inc": {"views": 1},},
+    )
     # Control statement to check output in terminal
     print(the_idea)
 
@@ -175,7 +178,7 @@ def insert_idea():
 
     x = ideas.insert_one(request.form.to_dict())
     idea_id = x.inserted_id
-    ideas.update({"_id": ObjectId(idea_id)}, {"$set": {"total_votes": 0}})
+    ideas.update({"_id": ObjectId(idea_id)}, {"$set": {"total_votes": 0, "views": 0}})
     if "image" in request.files:
         image = request.files["image"]
         mongo.save_file(image.filename, image)
