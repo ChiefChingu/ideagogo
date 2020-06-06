@@ -23,7 +23,9 @@
 
 
 <!-- Modal Trigger -->
+{% if (idea.username == session["username"]) or (session["username"] == "Master") %}
 <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Edit picture</a>
+{% endif %}
 
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
