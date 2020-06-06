@@ -254,7 +254,15 @@ def search_by_category():
 def search_by_tag():
     ideas = mongo.db.ideas
     searched_tag = request.form.get("tag_name")
-    results_searched_tag = ideas.find({"idea_tag1": searched_tag})
+    results_searched_tag = ideas.find(
+        {
+            "$or": [
+                {"idea_tag1": searched_tag},
+                {"idea_tag2": searched_tag},
+                {"idea_tag3": searched_tag},
+            ]
+        }
+    )
     return render_template(
         "pages/search/tag_search.html",
         queried_tag=results_searched_tag,
