@@ -117,19 +117,15 @@ def idea_details(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
     users = mongo.db.users.find()
     username = session.get("username")
-    # filename = the_idea({"image_name"}) #Not possible, dict object is not callable. So, need to do another query and put that in here...
-    # filename = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)}, {"image_name"})
 
     # Control statement to check output in terminal
     print(the_idea)
-    # print(filename)
 
     return render_template(
         "pages/ideas/idea_details.html",
         idea=the_idea,
         title="Idea details",
         users=users,
-        # filename=mongo.db.ideas.find_one({"_id": ObjectId(idea_id)}, {"image_name"}),
     )
 
 

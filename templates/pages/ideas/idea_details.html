@@ -28,8 +28,6 @@
     </p>
 </div>
 
-filename=minifigure.photo
-
 <div>
     {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
     <a href="{{url_for('edit_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn">edit idea</a>
