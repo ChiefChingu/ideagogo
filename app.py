@@ -6,6 +6,7 @@ from os import path
 from forms import RegistrationForm, LoginForm
 import email_validator
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import date
 
 
 if path.exists("env.py"):
@@ -181,6 +182,10 @@ def insert_idea():
         ideas.update(
             {"_id": ObjectId(idea_id)}, {"$set": {"image_name": image.filename}}
         )
+
+    today = date.today()
+    date_added = today.strftime("%B %d, %Y")
+    ideas.update({"_id": ObjectId(idea_id)}, {"$set": {"date_added": date_added}})
 
     return redirect(url_for("idea_details", idea_id=x.inserted_id))
 
