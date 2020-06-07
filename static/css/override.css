@@ -1,10 +1,19 @@
+.wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
 .image-container {
     height: 350px;
-    object-fit: cover;
+    
 }
 
 .image-container__detail {
-    /* height: 200px; */
+    height: 300px;
+    width: 100%;
+    max-width: 800px;
+    object-fit: cover;
+
 }
 
 p {

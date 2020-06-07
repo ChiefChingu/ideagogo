@@ -1,102 +1,110 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-<p>{{idea.date_added}}</p>
-<h1>{{idea.idea_title}}</h1>
-<p>Submitted by: {{idea.username}}</p>
-<p>{{idea.idea_summary}}</p>
-<p>{{idea.category_name}}</p>
-<p>{{idea.idea_details}}</p>
-
-<div class="chip">
-    {{idea.idea_tag1}}
-</div>
-
-<div class="chip">
-    {{idea.idea_tag2}}
-</div>
-<div class="chip">
-    {{idea.idea_tag3}}
-</div>
-
-<img class="image-container__detail" src="{{ url_for('file', filename=idea.image_name) }}">
+<div class="idea-details">
 
 
-<!-- Modal Trigger -->
-{% if (idea.username == session["username"]) or (session["username"] == "Master") %}
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Edit picture</a>
-{% endif %}
+    <p>{{idea.date_added}}</p>
+    <h1>{{idea.idea_title}}</h1>
+    <p>Submitted by: {{idea.username}}</p>
+    <p>{{idea.idea_summary}}</p>
+    <p>{{idea.category_name}}</p>
+    <p>{{idea.idea_details}}</p>
 
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>Edit picture</h4>
-        <form action="{{ url_for('insert_image', idea_id=idea._id) }}" method="POST" class="col s12"
-            enctype="multipart/form-data">
-            <div class="input-field col s12">
-                <input type="file" name="image" id="image">
-            </div>
-            <div class="modal-footer">
-                <button class="btn waves-effect waves-light" type="submit">Save new picture</button>
-                <a href="{{url_for('idea_details', idea_id=idea._id)}}" class="waves-effect waves-light btn">cancel</a>
-            </div>
-
-        </form>
-
-
+    <div class="chip">
+        {{idea.idea_tag1}}
     </div>
-</div>
+
+    <div class="chip">
+        {{idea.idea_tag2}}
+    </div>
+    <div class="chip">
+        {{idea.idea_tag3}}
+    </div>
+
+    <img class="image-container__detail" src="{{ url_for('file', filename=idea.image_name) }}" max-width="800"
+        height="300">
 
 
-<div class="likes">
-    <a href="#"><img src="/static/images/thumb_up-black-18dp.svg" alt="thumb up"></a>
-    <p>Number of likes: {% if idea.total_votes > 0 %}
-        {{idea.total_votes}}
-        {% endif %}
-    </p>
-</div>
-
-<div>
+    <!-- Modal Trigger -->
     {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
-    <a href="{{url_for('edit_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn">edit idea</a>
-    <a href="{{url_for('delete_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn">delete idea</a>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Edit picture</a>
     {% endif %}
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Edit picture</h4>
+            <form action="{{ url_for('insert_image', idea_id=idea._id) }}" method="POST" class="col s12"
+                enctype="multipart/form-data">
+                <div class="input-field col s12">
+                    <input type="file" name="image" id="image">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn waves-effect waves-light" type="submit">Save new picture</button>
+                    <a href="{{url_for('idea_details', idea_id=idea._id)}}"
+                        class="waves-effect waves-light btn">cancel</a>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+
+
+    <div class="likes">
+        <a href="#"><img src="/static/images/thumb_up-black-18dp.svg" alt="thumb up"></a>
+        <p>Number of likes: {% if idea.total_votes > 0 %}
+            {{idea.total_votes}}
+            {% endif %}
+        </p>
+    </div>
+
+    <div>
+        {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
+        <a href="{{url_for('edit_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn">edit idea</a>
+        <a href="{{url_for('delete_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn">delete idea</a>
+        {% endif %}
+    </div>
+
+    <p>Voted users:{{idea.user_votes}}</p>
+    {% set ns = namespace(found=false) %}
+    {% for user_vote in idea.user_votes %}
+    {% if session["username"] == user_vote %}
+    {% set cannotVoteAgain=true %}
+    {% set ns.found = true %}
+    {% endif %}
+    {{cannotVoteAgain}}
+    {% endfor %}
+    {{ns.found}}
+    {% if ns.found == true %}
+    <form action="{{ url_for('downvote_idea', idea_id=idea._id) }}" method="POST">
+
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">
+                Remove my vote
+
+            </button>
+        </div>
+
+    </form>
+    {% else %}
+    <form action="{{ url_for('upvote_idea', idea_id=idea._id) }}" method="POST">
+
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">
+                Like this idea!
+
+            </button>
+        </div>
+
+    </form>
+    {% endif %}
+
+    <h5>session["username"] == {{session["username"]}}</h5>
+
 </div>
 
-<p>Voted users:{{idea.user_votes}}</p>
-{% set ns = namespace(found=false) %}
-{% for user_vote in idea.user_votes %}
-{% if session["username"] == user_vote %}
-{% set cannotVoteAgain=true %}
-{% set ns.found = true %}
-{% endif %}
-{{cannotVoteAgain}}
-{% endfor %}
-{{ns.found}}
-{% if ns.found == true %}
-<form action="{{ url_for('downvote_idea', idea_id=idea._id) }}" method="POST">
-
-    <div class="row">
-        <button class="btn waves-effect waves-light" type="submit" name="action">
-            Remove my vote
-
-        </button>
-    </div>
-
-</form>
-{% else %}
-<form action="{{ url_for('upvote_idea', idea_id=idea._id) }}" method="POST">
-
-    <div class="row">
-        <button class="btn waves-effect waves-light" type="submit" name="action">
-            Like this idea!
-
-        </button>
-    </div>
-
-</form>
-{% endif %}
-
-<h5>session["username"] == {{session["username"]}}</h5>
 
 {% endblock %}
