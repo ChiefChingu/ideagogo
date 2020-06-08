@@ -1,3 +1,8 @@
+h1 {
+  text-align: center;
+  margin: 1.5rem 0 1rem 0;
+}
+
 .wrapper {
   width: 800px;
   margin: 0 auto;
@@ -5,8 +10,6 @@
 
 .my-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-gap: 1rem;
 }
 
 .my-grid-2 {
@@ -39,6 +42,12 @@
   object-fit: cover;
 }
 
+.add-idea-btn {
+  position: absolute;
+  top: -80px;
+  z-index: 99;
+}
+
 .chip {
   background-color: orangered;
   color: white;
@@ -50,6 +59,41 @@
 
 .card-tags {
   display: grid;
+}
+
+.search-sort {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+}
+.search-sort__input-field {
+  margin: 0 0 1rem 0;
+}
+
+nav .nav-wrapper {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  align-items: center;
+}
+nav .nav-wrapper__left {
+  grid-column: 1;
+  justify-self: start;
+  align-self: center;
+  left: 15%;
+}
+nav .nav-wrapper__middle {
+  grid-column: 2;
+  justify-self: center;
+  align-self: center;
+}
+nav .nav-wrapper__right {
+  grid-column: 3;
+  justify-self: end;
+  align-self: center;
+}
+
+.carousel {
+  margin-top: 1rem;
 }
 
 /*# sourceMappingURL=override.css.map */

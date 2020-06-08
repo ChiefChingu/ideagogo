@@ -1,3 +1,10 @@
+h1 {
+    text-align: center;
+    margin: 1.5rem 0 1rem 0;
+
+}
+
+
 .wrapper {
     width: 800px;
     margin: 0 auto;
@@ -6,8 +13,8 @@
 
 .my-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 1rem;
+    // grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    // grid-gap: 1rem;
 }
 
 .my-grid-2 {

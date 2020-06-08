@@ -1,29 +1,27 @@
-<div class="row col s12">
-    <form action="{{ url_for('search_by_category') }}" method="POST" class="col s6">
-        <div class="row">
-            <div class="input-field">
-                <i class="material-icons prefix">search</i>
-                <select id="category" name="category_name" onchange='if(this.value != "") { this.form.submit(); }'>
-                    <option value="" disabled selected>Search by Category</option>
-                    {% for category in categories %}
-                    <option value="{{category.category_name}}">{{category.category_name}}</option>
-                    {% endfor %}
-                </select>
-            </div>
+<div class="search-sort">
+
+    <form action="{{ url_for('search_by_category') }}" method="POST">
+        <div class="input-field search-sort__input-field">
+            <!-- <i class="material-icons prefix">search</i> -->
+            <select id="category" name="category_name" onchange='if(this.value != "") { this.form.submit(); }'>
+                <option value="" disabled selected>Search by category</option>
+                {% for category in categories %}
+                <option value="{{category.category_name}}">{{category.category_name}}</option>
+                {% endfor %}
+            </select>
         </div>
     </form>
 
-    <form action="{{ url_for('search_by_tag') }}" method="POST" class="col s6">
-        <div class="row">
-            <div class="input-field">
-                <i class="material-icons prefix">search</i>
-                <select id="tag" name="tag_name" onchange='if(this.value != "") { this.form.submit(); }'>
-                    <option value="" disabled selected>Search by Tag</option>
-                    {% for tag in tags %}
-                    <option value="{{tag.tag_name}}">{{tag.tag_name}}</option>
-                    {% endfor %}
-                </select>
-            </div>
+    <form action="{{ url_for('search_by_tag') }}" method="POST">
+        <div class="input-field search-sort__input-field">
+            <!-- <i class="material-icons prefix">search</i> -->
+            <select id="tag" name="tag_name" onchange='if(this.value != "") { this.form.submit(); }'>
+                <option value="" disabled selected>Search by tag</option>
+                {% for tag in tags %}
+                <option value="{{tag.tag_name}}">{{tag.tag_name}}</option>
+                {% endfor %}
+            </select>
         </div>
     </form>
+
 </div>

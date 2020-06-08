@@ -1,0 +1,35 @@
+
+
+nav {
+    .nav-wrapper {
+    
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        align-items: center;
+        
+        &__left {
+            grid-column: 1;
+            justify-self: start;
+            align-self: center;
+            left: 15%;
+        }
+        &__middle {
+            grid-column: 2;
+            justify-self: center;
+            align-self: center;
+        }
+        
+        &__right {
+            grid-column: 3;
+            justify-self: end;
+            align-self: center;
+        }
+    
+    }
+
+}
+
+// .nav-grid {
+//     display: grid;
+//     grid-template-columns: 1fr 1fr;
+// }

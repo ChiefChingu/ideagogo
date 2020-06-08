@@ -1,8 +1,16 @@
 {% block navigation %}
 <div class="navbar-fixed">
     <nav>
-        <div class="nav-wrapper amber darken-4">
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <div class="nav-wrapper nav-grid">
+            <!-- <div class="nav-grid"> -->
+            <a href="/static/images/logo_white.png" class="brand-logo nav-wrapper__left">Logo</a>
+
+            <a href="{{url_for('addidea')}}" class="waves-effect waves-light btn nav-wrapper__middle">add idea</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger nav-wrapper__right"><i
+                    class="material-icons">menu</i></a>
+            <!-- </div> -->
+
+
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="{{url_for('home')}}">Home</a></li>
                 <li><a href="{{url_for('ideas')}}">Ideas</a></li>
@@ -16,10 +24,10 @@
                 <li><a href="{{url_for('login')}}">Log in</a></li>
                 {% endif %}
             </ul>
+
         </div>
     </nav>
 </div>
-
 
 <ul class="sidenav" id="mobile-demo">
     <li><a href="{{url_for('home')}}">Home</a></li>
