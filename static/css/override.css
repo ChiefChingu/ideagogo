@@ -3,9 +3,13 @@
     margin: 0 auto;
 }
 
-.image-container {
-    height: 350px;
-    
+.edit-idea {
+    margin-top: 1rem;
+}
+
+.idea-details h1 {
+    font-size: 3rem;
+    margin: 1rem 0 2rem 0;
 }
 
 .image-container__detail {
@@ -16,9 +20,24 @@
 
 }
 
-p {
-    color: pink;
+.card {
+    font-size: 0.8rem;
 }
+
+.s4 {
+    width: 30%;
+}
+
+/* h5 {
+    font-size: 1.3rem;
+} */
+/* .chip {
+    max-width: 250px;
+} */
+
+/* p {
+    color: pink;
+} */
 
 .background {
     background-color: lightgrey;
@@ -30,13 +49,26 @@ p {
 
 .my-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-gap: 1rem;
 }
 
 .my-grid-2 {
     display: grid;
     grid-template-columns: 1fr;
+}
+
+.card-tags {
+    display: grid;
+}
+
+.chip {
+    background-color: orangered;
+    color: white;
+    max-width: 90px;
+    padding: 0;
+    border-radius: 0;
+    font-weight: initial;
 }
 
 @media screen and (min-width: 1025px) {

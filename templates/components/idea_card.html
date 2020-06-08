@@ -4,19 +4,47 @@
     </div>
     <div class="card-content activator">
         <span class="card-title grey-text text-darken-4"><i class="material-icons right"></i>
+            <h4 class="activator">{{idea.idea_title}}</h4>
 
-            <h5 class="activator">{{idea.idea_title}}</h5>
 
-            <h6 class="activator">{{idea.category_name}}</h6>
-            <h6 class="activator"><img class="responsive-img" src="/static/images/thumb_up-black-18dp.svg"
-                    alt="thumb up">{{idea.total_votes}}
-            </h6>
-            <h6>Views: {{idea.views}}</h6>
+            <div class="row">
+                <div class="col s2">
+                    <i class="material-icons">thumb_up</i>
+                </div>
+                <div class="col s2">
+                    <p>{{idea.total_votes}}</p>
+                </div>
+                <div class="col s2">
+                    <i class="material-icons">visibility</i>
+                </div>
+                <div class="col s2">
+                    <p>{{idea.views}}</p>
+                </div>
+            </div>
         </span>
     </div>
     <div class="card-reveal">
         <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+        <h6 class="activator">Category: {{idea.category_name}}</h6>
+        <!-- <h6>Category: {{idea.category_name}}</h6> -->
+        <!-- <div class="card-tags">
+            <div class="chip card-tags__color">
+                {{idea.idea_tag1}}
+            </div>
+            <div class="chip card-tags__color">
+                {{idea.idea_tag2}}
+            </div>
+            <div class="chip card-tags__color">
+                {{idea.idea_tag3}}
+            </div>
+        </div> -->
+        <div class="card-tags">
+            <h6>Tags: {{idea.idea_tag1}} {{idea.idea_tag2}} {{idea.idea_tag3}}
+
+            </h6>
+        </div>
         <p>{{idea.idea_summary}}</p>
         <p><a href="{{url_for('idea_details', idea_id=idea._id)}}">view details</a></p>
     </div>
+
 </div>

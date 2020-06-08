@@ -145,7 +145,7 @@ def idea_details(idea_id):
         {"_id": ObjectId(idea_id)}, {"$inc": {"views": 1},},
     )
     # Control statement to check output in terminal
-    print(the_idea)
+    # print(the_idea)
 
     return render_template(
         "pages/ideas/idea_details.html",
