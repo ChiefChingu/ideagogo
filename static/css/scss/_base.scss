@@ -1,0 +1,27 @@
+.wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
+
+.my-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 1rem;
+}
+
+.my-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+
+
+
+
+@media screen and (min-width: 1025px) {
+
+    .my-grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
