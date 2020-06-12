@@ -7,6 +7,7 @@
     text-align: center;
 }
 
+// Front side
 .card-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -34,5 +35,22 @@
         grid-column: 3/5;
         justify-self: center;
         font-size: 1rem;
+    }
+}
+
+// Back side
+.card-reveal-grid {
+    display: grid;
+
+    &__row1 {
+        justify-self: end;
+    }
+
+    &__row3 {
+        padding: 1rem 0;
+    }
+
+    &__row8 {
+        text-align: center;
     }
 }

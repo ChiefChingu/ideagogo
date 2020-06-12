@@ -55,6 +55,19 @@ h1 {
   font-size: 1rem;
 }
 
+.card-reveal-grid {
+  display: grid;
+}
+.card-reveal-grid__row1 {
+  justify-self: end;
+}
+.card-reveal-grid__row3 {
+  padding: 1rem 0;
+}
+.card-reveal-grid__row8 {
+  text-align: center;
+}
+
 .edit-idea {
   margin-top: 1rem;
 }

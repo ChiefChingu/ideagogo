@@ -35,15 +35,42 @@
 
     <!-- "Back side" -->
     <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-        <h6 class="activator">Category: {{idea.category_name}}</h6>
-        <div class="card-tags">
-            <h6>Tags: {{idea.idea_tag1}} {{idea.idea_tag2}} {{idea.idea_tag3}}
+        <div class="card-reveal-grid">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+            <h5 class="card-content-title card-reveal-grid__row2">{{idea.idea_title}}</h5>
+            <div class="card-grid card-reveal-grid__row3">
+                <div class="card-grid__fr1">
+                    <i class="material-icons">thumb_up</i>
+                </div>
+                <div class="card-grid__fr2">
+                    <p>{{idea.total_votes}}</p>
+                </div>
+                <div class="card-grid__fr3">
+                    <i class="material-icons">visibility</i>
+                </div>
+                <div class="card-grid__fr4">
+                    <p>{{idea.views}}</p>
+                </div>
+                <div class="card-grid__row2--left">
+                    votes
+                </div>
+                <div class="card-grid__row2--right">
+                    views
+                </div>
+            </div>
+            <h6 class="card-reveal-grid__row4">Summary:</h6>
+            <p class="card-reveal-grid__row5">{{idea.idea_summary}}</p>
 
-            </h6>
+            <h6 class="activator card-reveal-grid__row6">Category: {{idea.category_name}}</h6>
+            <div class="card-tags card-reveal-grid__row7">
+                <h6>Tags: {{idea.idea_tag1}}, {{idea.idea_tag2}}, {{idea.idea_tag3}}
+                </h6>
+            </div>
+            <p class="card-reveal-grid__row8"><a href="{{url_for('idea_details', idea_id=idea._id)}}">view details</a>
+            </p>
+
         </div>
-        <p>{{idea.idea_summary}}</p>
-        <p><a href="{{url_for('idea_details', idea_id=idea._id)}}">view details</a></p>
+
     </div>
 
 </div>
