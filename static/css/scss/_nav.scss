@@ -1,11 +1,18 @@
 
 
 nav {
+
+    box-shadow: none;
+    
     .nav-wrapper {
     
         display: grid;
         grid-template-columns: 33% 33% 33%;
         align-items: center;
+
+        .brand-logo-img {
+            height: 35px;
+        }
         
         &__left {
             grid-column: 1;

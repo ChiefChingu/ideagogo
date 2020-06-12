@@ -1,9 +1,16 @@
 {% extends 'layouts/base.html' %}
+{% block hero %}
+<div class="hero">
+  {% include 'components/idea_carousel.html' %}
+  <div class="hero__cta-bar">
+    <h6 class="hero__cta-bar--text">Do you have an idea? Let the world know!</h6><a href="{{url_for('addidea')}}"
+      class="waves-effect waves-light btn hero__cta-bar--btn">add idea</a>
+  </div>
+</div>
+{% endblock %}
 
 {% block content %}
 
-<!-- <h1>Ideas</h1> -->
-{% include 'components/idea_carousel.html' %}
 {% include 'components/search_cat_tag.html' %}
 
 <div class="row my-grid">

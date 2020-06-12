@@ -343,13 +343,13 @@ def downvote_idea(idea_id):
 
 
 #########################
-# Problems
+# Contact & About
 #########################
 
 
-@app.route("/problems")
-def problems():
-    return render_template("pages/problems.html", title="Problems")
+@app.route("/contact")
+def contact():
+    return render_template("pages/contact.html", title="Contact")
 
 
 #########################
