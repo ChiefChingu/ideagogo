@@ -26,9 +26,33 @@ h1 {
   font-size: 0.8rem;
 }
 
+.card-content-title {
+  text-align: center;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 0.6rem;
+}
+.card-grid__fr1 {
+  justify-self: end;
+}
+.card-grid__fr3 {
+  justify-self: end;
+}
+.card-grid__fr4 {
+  justify-self: start;
+}
+.card-grid__row2--left {
+  grid-column: 1/3;
+  justify-self: center;
+  font-size: 1rem;
+}
+.card-grid__row2--right {
+  grid-column: 3/5;
+  justify-self: center;
+  font-size: 1rem;
 }
 
 .edit-idea {

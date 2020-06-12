@@ -1,28 +1,39 @@
 <div class="card activator">
+
+    <!-- Image -->
     <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="{{ url_for('file', filename=idea.image_name) }}">
     </div>
+
+
+    <!-- "Front side" -->
     <div class="card-content activator">
         <span class="card-title grey-text text-darken-4"><i class="material-icons right"></i>
-            <h4 class="activator">{{idea.idea_title}}</h4>
-
-
+            <h4 class="activator card-content-title">{{idea.idea_title}}</h4>
             <div class="card-grid">
-                <div class="col s2">
+                <div class="card-grid__fr1">
                     <i class="material-icons">thumb_up</i>
                 </div>
-                <div class="col s2">
+                <div class="card-grid__fr2">
                     <p>{{idea.total_votes}}</p>
                 </div>
-                <div class="col s2">
+                <div class="card-grid__fr3">
                     <i class="material-icons">visibility</i>
                 </div>
-                <div class="col s2">
+                <div class="card-grid__fr4">
                     <p>{{idea.views}}</p>
+                </div>
+                <div class="card-grid__row2--left">
+                    votes
+                </div>
+                <div class="card-grid__row2--right">
+                    views
                 </div>
             </div>
         </span>
     </div>
+
+    <!-- "Back side" -->
     <div class="card-reveal">
         <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
         <h6 class="activator">Category: {{idea.category_name}}</h6>
