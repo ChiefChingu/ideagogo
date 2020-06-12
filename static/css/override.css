@@ -18,7 +18,7 @@ h1 {
 }
 
 .divider {
-  margin: 2rem 0 1rem 0;
+  margin: 1rem 0 1rem 0;
 }
 .divider__bottom-margin {
   margin: 2rem 0 1rem 0;
@@ -73,8 +73,36 @@ h1 {
 .card-reveal-grid__row3 {
   padding: 1rem 0;
 }
+.card-reveal-grid__row4 {
+  justify-self: center;
+}
+.card-reveal-grid__row6 {
+  justify-self: center;
+}
+.card-reveal-grid__row7 {
+  justify-self: center;
+}
+.card-reveal-grid__row7--item {
+  background-color: #26a69a;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
 .card-reveal-grid__row8 {
   text-align: center;
+}
+.card-reveal-grid__row9 {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1rem;
+}
+.card-reveal-grid__row9--tag {
+  display: inline-block;
+  height: 2rem;
+  line-height: 2rem;
+  background-color: #ee6e73;
+  color: white;
 }
 
 .idea-details h1 {

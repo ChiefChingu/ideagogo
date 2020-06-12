@@ -52,7 +52,43 @@
         padding: 1rem 0;
     }
 
+    &__row4 {
+        justify-self: center;
+    }
+
+    &__row6 {
+        justify-self: center;
+    }
+
+    &__row7 {
+        justify-self: center;
+
+        &--item {
+            background-color: #26a69a;
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+        }
+    }
+
     &__row8 {
         text-align: center;
+    }
+
+    &__row9 {
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 1rem;
+        
+        &--tag {
+
+            display: inline-block;
+            height: 2rem;
+            line-height: 2rem;
+            background-color: #ee6e73;
+            color: white;
+        }
+
     }
 }

@@ -61,11 +61,19 @@
             <h6 class="card-reveal-grid__row4">Summary:</h6>
             <p class="card-reveal-grid__row5">{{idea.idea_summary}}</p>
 
-            <h6 class="activator card-reveal-grid__row6">Category: {{idea.category_name}}</h6>
-            <div class="card-tags card-reveal-grid__row7">
-                <h6>Tags: {{idea.idea_tag1}}, {{idea.idea_tag2}}, {{idea.idea_tag3}}
-                </h6>
+            <h6 class="activator card-reveal-grid__row6">Category:</h6>
+            <div class="activator card-reveal-grid__row7">
+                <div class="card-reveal-grid__row7--item">{{idea.category_name}}</div>
             </div>
+            <div class="card-reveal-grid__row8">
+                <h6>Tags:</h6>
+            </div>
+            <div class="card-reveal-grid__row9">
+                <div class="card-reveal-grid__row9--tag">{{idea.idea_tag1}}</div>
+                <div class="card-reveal-grid__row9--tag">{{idea.idea_tag2}}</div>
+                <div class="card-reveal-grid__row9--tag">{{idea.idea_tag3}}</div>
+            </div>
+
             <p class="card-reveal-grid__row8"><a href="{{url_for('idea_details', idea_id=idea._id)}}">view details</a>
             </p>
 
