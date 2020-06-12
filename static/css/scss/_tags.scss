@@ -1,8 +1,12 @@
 .chip {
-    background-color: orangered;
+    
     color: white;
-    max-width: 90px;
-    padding: 0;
+    max-width: 125px;
+    width: 90%;
+    text-align: center;
+    justify-self: center;
+    // align-self: center;
+    padding: 0 0.5rem;
     border-radius: 0;
     font-weight: initial;
 }

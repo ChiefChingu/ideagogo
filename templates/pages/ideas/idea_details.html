@@ -4,21 +4,13 @@
 
 <div class="idea-details">
 
-    <div class="row grey-text">
-        <div class="col s6 ">
-            <p>Date added: {{idea.date_added}}</p>
-        </div>
-        <div class="col s6">
-            <p>Submitted by: {{idea.username}}</p>
-        </div>
-    </div>
-    <!-- Only visible for idea owner -->
+    <!-- Only visible for idea owner and admin -->
     {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
-    <div class="row edit-idea">
-        <div class="col s6">
+    <div class="idea-details__edit-idea">
+        <div class="idea-details__edit-idea--item">
             <a href="{{url_for('edit_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn">edit idea</a>
         </div>
-        <div class="col s6">
+        <div class="idea-details__edit-idea--item">
             <a href="{{url_for('delete_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn">delete idea</a>
         </div>
     </div>
@@ -27,37 +19,41 @@
     <h1>{{idea.idea_title}}</h1>
     <img class="image-container__detail" src="{{ url_for('file', filename=idea.image_name) }}" max-width="800"
         height="300">
+
+    <!-- Only visible for idea owner and admin -->
     {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Edit picture</a>
+    <div class="idea-details__edit-image">
+        <a class="waves-effect waves-light btn modal-trigger idea-details__edit-image--item" href="#modal1">Edit
+            picture</a>
+    </div>
     {% endif %}
 
-    <h6>Category: {{idea.category_name}}</h6>
-    <div class="row center-align">
-        <div class="chip col s3">
-            {{idea.idea_tag1}}
+    <div class="divider"></div>
+
+    <div class="card-grid">
+        <div class="card-grid__fr1">
+            <i class="material-icons">thumb_up</i>
         </div>
-        <div class="chip col s3">
-            {{idea.idea_tag2}}
+        <div class="card-grid__fr2">
+            <p>{{idea.total_votes}}</p>
         </div>
-        <div class="chip col s3">
-            {{idea.idea_tag3}}
+        <div class="card-grid__fr3">
+            <i class="material-icons">visibility</i>
+        </div>
+        <div class="card-grid__fr4">
+            <p>{{idea.views}}</p>
+        </div>
+        <div class="card-grid__row2--left">
+            votes
+        </div>
+        <div class="card-grid__row2--right">
+            views
         </div>
     </div>
 
-    <div class="row valign-wrapper">
-        <div class="col s2">
-            <i class="material-icons">thumb_up</i>
-        </div>
-        <div class="col s2">
-            <p>{{idea.total_votes}}</p>
-        </div>
-        <div class="col s2">
-            <i class="material-icons">visibility</i>
-        </div>
-        <div class="col s2">
-            <p>{{idea.views}}</p>
-        </div>
-    </div>
+    <div class="divider"></div>
+
+    <p>Details: {{idea.idea_details}}</p>
 
     {% set ns = namespace(found=false) %}
     {% for user_vote in idea.user_votes %}
@@ -69,41 +65,77 @@
 
     {% if ns.found == true %}
     <form action="{{ url_for('downvote_idea', idea_id=idea._id) }}" method="POST">
-        <div class="row">
-            <button class="btn waves-effect waves-light" type="submit" name="action">
+        <div class="idea-details__cta">
+            <button class="btn waves-effect waves-light idea-details__cta--btn" type="submit" name="action">
                 Remove my vote
             </button>
         </div>
     </form>
     {% else %}
     <form action="{{ url_for('upvote_idea', idea_id=idea._id) }}" method="POST">
-        <div class="row">
-            <button class="btn waves-effect waves-light" type="submit" name="action">
+        <div class="idea-details__cta">
+            <button class=" btn waves-effect waves-light idea-details__cta--btn" type="submit" name="action">
                 Like this idea!
             </button>
         </div>
     </form>
     {% endif %}
 
-    <p>Details: {{idea.idea_details}}</p>
+    <div class="divider"></div>
 
-</div>
-
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>Edit picture</h4>
-        <form action="{{ url_for('insert_image', idea_id=idea._id) }}" method="POST" class="col s12"
-            enctype="multipart/form-data">
-            <div class="input-field col s12">
-                <input type="file" name="image" id="image">
-            </div>
-            <div class="modal-footer">
-                <button class="btn waves-effect waves-light" type="submit">Save new picture</button>
-                <a href="{{url_for('idea_details', idea_id=idea._id)}}" class="waves-effect waves-light btn">cancel</a>
-            </div>
-        </form>
+    <div class="idea-details__category">
+        <h6 class="idea-details__category--title">Category:</h6>
+        <div class=" chip idea-details__category--item">
+            {{idea.category_name}}
+        </div>
     </div>
-</div>
 
-{% endblock %}
+    <div class="idea-details__tags">
+        <h6 class="idea-details__tags--title">Tags:</h6>
+        <div class="idea-details__tags--row2">
+            <div class="chip idea-details__tags--row2--item">
+                {{idea.idea_tag1}}
+            </div>
+            <div class="chip idea-details__tags--row2--item">
+                {{idea.idea_tag2}}
+            </div>
+            <div class="chip idea-details__tags--row2--item">
+                {{idea.idea_tag3}}
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="divider divider__bottom-margin"></div>
+
+    <div class="idea-details__secundary grey-text">
+        <div class="idea-details__secundary--date">
+            <p>Date added:</p>
+            <p>{{idea.date_added}}</p>
+        </div>
+        <div class=idea-details__secundary--owner">
+            <p>Submitted by:</p>
+            <p>{{idea.username}}</p>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Edit picture</h4>
+            <form action="{{ url_for('insert_image', idea_id=idea._id) }}" method="POST" class="col s12"
+                enctype="multipart/form-data">
+                <div class="input-field col s12">
+                    <input type="file" name="image" id="image">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn waves-effect waves-light" type="submit">Save new picture</button>
+                    <a href="{{url_for('idea_details', idea_id=idea._id)}}"
+                        class="waves-effect waves-light btn">cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% endblock %}
