@@ -10,24 +10,26 @@
     <div class="card-content activator">
         <span class="card-title grey-text text-darken-4"><i class="material-icons right"></i>
             <h4 class="activator card-content-title">{{idea.idea_title}}</h4>
-            <div class="card-grid">
-                <div class="card-grid__fr1">
-                    <i class="material-icons">thumb_up</i>
-                </div>
-                <div class="card-grid__fr2">
-                    <p>{{idea.total_votes}}</p>
-                </div>
-                <div class="card-grid__fr3">
-                    <i class="material-icons">visibility</i>
-                </div>
-                <div class="card-grid__fr4">
-                    <p>{{idea.views}}</p>
-                </div>
-                <div class="card-grid__row2--left">
-                    votes
-                </div>
-                <div class="card-grid__row2--right">
-                    views
+            <div class="grid-wrapper">
+                <div class="card-grid-front">
+                    <div class="card-grid-front__fr1">
+                        <i class="material-icons">thumb_up</i>
+                    </div>
+                    <div class="card-grid-front__fr2">
+                        <p>{{idea.total_votes}}</p>
+                    </div>
+                    <div class="card-grid-front__fr3">
+                        <i class="material-icons">visibility</i>
+                    </div>
+                    <div class="card-grid-front__fr4">
+                        <p>{{idea.views}}</p>
+                    </div>
+                    <div class="card-grid-front__row2--left">
+                        votes
+                    </div>
+                    <div class="card-grid-front__row2--right">
+                        views
+                    </div>
                 </div>
             </div>
         </span>
@@ -38,49 +40,24 @@
         <div class="card-reveal-grid">
             <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
             <h5 class="card-content-title card-reveal-grid__row2">{{idea.idea_title}}</h5>
-            <div class="card-reveal-grid__row3">
-                <div class="card-grid card-reveal-grid__row3--item">
-                    <div class="card-grid__fr1">
-                        <i class="material-icons">thumb_up</i>
-                    </div>
-                    <div class="card-grid__fr2">
-                        <p>{{idea.total_votes}}</p>
-                    </div>
-                    <div class="card-grid__fr3">
-                        <i class="material-icons">visibility</i>
-                    </div>
-                    <div class="card-grid__fr4">
-                        <p>{{idea.views}}</p>
-                    </div>
-                    <div class="card-grid__row2--left">
-                        votes
-                    </div>
-                    <div class="card-grid__row2--right">
-                        views
-                    </div>
-                </div>
-            </div>
-            <h6 class="card-reveal-grid__row4">Summary:</h6>
-            <p class="card-reveal-grid__row5">{{idea.idea_summary}}</p>
+            <h6 class="card-reveal-grid__row3">Summary:</h6>
+            <p class="card-reveal-grid__row4">{{idea.idea_summary}}</p>
 
-            <h6 class="activator card-reveal-grid__row6">Category:</h6>
-            <div class="activator card-reveal-grid__row7">
-                <div class="card-reveal-grid__row7--item">{{idea.category_name}}</div>
+            <h6 class="activator card-reveal-grid__row5">Category:</h6>
+            <div class="activator card-reveal-grid__row6">
+                <div class="card-reveal-grid__row6--item">{{idea.category_name}}</div>
             </div>
-            <div class="card-reveal-grid__row8">
+            <div class="card-reveal-grid__row7">
                 <h6>Tags:</h6>
             </div>
-            <div class="card-reveal-grid__row9">
-                <div class="card-reveal-grid__row9--tag">{{idea.idea_tag1}}</div>
-                <div class="card-reveal-grid__row9--tag">{{idea.idea_tag2}}</div>
-                <div class="card-reveal-grid__row9--tag">{{idea.idea_tag3}}</div>
+            <div class="card-reveal-grid__row8">
+                <div class="card-reveal-grid__row8--tag">{{idea.idea_tag1}}</div>
+                <div class="card-reveal-grid__row8--tag">{{idea.idea_tag2}}</div>
+                <div class="card-reveal-grid__row8--tag">{{idea.idea_tag3}}</div>
             </div>
-
-            <p class="card-reveal-grid__row8"><a href="{{url_for('idea_details', idea_id=idea._id)}}">view details</a>
+            <p class="card-reveal-grid__row9"><a class="waves-effect waves-light btn"
+                    href="{{url_for('idea_details', idea_id=idea._id)}}">view details</a>
             </p>
-
         </div>
-
     </div>
-
 </div>

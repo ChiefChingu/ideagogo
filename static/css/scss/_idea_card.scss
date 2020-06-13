@@ -1,17 +1,30 @@
 
 .card {
+
     font-size: 0.8rem;
+
 }
 
 .card-content-title {
+
     text-align: center;
+
 }
 
 // Front side
-.card-grid {
+.grid-wrapper {
+
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 25% repeat(4, 1fr) 25%;
+
+}
+
+.card-grid-front {
+    grid-column: 2/6;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 0.6rem;
+    font-size: 1.5rem;
 
     &__fr1 {
         justify-self: end;
@@ -40,6 +53,7 @@
     }
 }
 
+
 // Back side
 .card-reveal-grid {
     display: grid;
@@ -49,24 +63,15 @@
     }
 
     &__row3 {
-        padding: 1rem 0;
-        display: grid;
-        grid-template-columns: 10% repeat(4, 1fr) 10%;
-
-        &--item {
-            grid-column: 3 / 5;
-        }
+        justify-self: center;
     }
 
-    &__row4 {
+    &__row5 {
         justify-self: center;
+        padding-bottom: 1rem;
     }
 
     &__row6 {
-        justify-self: center;
-    }
-
-    &__row7 {
         justify-self: center;
 
         &--item {
@@ -77,11 +82,12 @@
         }
     }
 
-    &__row8 {
+    &__row7 {
         text-align: center;
+        padding-bottom: 1rem;
     }
 
-    &__row9 {
+    &__row8 {
         text-align: center;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -95,6 +101,11 @@
             background-color: #ee6e73;
             color: white;
         }
+    }
 
+    &__row9 {
+        padding-top: 2rem;
+        font-size: 1rem;
+        justify-self: center;
     }
 }
