@@ -30,31 +30,29 @@
 
     <div class="divider"></div>
 
-    <div class="card-grid">
-        <div class="card-grid__fr1">
-            <i class="material-icons">thumb_up</i>
-        </div>
-        <div class="card-grid__fr2">
-            <p>{{idea.total_votes}}</p>
-        </div>
-        <div class="card-grid__fr3">
-            <i class="material-icons">visibility</i>
-        </div>
-        <div class="card-grid__fr4">
-            <p>{{idea.views}}</p>
-        </div>
-        <div class="card-grid__row2--left">
-            votes
-        </div>
-        <div class="card-grid__row2--right">
-            views
+    <div class="grid-wrapper">
+
+        <div class="idea-details__votes">
+            <div class="idea-details__votes__fr1">
+                <i class="material-icons">thumb_up</i>
+            </div>
+            <div class="idea-details__votes__fr2">
+                <p>{{idea.total_votes}}</p>
+            </div>
+            <div class="idea-details__votes__fr3">
+                <i class="material-icons">visibility</i>
+            </div>
+            <div class="idea-details__votes__fr4">
+                <p>{{idea.views}}</p>
+            </div>
+            <div class="idea-details__votes__row2--left">
+                votes
+            </div>
+            <div class="idea-details__votes__row2--right">
+                views
+            </div>
         </div>
     </div>
-
-    <div class="divider"></div>
-
-    <p>Details: {{idea.idea_details}}</p>
-
     {% set ns = namespace(found=false) %}
     {% for user_vote in idea.user_votes %}
     {% if session["username"] == user_vote %}
@@ -80,12 +78,17 @@
         </div>
     </form>
     {% endif %}
+    <div class="divider"></div>
+
+    <p>Details: {{idea.idea_details}}</p>
+
+
 
     <div class="divider"></div>
 
     <div class="idea-details__category">
         <h6 class="idea-details__category--title">Category:</h6>
-        <div class=" chip idea-details__category--item">
+        <div class="idea-details__category--item">
             {{idea.category_name}}
         </div>
     </div>
@@ -93,13 +96,13 @@
     <div class="idea-details__tags">
         <h6 class="idea-details__tags--title">Tags:</h6>
         <div class="idea-details__tags--row2">
-            <div class="chip idea-details__tags--row2--item">
+            <div class="idea-details__tags--row2--item">
                 {{idea.idea_tag1}}
             </div>
-            <div class="chip idea-details__tags--row2--item">
+            <div class="idea-details__tags--row2--item">
                 {{idea.idea_tag2}}
             </div>
-            <div class="chip idea-details__tags--row2--item">
+            <div class="idea-details__tags--row2--item">
                 {{idea.idea_tag3}}
             </div>
         </div>
