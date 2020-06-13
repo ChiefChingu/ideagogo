@@ -50,6 +50,12 @@
 
     &__row3 {
         padding: 1rem 0;
+        display: grid;
+        grid-template-columns: 10% repeat(4, 1fr) 10%;
+
+        &--item {
+            grid-column: 3 / 5;
+        }
     }
 
     &__row4 {
