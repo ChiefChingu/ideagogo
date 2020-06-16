@@ -244,6 +244,11 @@ h1 {
   object-fit: cover;
 }
 
+.sharethis {
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+
 .add-idea-btn {
   position: absolute;
   top: -80px;

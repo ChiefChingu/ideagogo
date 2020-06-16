@@ -1,10 +1,16 @@
 {% extends 'layouts/base.html' %}
+{% block head %}
+<script type='text/javascript'
+    src='https://platform-api.sharethis.com/js/sharethis.js#property=5e86e668b4e52f001290ee85&product=inline-share-buttons'
+    async='async'></script>
+{% endblock %}
+
 
 {% block content %}
 
 <div class="idea-details">
 
-    <!-- Only visible for idea owner and admin -->
+    <!-- Edit idea: only visible for idea owner and admin -->
     {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
     <div class="idea-details__edit-idea">
         <div class="idea-details__edit-idea--item">
@@ -20,7 +26,7 @@
     <img class="image-container__detail" src="{{ url_for('file', filename=idea.image_name) }}" max-width="800"
         height="300">
 
-    <!-- Only visible for idea owner and admin -->
+    <!-- Edit image: only visible for idea owner and admin -->
     {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
     <div class="idea-details__edit-image">
         <a class="waves-effect waves-light btn modal-trigger idea-details__edit-image--item" href="#modal1">Edit
@@ -78,6 +84,12 @@
         </div>
     </form>
     {% endif %}
+    <div class="sharethis">
+        <h6>Do you really like this idea? Ask your friends to like it too!</h6>
+    </div>
+
+    <div class="sharethis-inline-share-buttons"></div>
+
     <div class="divider"></div>
 
     <p>Details: {{idea.idea_details}}</p>
