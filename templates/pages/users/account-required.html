@@ -1,7 +1,13 @@
 {% extends 'layouts/base.html' %}
+
 {% block content %}
-<h1>Oops, that did not work...yet</>
-    <p>In order to do more than reading what others say, you need to be logged in.</p>
-    <p>Do you have an account? Please log in <a href="{{url_for('login')}}">here</a>.</p>
-    <p>If not, sign up <a href="{{url_for('register')}}">here<a>.</p>
-    {% endblock %}
+
+<h3 class="center margin-bottom">Oops, that did not work...yet</h3>
+<h6 class="center margin-bottom">Do you want to vote on an idea? Or post an idea yourself? Great! To do this you need an
+    account.</h6>
+<a href="{{url_for('register')}}" class="waves-effect waves-light btn set-width__200px btn-centered ">create an
+    account</a>
+
+<h6 class="center margin-top">Do you have an account? Please log in <a href="{{url_for('login')}}">here</a>.</h6>
+
+{% endblock %}

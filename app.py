@@ -78,7 +78,7 @@ def login():
 def account():
     if not session.get("username") is None:
         username = session.get("username")
-        return render_template("pages/users/account.html")
+        return render_template("pages/users/account.html", title="Account")
     else:
         return redirect(url_for("register"))
 
@@ -94,7 +94,7 @@ def logout():
 
 @app.route("/account_required")
 def account_required():
-    return render_template("pages/users/account-required.html")
+    return render_template("pages/users/account-required.html", title="Hold on...")
 
 
 #########################
