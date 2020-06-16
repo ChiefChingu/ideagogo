@@ -1,8 +1,7 @@
 .content-section {
   margin-top: 3rem;
 }
-
-.register {
+.content-section__btn {
   margin: 2rem auto 1rem auto;
   display: block;
 }

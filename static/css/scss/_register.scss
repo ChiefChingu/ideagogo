@@ -1,11 +1,11 @@
 .content-section {
     margin-top: 3rem;
-    
-}
 
-.register {
-    margin: 2rem auto 1rem auto;
-    display: block;
+    &__btn {
+        margin: 2rem auto 1rem auto;
+        display: block;
+    }
+    
 }
 
 .center {
