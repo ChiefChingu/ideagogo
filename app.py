@@ -135,7 +135,7 @@ def ideas():
     )
 
 
-@app.route("/idea-details/<idea_id>")
+@app.route("/<idea_id>")
 def idea_details(idea_id):
     ideas = mongo.db.ideas
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
