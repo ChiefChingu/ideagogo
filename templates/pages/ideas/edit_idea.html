@@ -1,8 +1,9 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-<h3>Edit idea</h3>
+
 <div class="edit-idea">
+    <h3>Edit idea</h3>
     <form action="{{ url_for('update_idea', idea_id=idea._id) }}" method="POST">
 
         <!-- Set idea name -->
