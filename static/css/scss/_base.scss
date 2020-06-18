@@ -61,6 +61,10 @@ header {
     background-color: $mainPink;
 }
 
+.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
+    background-color: $darkPink;
+}
+
 .set-width__200px {
     width: 200px;
 }

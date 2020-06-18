@@ -62,6 +62,10 @@ header {
   background-color: #e84d74;
 }
 
+.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
+  background-color: #D62955;
+}
+
 .set-width__200px {
   width: 200px;
 }
