@@ -13,10 +13,12 @@
     {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
     <div class="idea-details__edit-idea">
         <div class="idea-details__edit-idea--item">
-            <a href="{{url_for('edit_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn">edit idea</a>
+            <a href="{{url_for('edit_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn-secundary">edit
+                idea</a>
         </div>
         <div class="idea-details__edit-idea--item">
-            <a href="{{url_for('delete_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn">delete idea</a>
+            <a href="{{url_for('delete_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn-secundary">delete
+                idea</a>
         </div>
     </div>
     {% endif %}
@@ -28,7 +30,7 @@
     <!-- Edit image: only visible for idea owner and admin -->
     {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
     <div class="idea-details__edit-image">
-        <a class="waves-effect waves-light btn modal-trigger idea-details__edit-image--item" href="#modal1">Edit
+        <a class="modal-trigger btn-secundary idea-details__edit-image--item" href="#modal1">Edit
             picture</a>
     </div>
     {% endif %}
