@@ -1,12 +1,20 @@
 {% extends 'layouts/base.html'%}
+{% block head %}
+<script src="https://kit.fontawesome.com/aca8a0f519.js" crossorigin="anonymous"></script>
+{% endblock %}
+{% block hero %}
+<div class="hero-home">
+    <h1>Great Ideas?</h1>
+    <i class="far fa-lightbulb fa-8x hero-home__icon"></i>
+    <h2>Is it <span class="bold">really</span> a great idea? Your opinion matters.</h2>
+</div>
+{% endblock %}
 {% block content %}
 
-<h1>Great Designs Need Votes</h1>
-<h4>Your Opinion Is Valuable</h4>
-<p>Starting designers show off their skills. You can help them by rating their work.</p>
+<i class="material-icons material-icons-hero medium">thumbs_up_down</i>
 
-<a href="{{url_for('register')}}" class="waves-effect waves-light btn nav-wrapper__middle">join</a>
+<h5>Help to create better ideas. Vote on the ideas that you like.</h5>
 
 
-
+<a href="{{url_for('ideas')}}" class="waves-effect waves-light hero-home__btn">vote</a>
 {% endblock %}
