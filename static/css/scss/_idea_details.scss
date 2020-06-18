@@ -84,8 +84,7 @@
         &--item {
             grid-row: 2;
             grid-column: 2;
-            background-color: blue;
-            color: white;
+            background-color: $secBlue;
             text-align: center;
             padding: 0.5rem;
             line-height: 2rem;
@@ -113,7 +112,7 @@
                 display: inline-block;
                 // height: 2rem;
                 line-height: 2rem;
-                color: white;
+                // color: white;
                 padding: 0.5rem;
                 width: 90%;
                 text-align: center;
