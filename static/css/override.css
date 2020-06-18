@@ -72,6 +72,9 @@ header {
   color: black;
   font-weight: 600;
 }
+.btn-secundary:focus {
+  background-color: #86B3D0;
+}
 
 .btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
   background-color: #D62955;
@@ -182,6 +185,9 @@ header {
   justify-self: center;
 }
 
+.idea-details {
+  padding-top: 1rem;
+}
 .idea-details h1 {
   font-size: 3rem;
   margin: 1rem 0 2rem 0;

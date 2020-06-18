@@ -71,7 +71,7 @@
     {% if ns.found == true %}
     <form action="{{ url_for('downvote_idea', idea_id=idea._id) }}" method="POST">
         <div class="idea-details__cta">
-            <button class="btn waves-effect waves-light idea-details__cta--btn" type="submit" name="action">
+            <button class="btn-secundary waves-effect waves-light idea-details__cta--btn" type="submit" name="action">
                 Remove my vote
             </button>
         </div>
@@ -148,7 +148,7 @@
                 <div class="modal-footer">
                     <button class="btn waves-effect waves-light" type="submit">Save new picture</button>
                     <a href="{{url_for('idea_details', idea_id=idea._id)}}"
-                        class="waves-effect waves-light btn">cancel</a>
+                        class="waves-effect waves-light btn-secundary">cancel</a>
                 </div>
             </form>
         </div>
