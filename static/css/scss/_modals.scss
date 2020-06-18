@@ -1,0 +1,17 @@
+.modal {
+
+    max-height: 80%;
+    width: 90%;
+
+    h4 {
+        text-align: center;
+    }
+
+}
+
+.modal-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+}
