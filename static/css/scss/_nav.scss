@@ -20,8 +20,11 @@ nav {
 
         a {
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
+            color: black;
+            font-weight: 700;
+            letter-spacing: 0.1rem;
         }
     }
 }
@@ -112,23 +115,30 @@ nav {
         display: block;
     }
         
-    }
+}
 
       &__overlay-content {
         position: relative;
-        /* top: 25%; */
         width: 100%;
         text-align: center;
-        /* margin-top: 30px; */
+
+        p {
+            margin-top: 3rem;
+        }
+
+        h5 {
+            font-size: 1.5rem;
+            line-height: normal;
+            padding: 0;
+            margin: 0;
+        }
+
       }
       
       &__overlay a {
-        padding: 8px;
+        
         text-decoration: none;
-        color: black;
-        font-size: 36px;
-        display: block;
-        transition: 0.3s;
+        font-size: 1rem;
       }
       
       &__overlay a:hover, .overlay a:focus {

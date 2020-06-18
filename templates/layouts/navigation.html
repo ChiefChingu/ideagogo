@@ -11,24 +11,29 @@
                     <li><a href="{{url_for('home')}}">Home</a></li>
                     <li><a href="{{url_for('ideas')}}">Ideas</a></li>
                     <li><a href="{{url_for('contact')}}">Contact</a></li>
-                    {% if 'username' in session %}
-                    <li><a href="{{url_for('account')}}">{{session["username"]}}</a></li>
-                    <li><a class="nav-link" href="{{url_for('logout')}}">Log Out</a></li>
-                    {% endif %}
                     {% if not 'username' in session %}
                     <li><a href="{{url_for('register')}}">Register</a></li>
                     <li><a href="{{url_for('login')}}">Log in</a></li>
                     {% endif %}
                 </ul>
             </nav>
-            <!-- <div class="site-nav__overlay-subscribe">
-                <h3 class="section-title">
-                    Never miss out
-                </h3>
-                <p>
-                    Get news, new surveys and results delivered in your inbox!
-                </p>
-            </div> -->
+
+
+
+            <div class="site-nav__overlay-content">
+                {% if 'username' in session %}
+                <p>You are logged in as:</p>
+                <h5><span class="bold">{{session["username"]}}</span></h5>
+
+                <a class="" href="{{url_for('logout')}}">Log Out</a>
+                {% endif %}
+
+                {% if session["username"] == "Master" %}
+                <br><br><br>
+                <a href="{{url_for('admin')}}">Admin</a>
+                {% endif %}
+
+            </div>
         </div>
     </div>
     <a href="{{url_for('home')}}"><img class="logo" src="static/images/chingu-logo-cropped.png" alt="logo"></a>

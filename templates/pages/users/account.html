@@ -2,12 +2,6 @@
 
 {% block content %}
 
-<h1>Hi {{session["username"]}}!</h1>
-<p>You can view your contributions here.</p>
-<p>Ideas</p>
-<br>
-<p>Problems</p>
-
 {% if session["username"] == "Master" %}
 
 <a href="{{url_for('admin')}}">Admin</a>
