@@ -13,3 +13,14 @@
     text-align: center;
 
 }
+
+// Account :required.
+.account-required {
+    display: grid;
+
+    .btn {
+        max-width: 250px;
+        justify-self: center;
+    }
+}
+

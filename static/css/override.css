@@ -10,6 +10,14 @@
   text-align: center;
 }
 
+.account-required {
+  display: grid;
+}
+.account-required .btn {
+  max-width: 250px;
+  justify-self: center;
+}
+
 h1 {
   text-align: center;
   margin: 1.5rem 0 1rem 0;
@@ -17,6 +25,10 @@ h1 {
 
 header {
   margin-bottom: 5rem;
+}
+
+.container {
+  margin-top: 8rem;
 }
 
 .wrapper {
