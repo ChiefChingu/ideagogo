@@ -70,6 +70,7 @@ header {
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
     color: black;
     font-weight: 600;
+    text-align: center;
 
     &:focus {
         background-color: $secBlue;
@@ -97,3 +98,28 @@ header {
     color: $mainPink;
     font-weight: 700;
   }
+
+
+.input-field label {
+    color: $darkGrey;
+    font-size: 0.8rem;
+}
+
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: $mainPink;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid $mainPink;
+    box-shadow: 0 1px 0 0 $mainPink;
+}
+
+.select-wrapper .caret {
+    fill: $mainPink;
+}
+
+.dropdown-content li>span {
+    color: $mainPink;
+}
+
+

@@ -71,6 +71,7 @@ header {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   color: black;
   font-weight: 600;
+  text-align: center;
 }
 .btn-secundary:focus {
   background-color: #86B3D0;
@@ -95,6 +96,28 @@ header {
 .bold {
   color: #e84d74;
   font-weight: 700;
+}
+
+.input-field label {
+  color: #858BA0;
+  font-size: 0.8rem;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #e84d74;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #e84d74;
+  box-shadow: 0 1px 0 0 #e84d74;
+}
+
+.select-wrapper .caret {
+  fill: #e84d74;
+}
+
+.dropdown-content li > span {
+  color: #e84d74;
 }
 
 .card {
@@ -529,6 +552,21 @@ h5 {
   display: block;
   margin: 0 auto;
   width: 100px;
+}
+
+.edit-idea {
+  display: grid;
+}
+.edit-idea__cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+  column-gap: 2rem;
+}
+
+.input-field {
+  margin-top: 3rem;
 }
 
 /*# sourceMappingURL=override.css.map */
