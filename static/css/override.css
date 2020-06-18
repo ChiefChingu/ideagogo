@@ -358,7 +358,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
   grid-template-columns: 1fr 1fr;
   column-gap: 1rem;
 }
-.search-sort__input-field {
+.search-sort .input-field {
   margin: 0 0 1rem 0;
 }
 
