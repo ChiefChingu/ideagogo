@@ -193,7 +193,7 @@ def insert_idea():
     return redirect(url_for("idea_details", idea_id=x.inserted_id))
 
 
-@app.route("/edit_idea/<idea_id>")
+@app.route("/<idea_id>")
 def edit_idea(idea_id):
     the_idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
     all_categories = mongo.db.categories.find().sort("category_name")
