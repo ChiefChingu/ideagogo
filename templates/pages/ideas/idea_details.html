@@ -25,7 +25,7 @@
                 picture</a>
         </div>
         <div class="idea-details__edit-idea--delete">
-            <a href="{{url_for('delete_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn-secundary">delete
+            <a href="#modal2" class="waves-effect waves-light modal-trigger btn-secundary">delete
                 idea</a>
         </div>
     </div>
@@ -135,7 +135,7 @@
         </div>
     </div>
 
-    <!-- Modal Structure -->
+    <!-- Modal edit image -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h4>Edit picture</h4>
@@ -149,6 +149,21 @@
                     <a href="{{url_for('idea_details', idea_id=idea._id)}}"
                         class="waves-effect waves-light btn-secundary">cancel</a>
                 </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal delete idea -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>Delete idea</h4>
+            <p>This will delete your idea permanently. Are you sure?</p>
+            <div class="modal-footer">
+                <a href="{{url_for('delete_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn">delete
+                    idea</a>
+                <a href="{{url_for('idea_details', idea_id=idea._id)}}"
+                    class="waves-effect waves-light btn-secundary">cancel</a>
+            </div>
             </form>
         </div>
     </div>
