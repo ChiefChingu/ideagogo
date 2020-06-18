@@ -444,24 +444,7 @@ nav {
   margin-top: 0rem;
 }
 .carousel .carousel-item {
-  background-color: #ee6e73;
   background-color: white;
-}
-
-.hero__cta-bar {
-  background-color: #ee6e73;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-  padding-bottom: 1rem;
-}
-.hero__cta-bar--text {
-  text-align: center;
-  color: white;
-  padding: 1rem;
-}
-.hero__cta-bar--btn {
-  display: block;
-  margin: 0 auto;
-  width: 100px;
 }
 
 .hero-home {
@@ -510,6 +493,24 @@ h5 {
   display: block;
   margin: 2rem auto;
   text-align: center;
+}
+
+.hero-ideas {
+  background-color: white;
+}
+.hero-ideas__cta-bar {
+  background-color: #e0f0fa;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  padding-bottom: 1rem;
+}
+.hero-ideas__cta-bar--text {
+  text-align: center;
+  padding: 1rem;
+}
+.hero-ideas__cta-bar--btn {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
 }
 
 /*# sourceMappingURL=override.css.map */
