@@ -7,16 +7,15 @@ nav {
 }
 
 .primary-nav {
-    padding-top: 1rem;
+    padding-top: 5rem;
     
     ul {
         list-style: none;
         text-align: center;
-        padding: 0;   
+        padding: 0;
 
         li {
-            margin-bottom: 1em;
-            margin-left: 1em;
+            float: none;
         }
 
         a {
