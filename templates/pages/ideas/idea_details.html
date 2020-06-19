@@ -108,20 +108,27 @@
         </div>
     </form>
 
-
-
     <div class="idea-details__tags">
         <h6 class="idea-details__tags--title">Tags:</h6>
         <div class="idea-details__tags--row2">
-            <div class="idea-details__tags--row2--item">
-                {{idea.idea_tag1}}
-            </div>
-            <div class="idea-details__tags--row2--item">
-                {{idea.idea_tag2}}
-            </div>
-            <div class="idea-details__tags--row2--item">
-                {{idea.idea_tag3}}
-            </div>
+            <form action="{{ url_for('search_by_tag') }}" method="POST">
+                <div class="input-field">
+                    <input type="hidden" name="tag_name" value="{{idea.idea_tag1}}">
+                </div>
+                <button class="idea-details__tags--row2--item" type="submit">{{idea.idea_tag1}}</button>
+            </form>
+            <form action="{{ url_for('search_by_tag') }}" method="POST">
+                <div class="input-field">
+                    <input type="hidden" name="tag_name" value="{{idea.idea_tag2}}">
+                </div>
+                <button class="idea-details__tags--row2--item" type="submit">{{idea.idea_tag2}}</button>
+            </form>
+            <form action="{{ url_for('search_by_tag') }}" method="POST">
+                <div class="input-field">
+                    <input type="hidden" name="tag_name" value="{{idea.idea_tag3}}">
+                </div>
+                <button class="idea-details__tags--row2--item" type="submit">{{idea.idea_tag3}}</button>
+            </form>
         </div>
     </div>
 
