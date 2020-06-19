@@ -492,9 +492,13 @@ nav {
 
 .carousel {
   margin-top: 0rem;
+  height: 400px;
 }
 .carousel .carousel-item {
   background-color: white;
+}
+.carousel .carousel-item .card {
+  width: 80%;
 }
 
 .hero-home {

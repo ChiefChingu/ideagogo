@@ -74,16 +74,14 @@ def login():
     return render_template("pages/users/login.html", title="Login", form=form)
 
 
-@app.route("/account")
-def account():
-    if not session.get("username") is None:
-        username = session.get("username")
-        return render_template("pages/users/account.html", title="Account")
-    else:
-        return redirect(url_for("register"))
-
-
 # make all user data available at a later stage - nice to have
+# @app.route("/account")
+# def account():
+#     if not session.get("username") is None:
+#         username = session.get("username")
+#         return render_template("pages/users/account.html", title="Account")
+#     else:
+#         return redirect(url_for("register"))
 
 
 @app.route("/logout")
@@ -126,12 +124,18 @@ def insert_image(idea_id):
 
 @app.route("/ideas", methods=["GET", "POST"])
 def ideas():
+    ideas = mongo.db.ideas
+    for doc in ideas.find().sort("total_votes", -1).limit(1):
+        votes = doc
+        print(votes)
+
     return render_template(
         "pages/ideas/ideas.html",
         title="Ideas",
         ideas=mongo.db.ideas.find(),
         categories=mongo.db.categories.find().sort("category_name"),
         tags=mongo.db.tags.find().sort("tag_name"),
+        votes=votes,
     )
 
 

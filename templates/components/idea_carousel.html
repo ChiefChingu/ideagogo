@@ -2,17 +2,75 @@
     <div class="carousel-fixed-item center">
         <!-- <a class="btn waves-effect white grey-text darken-text-2">button</a> -->
     </div>
-    <div class="carousel-item white-text" href="#one!">
-        <h2>Top 3 Ideas</h2>
+    <div class="carousel-item" href="#one!">
+        <div class="card activator">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{{ url_for('file', filename=votes.image_name) }}">
+            </div>
+            <div class="card-content activator">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right"></i>
+                    <h4 class="activator card-content-title">{{votes.idea_title}}</h4>
+                    <div class="grid-wrapper">
+                        <div class="card-grid-front">
+                            <div class="card-grid-front__fr1">
+                                <i class="material-icons">thumb_up</i>
+                            </div>
+                            <div class="card-grid-front__fr2">
+                                <p>{{votes.total_votes}}</p>
+                            </div>
+                            <div class="card-grid-front__fr3">
+                                <i class="material-icons">visibility</i>
+                            </div>
+                            <div class="card-grid-front__fr4">
+                                <p>{{votes.views}}</p>
+                            </div>
+                            <div class="card-grid-front__row2--left">
+                                votes
+                            </div>
+                            <div class="card-grid-front__row2--right">
+                                views
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div class="card-reveal">
+                <div class="card-reveal-grid">
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+                    <h5 class="card-content-title card-reveal-grid__row2">{{votes.idea_title}}</h5>
+                    <h6 class="card-reveal-grid__row3">Summary:</h6>
+                    <p class="card-reveal-grid__row4">{{votes.idea_summary}}</p>
+
+                    <h6 class="activator card-reveal-grid__row5">Category:</h6>
+                    <div class="activator card-reveal-grid__row6">
+                        <div class="card-reveal-grid__row6--item">{{votes.category_name}}</div>
+                    </div>
+                    <div class="card-reveal-grid__row7">
+                        <h6>Tags:</h6>
+                    </div>
+                    <div class="card-reveal-grid__row8">
+                        <div class="card-reveal-grid__row8--tag">{{votes.idea_tag1}}</div>
+                        <div class="card-reveal-grid__row8--tag">{{votes.idea_tag2}}</div>
+                        <div class="card-reveal-grid__row8--tag">{{votes.idea_tag3}}</div>
+                    </div>
+                    <p class="card-reveal-grid__row9"><a class="waves-effect waves-light btn"
+                            href="{{url_for('idea_details', idea_id=votes._id)}}">view details</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
 
 
 
     </div>
-    <div class="carousel-item white-text" href="#two!">
+    <div class="carousel-item" href="#two!">
         <h2>Second Panel</h2>
         <p class="white-text">This is your second panel</p>
     </div>
-    <div class="carousel-item white-text" href="#three!">
+    <div class="carousel-item" href="#three!">
         <h2>Third Panel</h2>
         <p class="white-text">This is your third panel</p>
     </div>
