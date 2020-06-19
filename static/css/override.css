@@ -23,11 +23,6 @@ h1 {
   margin: 1.5rem 0 1rem 0;
 }
 
-h3 {
-  text-align: center;
-  padding-top: 1rem;
-}
-
 header {
   margin-bottom: 5rem;
 }
@@ -653,6 +648,11 @@ h5 {
 
 #contact-form-invisible {
   display: none;
+}
+
+.contact-form-title {
+  text-align: center;
+  padding-top: 1rem;
 }
 
 .contact-form-text {
