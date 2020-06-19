@@ -9,10 +9,12 @@
     </div>
 </nav>
 
-<h1>Search results for {{searched_tag}}</h1>
-
-{% for idea in queried_tag %}
-{% include 'components/idea_card.html' %}
-{% endfor %}
+<h3 class="search-results">Search results</h3>
+<h5 class="search-results__sub search-results">for tag: <span class="bold">{{searched_tag}}</span></h5>
+<div class="my-grid">
+    {% for idea in queried_tag %}
+    {% include 'components/idea_card.html' %}
+    {% endfor %}
+</div>
 
 {% endblock %}

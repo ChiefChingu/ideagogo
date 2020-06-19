@@ -628,4 +628,12 @@ h5 {
   gap: 2rem;
 }
 
+.search-results {
+  text-align: center;
+  margin: 1rem 0 0 0;
+}
+.search-results__sub {
+  margin-top: 0.5rem;
+}
+
 /*# sourceMappingURL=override.css.map */
