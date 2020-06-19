@@ -218,9 +218,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
   justify-self: center;
 }
 
-.idea-details {
-  padding-top: 1rem;
-}
 .idea-details h1 {
   font-size: 3rem;
   margin: 1rem 0 2rem 0;
@@ -405,6 +402,13 @@ nav {
   color: black;
   font-weight: 700;
   letter-spacing: 0.1rem;
+}
+
+.secundary-nav {
+  padding-top: 0.3rem;
+}
+.secundary-nav__text {
+  font-size: 0.8rem;
 }
 
 .site-nav {

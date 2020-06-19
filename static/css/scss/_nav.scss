@@ -29,6 +29,14 @@ nav {
     }
 }
 
+.secundary-nav {
+    padding-top: .3rem;
+
+    &__text {
+        font-size: .8rem;
+    }
+}
+
 .site-nav {
     top: 0;
     border-top: 2px solid $mainPink;

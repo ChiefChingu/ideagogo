@@ -1,13 +1,8 @@
 {% extends 'layouts/base.html'%} {% block content %}
 
-<nav>
-    <div class="nav-wrapper background">
-        <div class="col s12">
-            <a href="{{url_for('ideas')}}" class="breadcrumb">Ideas</a>
-            <a class="breadcrumb">Search by {{searched_tag}}</a>
-        </div>
-    </div>
-</nav>
+<div class="secundary-nav">
+    <p class="secundary-nav__text"><a href="{{url_for('ideas')}}">Ideas</a> > Search results</p>
+</div>
 
 <h3 class="search-results">Search results</h3>
 <h5 class="search-results__sub search-results">for tag: <span class="bold">{{searched_tag}}</span></h5>
