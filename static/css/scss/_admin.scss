@@ -1,9 +1,14 @@
-.column-1 {
+.admin-title {
+    text-align: center;
+    padding-top: 1rem;
+}
 
-    &__row-1 {
+.column-1, .column-2 {
+
+    &__row {
         
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 70% 1fr 1fr;
 
         &--item-1 {
             grid-column: 1;
@@ -16,7 +21,15 @@
         &--item-3 {
             grid-column: 3;
         }
-    }
-    
 
+        &--btn-row {
+            display: grid;
+
+            &-btn {
+                margin: 1rem 0 2rem 0;
+                justify-self: center;
+                width: 50%;
+            }
+        }
+    }
 }
