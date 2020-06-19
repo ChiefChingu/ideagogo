@@ -60,7 +60,6 @@ def login():
         login_username = users.find_one(
             {"email": form.email.data}, {"_id": 0, "username": 1}
         )
-        print(login_username["username"])
         if check_password_hash(login_user["password"], request.form["password"]):
             session["username"] = login_username["username"]
             if login_user["email"] == "admin@admin.com":
@@ -352,8 +351,16 @@ def downvote_idea(idea_id):
 
 @app.route("/contact")
 def contact():
-    return render_template("pages/contact.html", title="Contact")
+    username = session.get("username")
+    users = mongo.db.users
+    loggedInUser = users.find_one({"username": session.get("username")})
+    print(loggedInUser)
+    return render_template(
+        "pages/contact.html", title="Contact", loggedInUser=loggedInUser
+    )
 
+
+# return render_template("pages/contact.html", title="Contact", user=loggedInUser)
 
 #########################
 # Admin pages
