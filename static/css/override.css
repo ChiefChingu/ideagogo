@@ -27,6 +27,11 @@ header {
   margin-bottom: 5rem;
 }
 
+.h3-heading {
+  text-align: center;
+  padding-top: 1rem;
+}
+
 .container {
   margin-top: 2rem;
 }
@@ -354,11 +359,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
   padding-bottom: 0.5rem;
 }
 
-.admin-title {
-  text-align: center;
-  padding-top: 1rem;
-}
-
 .column-1__row, .column-2__row {
   display: grid;
   grid-template-columns: 70% 1fr 1fr;
@@ -671,11 +671,6 @@ h5 {
   display: none;
 }
 
-.contact-form-title {
-  text-align: center;
-  padding-top: 1rem;
-}
-
 .contact-form-text {
   padding-bottom: 1rem;
   font-size: 1.2rem;
@@ -759,10 +754,6 @@ h5 {
   }
 
   /* End contact form */
-}
-.about-title {
-  text-align: center;
-  padding-top: 1rem;
 }
 
 /*# sourceMappingURL=override.css.map */
