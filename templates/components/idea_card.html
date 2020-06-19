@@ -45,19 +45,27 @@
 
             <h6 class="activator card-reveal-grid__row5">Category:</h6>
             <div class="activator card-reveal-grid__row6">
-                <div class="card-reveal-grid__row6--item">{{idea.category_name}}</div>
+                <form action="{{ url_for('search_by_category') }}" method="POST">
+                    <div class="input-field">
+                        <input type="hidden" name="category_name" value="{{idea.category_name}}">
+                    </div>
+                    <!-- <div class="idea-details__category"> -->
+                    <button class="card-reveal-grid__row6--item" type="submit">{{idea.category_name}}</button>
+                </form>
             </div>
-            <div class="card-reveal-grid__row7">
-                <h6>Tags:</h6>
-            </div>
-            <div class="card-reveal-grid__row8">
-                <div class="card-reveal-grid__row8--tag">{{idea.idea_tag1}}</div>
-                <div class="card-reveal-grid__row8--tag">{{idea.idea_tag2}}</div>
-                <div class="card-reveal-grid__row8--tag">{{idea.idea_tag3}}</div>
-            </div>
-            <p class="card-reveal-grid__row9"><a class="waves-effect waves-light btn"
-                    href="{{url_for('idea_details', idea_id=idea._id)}}">view details</a>
-            </p>
         </div>
+
+        <div class="card-reveal-grid__row7">
+            <h6>Tags:</h6>
+        </div>
+        <div class="card-reveal-grid__row8">
+            <div class="card-reveal-grid__row8--tag">{{idea.idea_tag1}}</div>
+            <div class="card-reveal-grid__row8--tag">{{idea.idea_tag2}}</div>
+            <div class="card-reveal-grid__row8--tag">{{idea.idea_tag3}}</div>
+        </div>
+        <p class="card-reveal-grid__row9"><a class="card-reveal-grid__row9--item waves-effect waves-light btn"
+                href="{{url_for('idea_details', idea_id=idea._id)}}">view details</a>
+        </p>
     </div>
+</div>
 </div>
