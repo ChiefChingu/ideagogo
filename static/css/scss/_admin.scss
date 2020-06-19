@@ -28,3 +28,24 @@
         }
     }
 }
+
+.overview {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.btn-row {
+    display: grid;
+    
+    &-btn {
+        margin: 1rem 0 2rem 0;
+        justify-self: center;
+        width: 50%;
+    }
+
+    &-link {
+        grid-row: 2;
+        justify-self: center;
+    }
+}

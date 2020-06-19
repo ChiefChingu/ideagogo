@@ -1,5 +1,4 @@
 .chip {
-    
     color: white;
     max-width: 125px;
     width: 90%;
@@ -8,6 +7,15 @@
     padding: 0 0.5rem;
     border-radius: 0;
     font-weight: initial;
+
+    &__category {
+        background-color: $secBlue;
+    }
+
+    &__tag {
+        background-color: $tagcolor;
+        color: black;
+    }
 
 }
 

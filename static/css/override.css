@@ -381,6 +381,25 @@ textarea.materialize-textarea:focus:not([readonly]) {
   width: 50%;
 }
 
+.overview {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.btn-row {
+  display: grid;
+}
+.btn-row-btn {
+  margin: 1rem 0 2rem 0;
+  justify-self: center;
+  width: 50%;
+}
+.btn-row-link {
+  grid-row: 2;
+  justify-self: center;
+}
+
 .chip {
   color: white;
   max-width: 125px;
@@ -390,6 +409,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
   padding: 0 0.5rem;
   border-radius: 0;
   font-weight: initial;
+}
+.chip__category {
+  background-color: #86B3D0;
+}
+.chip__tag {
+  background-color: #d8d9dd;
+  color: black;
 }
 
 .card-tags {
