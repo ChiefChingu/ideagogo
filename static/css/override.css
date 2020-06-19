@@ -178,10 +178,12 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 .card-reveal-grid__row5 {
   justify-self: center;
-  padding-bottom: 1rem;
 }
 .card-reveal-grid__row6 {
   justify-self: center;
+}
+.card-reveal-grid__row6 .input-field {
+  margin-top: 0;
 }
 .card-reveal-grid__row6--item {
   background-color: #86B3D0;
@@ -283,10 +285,14 @@ textarea.materialize-textarea:focus:not([readonly]) {
   justify-self: center;
   font-size: 1rem;
 }
+.idea-details__wrapper .input-field {
+  margin: 0;
+}
 .idea-details__category {
   display: grid;
   row-gap: 1rem;
   grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 0.5rem;
 }
 .idea-details__category--title {
   text-align: center;

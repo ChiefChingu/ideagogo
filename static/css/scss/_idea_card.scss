@@ -69,11 +69,14 @@
 
     &__row5 {
         justify-self: center;
-        padding-bottom: 1rem;
     }
 
     &__row6 {
         justify-self: center;
+
+        .input-field {
+            margin-top: 0;
+        }
 
         &--item {
             background-color: $secBlue;

@@ -77,10 +77,15 @@
 
     }
 
+    &__wrapper .input-field{
+        margin: 0;
+    }
+    
     &__category {
         display: grid;
         row-gap: 1rem;
         grid-template-columns: repeat(3, 1fr);
+        padding-bottom: 0.5rem;
 
         &--title {
             text-align: center;
