@@ -138,6 +138,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
   grid-template-columns: repeat(4, 1fr);
   column-gap: 0.6rem;
   font-size: 1.5rem;
+  align-items: center;
 }
 .card-grid-front__fr1 {
   justify-self: end;
@@ -490,17 +491,6 @@ nav {
   display: block;
 }
 
-.carousel {
-  margin-top: 0rem;
-  height: 400px;
-}
-.carousel .carousel-item {
-  background-color: white;
-}
-.carousel .carousel-item .card {
-  width: 80%;
-}
-
 .hero-home {
   background-color: #e0f0fa;
 }
@@ -550,7 +540,29 @@ h5 {
 }
 
 .hero-ideas {
-  background-color: white;
+  background-color: #e0f0fa;
+  padding-bottom: 1rem;
+}
+.hero-ideas__heading {
+  font-weight: 600;
+  text-align: center;
+  padding-top: 1rem;
+}
+.hero-ideas__grid {
+  display: grid;
+}
+.hero-ideas .card {
+  width: 90%;
+  margin: 0 auto;
+  color: black;
+}
+.hero-ideas .card .card-title {
+  font-weight: 600;
+  color: black;
+  text-align: center;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 0.3rem;
 }
 .hero-ideas__cta-bar {
   background-color: #e0f0fa;
@@ -560,6 +572,7 @@ h5 {
 .hero-ideas__cta-bar--text {
   text-align: center;
   padding: 1rem;
+  margin-top: 0;
 }
 .hero-ideas__cta-bar--btn {
   display: block;

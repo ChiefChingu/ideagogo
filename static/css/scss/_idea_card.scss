@@ -25,6 +25,7 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: 0.6rem;
     font-size: 1.5rem;
+    align-items: center;
 
     &__fr1 {
         justify-self: end;

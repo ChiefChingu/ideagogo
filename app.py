@@ -127,7 +127,6 @@ def ideas():
     ideas = mongo.db.ideas
     for doc in ideas.find().sort("total_votes", -1).limit(1):
         votes = doc
-        print(votes)
 
     return render_template(
         "pages/ideas/ideas.html",

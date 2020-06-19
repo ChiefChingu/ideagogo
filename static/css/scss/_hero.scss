@@ -55,7 +55,34 @@ h5 {
 }
 
 .hero-ideas {
-    background-color: white;
+    background-color: $mainBlue;
+    padding-bottom: 1rem;
+
+    &__heading {
+        font-weight: 600;
+        text-align: center;
+        padding-top: 1rem;
+        
+    }
+
+    &__grid {
+        display: grid;
+    }
+
+    .card {
+        width: 90%;
+        margin: 0 auto;
+        color: black;
+
+        .card-title {
+            font-weight: 600;
+            color: black;
+            text-align: center;
+            width: 100%;
+            background-color: rgba(255, 255, 255, .7);
+            padding: 0.3rem;
+        }
+    }
 
     &__cta-bar {
         background-color: $mainBlue;
@@ -64,7 +91,8 @@ h5 {
     
         &--text {
             text-align: center;  
-            padding: 1rem;    
+            padding: 1rem;
+            margin-top: 0;    
         }
     
         &--btn {
