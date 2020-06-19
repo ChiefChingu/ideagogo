@@ -739,5 +739,9 @@ h5 {
 
   /* End contact form */
 }
+.about-title {
+  text-align: center;
+  padding-top: 1rem;
+}
 
 /*# sourceMappingURL=override.css.map */

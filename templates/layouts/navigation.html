@@ -10,6 +10,7 @@
                 <ul>
                     <li><a href="{{url_for('home')}}">Home</a></li>
                     <li><a href="{{url_for('ideas')}}">Ideas</a></li>
+                    <li><a href="{{url_for('about')}}">About</a></li>
                     <li><a href="{{url_for('contact')}}">Contact</a></li>
                     {% if not 'username' in session %}
                     <li><a href="{{url_for('register')}}">Register</a></li>

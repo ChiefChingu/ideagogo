@@ -354,13 +354,17 @@ def contact():
     username = session.get("username")
     users = mongo.db.users
     loggedInUser = users.find_one({"username": session.get("username")})
-    print(loggedInUser)
+
     return render_template(
         "pages/contact.html", title="Contact", loggedInUser=loggedInUser
     )
 
 
-# return render_template("pages/contact.html", title="Contact", user=loggedInUser)
+@app.route("/about")
+def about():
+
+    return render_template("pages/about.html", title="About")
+
 
 #########################
 # Admin pages
