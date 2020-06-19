@@ -354,10 +354,18 @@ textarea.materialize-textarea:focus:not([readonly]) {
   padding-bottom: 0.5rem;
 }
 
-.add-idea-btn {
-  position: absolute;
-  top: -80px;
-  z-index: 99;
+.column-1__row-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.column-1__row-1--item-1 {
+  grid-column: 1;
+}
+.column-1__row-1--item-2 {
+  grid-column: 2;
+}
+.column-1__row-1--item-3 {
+  grid-column: 3;
 }
 
 .chip {

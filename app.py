@@ -375,7 +375,7 @@ def about():
 def admin():
     if session.get("username") == "Master":
         return render_template(
-            "pages/categories/admin.html",
+            "pages/admin.html",
             categories=mongo.db.categories.find().sort("category_name"),
             tags=mongo.db.tags.find().sort("tag_name"),
         )
