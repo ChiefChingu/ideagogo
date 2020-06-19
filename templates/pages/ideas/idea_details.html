@@ -96,16 +96,19 @@
 
     <p>Details: {{idea.idea_details}}</p>
 
-
-
     <div class="divider"></div>
 
-    <div class="idea-details__category">
-        <h6 class="idea-details__category--title">Category:</h6>
-        <div class="idea-details__category--item">
-            {{idea.category_name}}
+    <form action="{{ url_for('search_by_category') }}" method="POST">
+        <div class="input-field">
+            <input type="hidden" name="category_name" value="{{idea.category_name}}">
         </div>
-    </div>
+        <div class="idea-details__category">
+            <h6 class="idea-details__category--title">Category:</h6>
+            <button class="idea-details__category--item" type="submit">{{idea.category_name}}</button>
+        </div>
+    </form>
+
+
 
     <div class="idea-details__tags">
         <h6 class="idea-details__tags--title">Tags:</h6>
