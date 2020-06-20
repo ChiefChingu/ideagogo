@@ -790,10 +790,13 @@ h5 {
   background-color: #e84d74;
   color: white;
   display: grid;
+  grid-template-columns: 10% 80% 10%;
 }
 .alert-box__alert {
+  grid-column: 2;
   justify-self: center;
   align-self: center;
+  text-align: center;
 }
 
 /*# sourceMappingURL=override.css.map */

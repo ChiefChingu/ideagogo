@@ -62,11 +62,11 @@ def login():
         )
         if check_password_hash(login_user["password"], request.form["password"]):
             session["username"] = login_username["username"]
+            username = session.get("username")
             if login_user["email"] == "admin@admin.com":
                 session["username"] = "Master"
             flash(
-                f"You have been logged in! Welcome {login_username} with email: {form.email.data}!",
-                "success",
+                f"You have been logged in! Welcome {username}!", "success",
             )
             return redirect(url_for("ideas"))
         flash("Login Unsuccessful. Please check username and password", "danger")
@@ -86,6 +86,10 @@ def login():
 @app.route("/logout")
 def logout():
     session.pop("username")
+    flash(
+        f"You have been logged out successfully!", "success",
+    )
+
     return redirect(url_for("ideas"))
 
 
