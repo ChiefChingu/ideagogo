@@ -1,0 +1,16 @@
+.alert-box {
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    height: 72px;
+    background-color: $mainPink;
+    color: white;
+    display: grid;
+
+    &__alert {
+        justify-self: center;
+        align-self: center;
+    }
+
+}

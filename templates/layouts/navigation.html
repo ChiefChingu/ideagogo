@@ -39,4 +39,15 @@
     </div>
     <a href="{{url_for('home')}}"><img class="logo" src="static/images/chingu-logo-cropped.png" alt="logo"></a>
 </div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert-box">
+    <div class="alert-box__alert alert-{{ category }}">
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
 {% endblock %}
