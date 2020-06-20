@@ -255,6 +255,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 .idea-details__cta--btn {
   justify-self: center;
+  border: none;
 }
 .idea-details__votes {
   grid-column: 2/6;
