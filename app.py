@@ -8,7 +8,6 @@ import email_validator
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import date
 
-
 if path.exists("env.py"):
     import env
 
@@ -469,5 +468,5 @@ def add_tag():
 
 
 if __name__ == "__main__":
-    # app.run(debug=True)
+    app.run(debug=True)
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
