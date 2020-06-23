@@ -14,7 +14,7 @@
 
     <h1>{{idea.idea_title}}</h1>
     <img class="image-container__detail" src="{{ url_for('file', filename=idea.image_name) }}" max-width="800"
-        height="300">
+        height="300" alt="{{idea.image_name}}">
 
     <!-- Edit: only visible for idea owner and admin -->
     {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
