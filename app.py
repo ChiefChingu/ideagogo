@@ -264,12 +264,14 @@ def search_by_category():
     ideas = mongo.db.ideas
     searched_category = request.form.get("category_name")
     results_searched_category = ideas.find({"category_name": searched_category})
+    number_searched_category = results_searched_category.count()
     return render_template(
         "pages/search/category_search.html",
         queried_category=results_searched_category,
         ideas=mongo.db.ideas.find(),
         categories=mongo.db.categories.find().sort("category_name"),
         searched_category=searched_category,
+        number_searched_category=number_searched_category,
     )
 
 
@@ -286,12 +288,14 @@ def search_by_tag():
             ]
         }
     )
+    number_searched_tag = results_searched_tag.count()
     return render_template(
         "pages/search/tag_search.html",
         queried_tag=results_searched_tag,
         ideas=mongo.db.ideas.find(),
         tags=mongo.db.tags.find().sort("tag_name"),
         searched_tag=searched_tag,
+        number_searched_tag=number_searched_tag,
     )
 
 
