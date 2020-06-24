@@ -116,6 +116,9 @@ def insert_image(idea_id):
         ideas.update(
             {"_id": ObjectId(idea_id)}, {"$set": {"image_name": image.filename}}
         )
+
+        flash(f"Image updated!", "success")
+
     return redirect(url_for("idea_details", idea_id=idea_id))
 
 
@@ -195,6 +198,8 @@ def insert_idea():
     date_added = today.strftime("%B %d, %Y")
     ideas.update({"_id": ObjectId(idea_id)}, {"$set": {"date_added": date_added}})
 
+    flash(f"Idea created!", "success")
+
     return redirect(url_for("idea_details", idea_id=x.inserted_id))
 
 
@@ -235,12 +240,17 @@ def update_idea(idea_id):
             }
         },
     )
+
+    flash(f"Idea updated!", "success")
+
     return redirect(url_for("idea_details", idea_id=idea_id))
 
 
 @app.route("/delete_idea/<idea_id>")
 def delete_idea(idea_id):
     mongo.db.ideas.remove({"_id": ObjectId(idea_id)})
+
+    flash(f"Idea deleted!", "success")
     return redirect(url_for("ideas"))
 
 
