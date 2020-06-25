@@ -675,6 +675,11 @@ h5 {
   margin-top: 3rem;
 }
 
+.picture-label {
+  position: relative;
+  top: -12px;
+}
+
 .modal {
   max-height: 80%;
   width: 90%;

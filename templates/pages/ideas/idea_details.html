@@ -154,11 +154,15 @@
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h4>Edit picture</h4>
-            <form action="{{ url_for('insert_image', idea_id=idea._id) }}" method="POST" class="col s12"
+            <form action="{{ url_for('insert_image', idea_id=idea._id) }}" method="POST"
                 enctype="multipart/form-data">
-                <div class="input-field col s12">
-                    <input type="file" name="image" id="image">
+                <div class="edit-idea__add-image">
+                    <div class="input-field">
+                        <label>Select a new picture from your own device</label>
+                        <input type="file" name="image" id="image">
+                    </div>
                 </div>
+                
                 <div class="modal-footer">
                     <button class="btn waves-effect waves-light" type="submit">Save new picture</button>
                     <a href="{{url_for('idea_details', idea_id=idea._id)}}"
