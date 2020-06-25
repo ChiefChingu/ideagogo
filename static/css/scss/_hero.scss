@@ -58,12 +58,6 @@ h5 {
     background-color: $mainBlue;
     padding-bottom: 1rem;
 
-    a {
-        @include laptop {
-            width: 25%;
-        }
-    }
-
     &__heading {
         font-weight: 600;
         text-align: center;
@@ -79,6 +73,10 @@ h5 {
         width: 90%;
         margin: 0 auto;
         color: black;
+
+        @include tablet {
+            width: 35%;
+        }
 
         @include laptop {
             width: 25%;

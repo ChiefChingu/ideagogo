@@ -54,9 +54,15 @@ header {
 .my-grid {
   display: grid;
 }
+@media (min-width: 768px) {
+  .my-grid {
+    grid-template-columns: repeat(3, minmax(225px, 1fr));
+    grid-gap: 1rem;
+  }
+}
 @media (min-width: 992px) {
   .my-grid {
-    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    grid-template-columns: repeat(4, minmax(225px, 1fr));
     grid-gap: 1rem;
   }
 }
@@ -628,6 +634,12 @@ nav {
   }
 }
 
+.container-ideas {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+}
+
 .hero-home {
   background-color: #e0f0fa;
 }
@@ -680,11 +692,6 @@ h5 {
   background-color: #e0f0fa;
   padding-bottom: 1rem;
 }
-@media (min-width: 992px) {
-  .hero-ideas a {
-    width: 25%;
-  }
-}
 .hero-ideas__heading {
   font-weight: 600;
   text-align: center;
@@ -697,6 +704,11 @@ h5 {
   width: 90%;
   margin: 0 auto;
   color: black;
+}
+@media (min-width: 768px) {
+  .hero-ideas .card {
+    width: 35%;
+  }
 }
 @media (min-width: 992px) {
   .hero-ideas .card {

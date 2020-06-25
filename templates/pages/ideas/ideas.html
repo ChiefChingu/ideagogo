@@ -47,13 +47,14 @@
 {% endblock %}
 
 {% block content %}
+<div class="container-ideas">
+  {% include 'components/search_cat_tag.html' %}
 
-{% include 'components/search_cat_tag.html' %}
-
-<div class="my-grid">
-
-  {% include 'components/idea_card.html' %}
-
+  <div class="my-grid">
+  
+    {% include 'components/idea_card.html' %}
+  
+  </div>
 </div>
 
 {% endblock %}
