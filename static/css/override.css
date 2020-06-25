@@ -674,6 +674,11 @@ h5 {
   background-color: #e0f0fa;
   padding-bottom: 1rem;
 }
+@media (min-width: 992px) {
+  .hero-ideas a {
+    width: 25%;
+  }
+}
 .hero-ideas__heading {
   font-weight: 600;
   text-align: center;
@@ -686,6 +691,11 @@ h5 {
   width: 90%;
   margin: 0 auto;
   color: black;
+}
+@media (min-width: 992px) {
+  .hero-ideas .card {
+    width: 25%;
+  }
 }
 .hero-ideas .card .card-title {
   font-weight: 600;

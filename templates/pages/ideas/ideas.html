@@ -4,7 +4,7 @@
   <h3 class=hero-ideas__heading>Best idea</h3>
   <h5>Most <span class="bold">votes</span> to date</h5>
 
-  <a href="{{url_for('idea_details', idea_id=votes._id)}}">
+  <a href="{{url_for('idea_details', idea_id=votes._id)}}" class="hero-ideas__card">
     <div class="card">
       <div class="card-image">
         <img src="{{ url_for('file', filename=votes.image_name) }}">
