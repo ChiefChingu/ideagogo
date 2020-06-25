@@ -4,8 +4,11 @@
     &__btn {
         margin: 2rem auto 1rem auto;
         display: block;
-    }
-    
+
+        @include laptop {
+            width: 100px;
+        }
+    }   
 }
 
 .center {

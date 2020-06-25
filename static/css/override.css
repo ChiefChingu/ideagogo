@@ -5,6 +5,11 @@
   margin: 2rem auto 1rem auto;
   display: block;
 }
+@media (min-width: 992px) {
+  .content-section__btn {
+    width: 100px;
+  }
+}
 
 .center {
   text-align: center;
@@ -34,6 +39,11 @@ header {
 
 .container {
   margin-top: 2rem;
+}
+@media (min-width: 992px) {
+  .container {
+    width: 20%;
+  }
 }
 
 .wrapper {
