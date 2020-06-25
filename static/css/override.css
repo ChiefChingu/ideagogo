@@ -458,13 +458,6 @@ nav {
   letter-spacing: 0.1rem;
 }
 
-.secundary-nav {
-  padding-top: 0.3rem;
-}
-.secundary-nav__text {
-  font-size: 0.8rem;
-}
-
 .site-nav {
   top: 0;
   border-top: 2px solid #e84d74;
@@ -473,6 +466,35 @@ nav {
   background-color: #fff;
   width: 100%;
   z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+@media (min-width: 992px) {
+  .site-nav {
+    grid-template-columns: 5% 1fr 1fr 1fr 5%;
+    grid-template-rows: 1fr;
+  }
+}
+@media (min-width: 1200px) {
+  .site-nav {
+    grid-template-columns: 15% 1fr 1fr 1fr 15%;
+    grid-template-rows: 1fr;
+  }
+}
+.site-nav a {
+  grid-column: 2;
+  grid-row: 1;
+}
+@media (min-width: 992px) {
+  .site-nav a {
+    grid-column: 3;
+  }
+}
+.site-nav a .logo {
+  height: 55px;
+  margin: 0.5rem auto;
+  display: block;
 }
 .site-nav__menu-icon {
   width: 20px;
@@ -481,6 +503,11 @@ nav {
   top: 25px;
   right: 20px;
   z-index: 3;
+}
+@media (min-width: 992px) {
+  .site-nav__menu-icon {
+    display: none;
+  }
 }
 .site-nav__menu-icon::before {
   content: "";
@@ -561,10 +588,28 @@ nav {
   color: #e84d74;
 }
 
-.logo {
-  height: 55px;
-  margin: 0.5rem auto;
-  display: block;
+.desktop-nav {
+  display: none;
+}
+.desktop-nav ul li a {
+  color: #e84d74;
+}
+@media (min-width: 992px) {
+  .desktop-nav {
+    display: initial;
+    background-color: white;
+  }
+  .desktop-nav__left {
+    grid-column: 2;
+  }
+  .desktop-nav__middle {
+    grid-column: 3;
+  }
+  .desktop-nav__right {
+    grid-column: 4;
+    display: grid;
+    justify-items: right;
+  }
 }
 
 .hero-home {

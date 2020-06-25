@@ -20,8 +20,6 @@
                 </ul>
             </nav>
 
-
-
             <div class="site-nav__overlay-content">
                 {% if 'username' in session %}
                 <p>You are logged in as:</p>
@@ -38,7 +36,30 @@
             </div>
         </div>
     </div>
-    <a href="{{url_for('home')}}"><img class="logo"
+    <nav class="desktop-nav desktop-nav__left">
+        <ul>
+            <li><a href="{{url_for('home')}}">Home</a></li>
+            <li><a href="{{url_for('ideas')}}">Ideas</a></li>
+            <li><a href="{{url_for('about')}}">About</a></li>
+            <li><a href="{{url_for('contact')}}">Contact</a></li>
+        </ul>
+    </nav>
+    <nav class="desktop-nav desktop-nav__right">
+        <ul>
+            {% if not 'username' in session %}
+            <li><a href="{{url_for('register')}}">Register</a></li>
+            <li><a href="{{url_for('login')}}">Log in</a></li>
+            {% endif %}
+            {% if 'username' in session %}
+            <li>{{session["username"]}}</li>    
+            <li><a class="" href="{{url_for('logout')}}">Log Out</a></li>
+            {% endif %}
+            {% if session["username"] == "Master" %}
+            <li><a href="{{url_for('admin')}}">Admin</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <a href="{{url_for('home')}}"><img class="logo desktop-nav__middle"
             src="http://ideagogo.herokuapp.com/static/images/chingu-logo-cropped.png" alt="logo"></a>
 </div>
 {% with messages = get_flashed_messages(with_categories=true) %}
