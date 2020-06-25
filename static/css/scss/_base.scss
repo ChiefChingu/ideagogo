@@ -30,8 +30,12 @@ header {
 
 .my-grid {
     display: grid;
-    // grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    // grid-gap: 1rem;
+
+    @include laptop {
+        grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+        grid-gap: 1rem;
+    }
+    
 }
 
 .my-grid-2 {
