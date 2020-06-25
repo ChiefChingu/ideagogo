@@ -8,8 +8,16 @@
         padding-bottom: 3rem;
         column-gap: 2rem;;
     }
+
+    &__add-image {
+        .input-field label {
+            position: relative;
+            top: -12px;
+        }
+    }
 }
 
 .input-field {
     margin-top: 3rem;
 }
+
