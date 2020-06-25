@@ -18,12 +18,6 @@
   justify-self: center;
 }
 
-html, body {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  height: 100%;
-}
-
 h1 {
   text-align: center;
   margin: 1.5rem 0 1rem 0;
@@ -807,8 +801,10 @@ h5 {
 }
 
 footer {
-  background-color: #858BA0;
-  margin: 0;
+  margin-top: 5rem;
+  padding: 2rem 1rem;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 /*# sourceMappingURL=override.css.map */
