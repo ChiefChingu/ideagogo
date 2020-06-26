@@ -133,9 +133,20 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .card {
   font-size: 0.8rem;
 }
+@media (min-width: 768px) {
+  .card .card-content .card-title {
+    display: grid;
+    grid-template-rows: 175px 1fr;
+  }
+}
 
 .card-content-title {
   text-align: center;
+}
+@media (min-width: 992px) {
+  .card-content-title {
+    font-size: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {

@@ -3,11 +3,27 @@
 
     font-size: 0.8rem;
 
+    @include tablet {
+
+        .card-content .card-title{
+
+            display: grid;
+            grid-template-rows: 175px 1fr;
+
+        }
+    }
+
+   
+
 }
 
 .card-content-title {
 
     text-align: center;
+
+    @include laptop {
+        font-size: 1.5rem;
+    }
 
 }
 
