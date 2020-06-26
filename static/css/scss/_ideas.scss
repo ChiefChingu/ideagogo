@@ -4,4 +4,16 @@
     width: 90%; 
 }
 
+.my-grid {
+    display: grid;
 
+    @include tablet {
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+        grid-gap: 1rem;
+    }
+    
+    @include laptop {
+        grid-template-columns: repeat(4, minmax(225px, 1fr));
+        grid-gap: 1rem;
+    }
+}

@@ -28,19 +28,6 @@ header {
 }
 
 
-.my-grid {
-    display: grid;
-
-    @include tablet {
-        grid-template-columns: repeat(3, minmax(225px, 1fr));
-        grid-gap: 1rem;
-    }
-    
-    @include laptop {
-        grid-template-columns: repeat(4, minmax(225px, 1fr));
-        grid-gap: 1rem;
-    }
-}
 
 .my-grid-2 {
     display: grid;

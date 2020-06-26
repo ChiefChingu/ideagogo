@@ -11,6 +11,16 @@
 
 }
 
+.card .card-image img {
+
+    // width: 100%;
+    
+    @include tablet {
+        height: 230px;
+        object-fit: cover;
+    }
+}
+
 // Front side
 .grid-wrapper {
 

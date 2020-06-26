@@ -51,22 +51,6 @@ header {
   margin: 0 auto;
 }
 
-.my-grid {
-  display: grid;
-}
-@media (min-width: 768px) {
-  .my-grid {
-    grid-template-columns: repeat(3, minmax(225px, 1fr));
-    grid-gap: 1rem;
-  }
-}
-@media (min-width: 992px) {
-  .my-grid {
-    grid-template-columns: repeat(4, minmax(225px, 1fr));
-    grid-gap: 1rem;
-  }
-}
-
 .my-grid-2 {
   display: grid;
   grid-template-columns: 1fr;
@@ -152,6 +136,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .card-content-title {
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .card .card-image img {
+    height: 230px;
+    object-fit: cover;
+  }
 }
 
 .grid-wrapper {
@@ -640,6 +631,22 @@ nav {
   width: 90%;
 }
 
+.my-grid {
+  display: grid;
+}
+@media (min-width: 768px) {
+  .my-grid {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    grid-gap: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .my-grid {
+    grid-template-columns: repeat(4, minmax(225px, 1fr));
+    grid-gap: 1rem;
+  }
+}
+
 .hero-home {
   background-color: #e0f0fa;
 }
@@ -708,6 +715,9 @@ h5 {
 @media (min-width: 768px) {
   .hero-ideas .card {
     width: 35%;
+  }
+  .hero-ideas .card .card-image {
+    height: 380px;
   }
 }
 @media (min-width: 992px) {
