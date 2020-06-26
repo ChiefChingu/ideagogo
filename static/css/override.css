@@ -401,6 +401,23 @@ textarea.materialize-textarea:focus:not([readonly]) {
   padding-bottom: 0.5rem;
 }
 
+@media (min-width: 768px) {
+  #modal1, #modal2 {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  #modal1, #modal2 {
+    width: 20%;
+  }
+}
+
+@media (min-width: 992px) {
+  #modal2 .modal-content {
+    text-align: center;
+  }
+}
+
 .column-1__row, .column-2__row {
   display: grid;
   grid-template-columns: 70% 1fr 1fr;

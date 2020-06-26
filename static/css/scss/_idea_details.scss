@@ -183,3 +183,28 @@
     text-align: center;
     padding-bottom: 0.5rem;
 }
+
+#modal1, #modal2 {
+
+    @include tablet {
+
+        width: 50%;
+    }
+
+    @include laptop {
+        
+        width: 20%;
+
+    }
+}
+
+#modal2 {
+
+    @include laptop {
+        
+        .modal-content {
+
+            text-align: center;
+        }
+    }
+}
