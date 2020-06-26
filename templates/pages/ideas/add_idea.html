@@ -1,105 +1,104 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-
-<div class="add-idea">
-    <h3>Add idea</h3>
-
-    <form action="{{ url_for('insert_idea') }}" method="POST" class="col s12" enctype="multipart/form-data">
-
-        <!-- Set idea name -->
-        <div class="input-field">
-            <textarea id="textarea1" name="idea_title" class="materialize-textarea" data-length="50"
-                maxlength="50"></textarea></textarea>
-            <label>Idea Name (max. 50 characters)</label>
-        </div>
-
-        <!-- Set short description -->
-        <div class="input-field">
-            <textarea name="idea_summary" id="textarea2" class="materialize-textarea" data-length="120"
-                maxlength="120"></textarea>
-            <label>Describe your idea in a short sentence (max. 130 characters)</label>
-        </div>
-
-        <!-- Set details -->
-        <div class="input-field">
-            <textarea name="idea_details" id="textarea3" class="materialize-textarea" data-length="1000"
-                maxlength="1000"></textarea>
-            <label>Idea Details</label>
-        </div>
-
-        <!-- Select image -->
-        <div class="add-idea__add-image">
+<div class="container">
+    <div class="add-idea">
+        <h3>Add idea</h3>
+    
+        <form action="{{ url_for('insert_idea') }}" method="POST" class="col s12" enctype="multipart/form-data">
+    
+            <!-- Set idea name -->
             <div class="input-field">
-                <label>Select a picture from your own device</label>
-                <input type="file" name="image" id="image">
+                <textarea id="textarea1" name="idea_title" class="materialize-textarea" data-length="50"
+                    maxlength="50"></textarea></textarea>
+                <label>Idea Name (max. 50 characters)</label>
             </div>
-        </div>
-        
-
-
-        <!-- Set category -->
-        <div class="input-field">
-            <select id="category" name="category_name">
-                <option value="" disabled selected>Choose Category</option>
-                {% for category in categories %}
-                <option value="{{category.category_name}}">{{category.category_name}}</option>
-                {% endfor %}
-            </select>
-            <label>Select a category for your idea</label>
-        </div>
-
-        <!-- Set tags -->
-        <div class="input-field">
-            <select id="idea_tags1" name="idea_tag1">
-                <option value="" disabled selected>Choose tag</option>
-                {% for tag in all_tags %}
-                <option value="{{tag.tag_name}}">{{tag.tag_name}}</option>
-                {% endfor %}
-            </select>
-            <label>Select a tag for your idea</label>
-        </div>
-        <div class="input-field">
-            <select id="idea_tags2" name="idea_tag2">
-                <option value="" disabled selected>Choose tag</option>
-                {% for tag2 in all_tags_two %}
-                <option value="{{tag2.tag_name}}">{{tag2.tag_name}}</option>
-                {% endfor %}
-            </select>
-            <label>Select a tag for your idea</label>
-        </div>
-        <div class="input-field">
-            <select id="idea_tags3" name="idea_tag3">
-                <option value="" disabled selected>Choose tag</option>
-                {% for tag3 in all_tags_three %}
-                <option value="{{tag3.tag_name}}">{{tag3.tag_name}}</option>
-                {% endfor %}
-            </select>
-            <label>Select a tag for your idea</label>
-        </div>
-
-        <!-- Fixed username -->
-        <div class="row">
-            <input type="hidden" name="username" id="idea_author" class="materialize-textarea"
-                value="{{session['username']}}">
-        </div>
-
-        <!-- Fixed vote id -->
-        <div class="row">
-            <input type="hidden" name="username" id="idea_author" class="materialize-textarea"
-                value="{{session['username']}}">
-        </div>
-
-        <div class="add-idea__cta">
-            <button class="btn waves-effect waves-light" type="submit">
-                Add Idea
-            </button>
-            <a href="{{url_for('ideas')}}" class="waves-effect waves-light btn-secundary">cancel</a>
-        </div>
-    </form>
+    
+            <!-- Set short description -->
+            <div class="input-field">
+                <textarea name="idea_summary" id="textarea2" class="materialize-textarea" data-length="120"
+                    maxlength="120"></textarea>
+                <label>Describe your idea in a short sentence (max. 130 characters)</label>
+            </div>
+    
+            <!-- Set details -->
+            <div class="input-field">
+                <textarea name="idea_details" id="textarea3" class="materialize-textarea" data-length="1000"
+                    maxlength="1000"></textarea>
+                <label>Idea Details</label>
+            </div>
+    
+            <!-- Select image -->
+            <div class="add-idea__add-image">
+                <div class="input-field">
+                    <label>Select a picture from your own device</label>
+                    <input type="file" name="image" id="image">
+                </div>
+            </div>
+            
+    
+    
+            <!-- Set category -->
+            <div class="input-field">
+                <select id="category" name="category_name">
+                    <option value="" disabled selected>Choose Category</option>
+                    {% for category in categories %}
+                    <option value="{{category.category_name}}">{{category.category_name}}</option>
+                    {% endfor %}
+                </select>
+                <label>Select a category for your idea</label>
+            </div>
+    
+            <!-- Set tags -->
+            <div class="input-field">
+                <select id="idea_tags1" name="idea_tag1">
+                    <option value="" disabled selected>Choose tag</option>
+                    {% for tag in all_tags %}
+                    <option value="{{tag.tag_name}}">{{tag.tag_name}}</option>
+                    {% endfor %}
+                </select>
+                <label>Select a tag for your idea</label>
+            </div>
+            <div class="input-field">
+                <select id="idea_tags2" name="idea_tag2">
+                    <option value="" disabled selected>Choose tag</option>
+                    {% for tag2 in all_tags_two %}
+                    <option value="{{tag2.tag_name}}">{{tag2.tag_name}}</option>
+                    {% endfor %}
+                </select>
+                <label>Select a tag for your idea</label>
+            </div>
+            <div class="input-field">
+                <select id="idea_tags3" name="idea_tag3">
+                    <option value="" disabled selected>Choose tag</option>
+                    {% for tag3 in all_tags_three %}
+                    <option value="{{tag3.tag_name}}">{{tag3.tag_name}}</option>
+                    {% endfor %}
+                </select>
+                <label>Select a tag for your idea</label>
+            </div>
+    
+            <!-- Fixed username -->
+            <div class="row">
+                <input type="hidden" name="username" id="idea_author" class="materialize-textarea"
+                    value="{{session['username']}}">
+            </div>
+    
+            <!-- Fixed vote id -->
+            <div class="row">
+                <input type="hidden" name="username" id="idea_author" class="materialize-textarea"
+                    value="{{session['username']}}">
+            </div>
+    
+            <div class="add-idea__cta">
+                <button class="btn waves-effect waves-light" type="submit">
+                    Add Idea
+                </button>
+                <a href="{{url_for('ideas')}}" class="waves-effect waves-light btn-secundary">cancel</a>
+            </div>
+        </form>
+    </div>
 </div>
-
-
 
 
 {% endblock %}
