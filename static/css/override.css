@@ -799,6 +799,18 @@ h5 {
   gap: 2rem;
 }
 
+.container-search {
+  width: 90%;
+  margin-top: 2rem;
+  margin: 0 auto;
+}
+@media (min-width: 992px) {
+  .container-search {
+    max-width: 1280px;
+    width: 90%;
+  }
+}
+
 .search-results {
   text-align: center;
   margin: 1rem 0 0 0;
