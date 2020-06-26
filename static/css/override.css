@@ -249,9 +249,26 @@ textarea.materialize-textarea:focus:not([readonly]) {
   justify-self: center;
 }
 
+.container-idea-details {
+  margin-top: 2rem;
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+}
+@media (min-width: 992px) {
+  .container-idea-details {
+    width: 40%;
+  }
+}
+
 .idea-details h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: 1rem 0 2rem 0;
+}
+@media (min-width: 768px) {
+  .idea-details h1 {
+    font-size: 3rem;
+  }
 }
 .idea-details__edit-idea {
   margin-top: 1rem;
