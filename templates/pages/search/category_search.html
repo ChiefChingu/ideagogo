@@ -1,15 +1,19 @@
 {% extends 'layouts/base.html'%} {% block content %}
-<div class="container-search">
-    <div class="secundary-nav">
-        <p class="secundary-nav__text"><a href="{{url_for('ideas')}}">Ideas</a> > Search results</p>
+<main>
+    <div class="container-search">
+        <div class="secundary-nav">
+            <p class="secundary-nav__text"><a href="{{url_for('ideas')}}">Ideas</a> > Search results</p>
+        </div>
+
+        <h3 class="search-results">Search results ({{number_searched_category}})</h3>
+        <h5 class="search-results__sub search-results">for category: <span class="bold">{{searched_category}}</span>
+        </h5>
+        <div class="my-grid">
+            {% for idea in queried_category %}
+            {% include 'components/search_idea_card.html' %}
+            {% endfor %}
+        </div>
     </div>
-    
-    <h3 class="search-results">Search results ({{number_searched_category}})</h3>
-    <h5 class="search-results__sub search-results">for category: <span class="bold">{{searched_category}}</span></h5>
-    <div class="my-grid">
-        {% for idea in queried_category %}
-        {% include 'components/search_idea_card.html' %}
-        {% endfor %}
-    </div>    
-</div>
+</main>
+
 {% endblock %}

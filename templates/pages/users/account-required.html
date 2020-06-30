@@ -1,19 +1,20 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-<div class="container">
-    <div class="account-required">
-        <h3 class="center margin-bottom">Oops, that did not work...<span class="bold">yet</span></h3>
-        <h5 class="center margin-bottom">Do you want to vote on an idea? Or post an idea yourself? Great! To do this you
-            just need an account.</h5>
-        <a href="{{url_for('register')}}" class="waves-effect waves-light btn">create an
-            account</a>
-    
-        <h6 class="center margin-top">Do you have an account? Please log in <a href="{{url_for('login')}}">here</a>.
-        </h6>
+<main>
+    <div class="container">
+        <div class="account-required">
+            <h3 class="center margin-bottom">Oops, that did not work...<span class="bold">yet</span></h3>
+            <h5 class="center margin-bottom">Do you want to vote on an idea? Or post an idea yourself? Great! To do this
+                you
+                just need an account.</h5>
+            <a href="{{url_for('register')}}" class="waves-effect waves-light btn">create an
+                account</a>
+
+            <h6 class="center margin-top">Do you have an account? Please log in <a href="{{url_for('login')}}">here</a>.
+            </h6>
+        </div>
     </div>
-</div>
 
-
-
+</main>
 {% endblock %}

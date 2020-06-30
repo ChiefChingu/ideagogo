@@ -1,6 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% block hero %}
-<div class="hero-ideas">
+<section class="hero-ideas">
   <h3 class=hero-ideas__heading>Best idea</h3>
   <h5>Most <span class="bold">votes</span> to date</h5>
 
@@ -36,7 +36,7 @@
       </div>
     </div>
   </a>
-</div>
+</section>
 </div>
 
 <div class="hero-ideas__cta-bar">
@@ -47,14 +47,17 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-ideas">
-  {% include 'components/search_cat_tag.html' %}
+<main>
+  <div class="container-ideas">
+    {% include 'components/search_cat_tag.html' %}
 
-  <div class="my-grid">
-  
-    {% include 'components/idea_card.html' %}
-  
+    <div class="my-grid">
+
+      {% include 'components/idea_card.html' %}
+
+    </div>
   </div>
-</div>
+
+</main>
 
 {% endblock %}

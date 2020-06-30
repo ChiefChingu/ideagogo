@@ -7,189 +7,194 @@
 
 
 {% block content %}
-<div class="container-idea-details">
-    <div class="secundary-nav">
-        <p class="secundary-nav__text"><a href="{{url_for('ideas')}}">Ideas</a> > Idea details</p>
-    </div>
-    <div class="idea-details">
-
-        <h1>{{idea.idea_title}}</h1>
-        <img class="image-container__detail" src="{{ url_for('file', filename=idea.image_name) }}" max-width="800"
-            height="300" alt="{{idea.image_name}}">
-
-        <!-- Edit: only visible for idea owner and admin -->
-        {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
-        <div class="idea-details__edit-idea">
-            <div class="idea-details__edit-idea--item--left">
-                <a href="{{url_for('edit_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn-secundary">edit
-                    idea</a>
-            </div>
-            <div class="idea-details__edit-idea--item--right">
-                <a class="waves-effect waves-light modal-trigger btn-secundary" href="#modal1">Edit
-                    picture</a>
-            </div>
-            <div class="idea-details__edit-idea--delete">
-                <a href="#modal2" class="waves-effect waves-light modal-trigger btn-secundary">delete
-                    idea</a>
-            </div>
+<main>
+    <div class="container-idea-details">
+        <div class="secundary-nav">
+            <p class="secundary-nav__text"><a href="{{url_for('ideas')}}">Ideas</a> > Idea details</p>
         </div>
-        {% endif %}
+        <div class="idea-details">
 
+            <h1>{{idea.idea_title}}</h1>
+            <img class="image-container__detail" src="{{ url_for('file', filename=idea.image_name) }}" max-width="800"
+                height="300" alt="{{idea.image_name}}">
 
-        {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
-
-        {% endif %}
-
-        <div class="divider"></div>
-
-        <div class="grid-wrapper">
-
-            <div class="idea-details__votes">
-                <div class="idea-details__votes__fr1">
-                    <i class="material-icons">thumb_up</i>
+            <!-- Edit: only visible for idea owner and admin -->
+            {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
+            <div class="idea-details__edit-idea">
+                <div class="idea-details__edit-idea--item--left">
+                    <a href="{{url_for('edit_idea', idea_id=idea._id)}}"
+                        class="waves-effect waves-light btn-secundary">edit
+                        idea</a>
                 </div>
-                <div class="idea-details__votes__fr2">
-                    <p>{{idea.total_votes}}</p>
+                <div class="idea-details__edit-idea--item--right">
+                    <a class="waves-effect waves-light modal-trigger btn-secundary" href="#modal1">Edit
+                        picture</a>
                 </div>
-                <div class="idea-details__votes__fr3">
-                    <i class="material-icons">visibility</i>
-                </div>
-                <div class="idea-details__votes__fr4">
-                    <p>{{idea.views}}</p>
-                </div>
-                <div class="idea-details__votes__row2--left">
-                    votes
-                </div>
-                <div class="idea-details__votes__row2--right">
-                    views
+                <div class="idea-details__edit-idea--delete">
+                    <a href="#modal2" class="waves-effect waves-light modal-trigger btn-secundary">delete
+                        idea</a>
                 </div>
             </div>
-        </div>
-        {% set ns = namespace(found=false) %}
-        {% for user_vote in idea.user_votes %}
-        {% if session["username"] == user_vote %}
-        {% set cannotVoteAgain=true %}
-        {% set ns.found = true %}
-        {% endif %}
-        {% endfor %}
+            {% endif %}
 
-        {% if ns.found == true %}
-        <form action="{{ url_for('downvote_idea', idea_id=idea._id) }}" method="POST">
-            <div class="idea-details__cta">
-                <button class="btn-secundary waves-effect waves-light idea-details__cta--btn" type="submit"
-                    name="action">
-                    Remove my vote
-                </button>
-            </div>
-        </form>
-        {% else %}
-        <form action="{{ url_for('upvote_idea', idea_id=idea._id) }}" method="POST">
-            <div class="idea-details__cta">
-                <button class=" btn waves-effect waves-light idea-details__cta--btn" type="submit" name="action">
-                    Like this idea!
-                </button>
-            </div>
-        </form>
-        {% endif %}
-        <div class="sharethis">
-            <h6>Do you really like this idea? Ask your friends to like it too!</h6>
-        </div>
 
-        <div class="sharethis-inline-share-buttons"></div>
+            {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
 
-        <div class="divider"></div>
+            {% endif %}
 
-        <p>Details: {{idea.idea_details}}</p>
+            <div class="divider"></div>
 
-        <div class="divider"></div>
+            <div class="grid-wrapper">
 
-        <form action="{{ url_for('search_by_category') }}" method="POST">
-            <div class="idea-details__wrapper">
-                <div class="input-field">
-                    <input type="hidden" name="category_name" value="{{idea.category_name}}">
-                </div>
-            </div>
-            <div class="idea-details__category">
-                <h6 class="idea-details__category--title">Category:</h6>
-                <button class="idea-details__category--item" type="submit">{{idea.category_name}}</button>
-            </div>
-        </form>
-
-        <div class="idea-details__tags">
-            <h6 class="idea-details__tags--title">Tags:</h6>
-            <div class="idea-details__tags--row2">
-                <form action="{{ url_for('search_by_tag') }}" method="POST">
-                    <div class="input-field">
-                        <input type="hidden" name="tag_name" value="{{idea.idea_tag1}}">
+                <div class="idea-details__votes">
+                    <div class="idea-details__votes__fr1">
+                        <i class="material-icons">thumb_up</i>
                     </div>
-                    <button class="idea-details__tags--row2--item" type="submit">{{idea.idea_tag1}}</button>
-                </form>
-                <form action="{{ url_for('search_by_tag') }}" method="POST">
-                    <div class="input-field">
-                        <input type="hidden" name="tag_name" value="{{idea.idea_tag2}}">
+                    <div class="idea-details__votes__fr2">
+                        <p>{{idea.total_votes}}</p>
                     </div>
-                    <button class="idea-details__tags--row2--item" type="submit">{{idea.idea_tag2}}</button>
-                </form>
-                <form action="{{ url_for('search_by_tag') }}" method="POST">
-                    <div class="input-field">
-                        <input type="hidden" name="tag_name" value="{{idea.idea_tag3}}">
+                    <div class="idea-details__votes__fr3">
+                        <i class="material-icons">visibility</i>
                     </div>
-                    <button class="idea-details__tags--row2--item" type="submit">{{idea.idea_tag3}}</button>
-                </form>
+                    <div class="idea-details__votes__fr4">
+                        <p>{{idea.views}}</p>
+                    </div>
+                    <div class="idea-details__votes__row2--left">
+                        votes
+                    </div>
+                    <div class="idea-details__votes__row2--right">
+                        views
+                    </div>
+                </div>
             </div>
-        </div>
+            {% set ns = namespace(found=false) %}
+            {% for user_vote in idea.user_votes %}
+            {% if session["username"] == user_vote %}
+            {% set cannotVoteAgain=true %}
+            {% set ns.found = true %}
+            {% endif %}
+            {% endfor %}
 
-        <div class="divider divider__bottom-margin"></div>
-
-        <div class="idea-details__secundary grey-text">
-            <div class="idea-details__secundary--date">
-                <p>Date added:</p>
-                <p>{{idea.date_added}}</p>
+            {% if ns.found == true %}
+            <form action="{{ url_for('downvote_idea', idea_id=idea._id) }}" method="POST">
+                <div class="idea-details__cta">
+                    <button class="btn-secundary waves-effect waves-light idea-details__cta--btn" type="submit"
+                        name="action">
+                        Remove my vote
+                    </button>
+                </div>
+            </form>
+            {% else %}
+            <form action="{{ url_for('upvote_idea', idea_id=idea._id) }}" method="POST">
+                <div class="idea-details__cta">
+                    <button class=" btn waves-effect waves-light idea-details__cta--btn" type="submit" name="action">
+                        Like this idea!
+                    </button>
+                </div>
+            </form>
+            {% endif %}
+            <div class="sharethis">
+                <h6>Do you really like this idea? Ask your friends to like it too!</h6>
             </div>
-            <div class=idea-details__secundary--owner">
-                <p>Submitted by:</p>
-                <p>{{idea.username}}</p>
-            </div>
-        </div>
 
-        <!-- Modal edit image -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h4>Edit picture</h4>
-                <form action="{{ url_for('insert_image', idea_id=idea._id) }}" method="POST"
-                    enctype="multipart/form-data">
-                    <div class="edit-idea__add-image">
+            <div class="sharethis-inline-share-buttons"></div>
+
+            <div class="divider"></div>
+
+            <p>Details: {{idea.idea_details}}</p>
+
+            <div class="divider"></div>
+
+            <form action="{{ url_for('search_by_category') }}" method="POST">
+                <div class="idea-details__wrapper">
+                    <div class="input-field">
+                        <input type="hidden" name="category_name" value="{{idea.category_name}}">
+                    </div>
+                </div>
+                <div class="idea-details__category">
+                    <h6 class="idea-details__category--title">Category:</h6>
+                    <button class="idea-details__category--item" type="submit">{{idea.category_name}}</button>
+                </div>
+            </form>
+
+            <div class="idea-details__tags">
+                <h6 class="idea-details__tags--title">Tags:</h6>
+                <div class="idea-details__tags--row2">
+                    <form action="{{ url_for('search_by_tag') }}" method="POST">
                         <div class="input-field">
-                            <label>Select a new picture from your own device</label>
-                            <input type="file" name="image" id="image" required>
+                            <input type="hidden" name="tag_name" value="{{idea.idea_tag1}}">
                         </div>
-                    </div>
+                        <button class="idea-details__tags--row2--item" type="submit">{{idea.idea_tag1}}</button>
+                    </form>
+                    <form action="{{ url_for('search_by_tag') }}" method="POST">
+                        <div class="input-field">
+                            <input type="hidden" name="tag_name" value="{{idea.idea_tag2}}">
+                        </div>
+                        <button class="idea-details__tags--row2--item" type="submit">{{idea.idea_tag2}}</button>
+                    </form>
+                    <form action="{{ url_for('search_by_tag') }}" method="POST">
+                        <div class="input-field">
+                            <input type="hidden" name="tag_name" value="{{idea.idea_tag3}}">
+                        </div>
+                        <button class="idea-details__tags--row2--item" type="submit">{{idea.idea_tag3}}</button>
+                    </form>
+                </div>
+            </div>
 
+            <div class="divider divider__bottom-margin"></div>
+
+            <div class="idea-details__secundary grey-text">
+                <div class="idea-details__secundary--date">
+                    <p>Date added:</p>
+                    <p>{{idea.date_added}}</p>
+                </div>
+                <div class=idea-details__secundary--owner">
+                    <p>Submitted by:</p>
+                    <p>{{idea.username}}</p>
+                </div>
+            </div>
+
+            <!-- Modal edit image -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Edit picture</h4>
+                    <form action="{{ url_for('insert_image', idea_id=idea._id) }}" method="POST"
+                        enctype="multipart/form-data">
+                        <div class="edit-idea__add-image">
+                            <div class="input-field">
+                                <label>Select a new picture from your own device</label>
+                                <input type="file" name="image" id="image" required>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn waves-effect waves-light" type="submit">Save new picture</button>
+                            <a href="{{url_for('idea_details', idea_id=idea._id)}}"
+                                class="waves-effect waves-light btn-secundary">cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal delete idea -->
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <h4>Delete idea</h4>
+                    <p>This will delete your idea <span class="bold">permanently</span>.</p>
+                    <p>Are you sure?</p>
                     <div class="modal-footer">
-                        <button class="btn waves-effect waves-light" type="submit">Save new picture</button>
+                        <a href="{{url_for('delete_idea', idea_id=idea._id)}}"
+                            class="waves-effect waves-light btn">delete
+                            idea</a>
                         <a href="{{url_for('idea_details', idea_id=idea._id)}}"
                             class="waves-effect waves-light btn-secundary">cancel</a>
                     </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Modal delete idea -->
-        <div id="modal2" class="modal">
-            <div class="modal-content">
-                <h4>Delete idea</h4>
-                <p>This will delete your idea <span class="bold">permanently</span>.</p>
-                <p>Are you sure?</p>
-                <div class="modal-footer">
-                    <a href="{{url_for('delete_idea', idea_id=idea._id)}}" class="waves-effect waves-light btn">delete
-                        idea</a>
-                    <a href="{{url_for('idea_details', idea_id=idea._id)}}"
-                        class="waves-effect waves-light btn-secundary">cancel</a>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
     </div>
-</div>
+</main>
+
 
 {% endblock %}
