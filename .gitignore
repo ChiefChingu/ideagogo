@@ -1,6 +1,7 @@
 
 /static/materialize-src
 *.pyc
+.vscode/settings.json
 
 # Python #
 ###################
@@ -8,6 +9,7 @@
 *.pyc
 .env
 /env
+/venv
 env.py
 __pycache__/app.*
 __pycache__/app.*.*.pyc
