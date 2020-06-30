@@ -13,6 +13,7 @@
 env.py
 __pycache__/app.*
 __pycache__/app.*.*.pyc
+__pycache__
 
 # Compiled source #
 ###################
