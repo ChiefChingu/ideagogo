@@ -1,44 +1,48 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-<h3 class="h3-heading">Admin functionalities</h3>
-<div class="my-grid-2">
-    <div class="column-1">
-        <h5 class="column-1__title">Categories</h5>
-        {% for category in categories %}
-        <div class="column-1__row collapsible-header">
-            <div class="column-1__row--item-1">
-                <strong>{{category.category_name}}</strong>
+<div class="container-admin container">
+    <h3 class="h3-heading">Admin functionalities</h3>
+    <div class="my-grid-2">
+        <div class="column-1">
+            <h5 class="column-1__title">Categories</h5>
+            {% for category in categories %}
+            <div class="column-1__row collapsible-header">
+                <div class="column-1__row--item-1">
+                    <strong>{{category.category_name}}</strong>
+                </div>
+                <a class="column-1__row--item-2" href="{{url_for('delete_category', category_id=category._id)}}"
+                    class="waves-effect waves-light btn btn_small">Del</a>
+                <a class="column-1__row--item-3" href="{{url_for('edit_category', category_id=category._id)}}"
+                    class="waves-effect waves-light btn btn_small blue">Edit</a>
             </div>
-            <a class="column-1__row--item-2" href="{{url_for('delete_category', category_id=category._id)}}"
-                class="waves-effect waves-light btn btn_small">Del</a>
-            <a class="column-1__row--item-3" href="{{url_for('edit_category', category_id=category._id)}}"
-                class="waves-effect waves-light btn btn_small blue">Edit</a>
-        </div>
-        {% endfor %}
-        <div class="column-1__row--btn-row">
-            <a href="{{url_for('add_category')}}" class="waves-effect waves-light column-1__row--btn-row-btn btn">Add
-                Category</a>
-        </div>
-    </div>
-    <div class="column-2">
-        <h5 class="column-2__title">Tags</h5>
-        {% for tag in tags %}
-        <div class="column-2__row collapsible-header">
-            <div class="column-2__row--item-1">
-                <strong>{{tag.tag_name}}</strong>
+            {% endfor %}
+            <div class="column-1__row--btn-row">
+                <a href="{{url_for('add_category')}}"
+                    class="waves-effect waves-light column-1__row--btn-row-btn btn">Add
+                    Category</a>
             </div>
-            <a class="column-2__row--item-2" href="{{url_for('delete_tag', tag_id=tag._id)}}"
-                class="waves-effect waves-light btn btn_small">Del</a>
-            <a class="column-2__row--item-3" href="{{url_for('edit_tag', tag_id=tag._id)}}"
-                class="waves-effect waves-light btn btn_small blue">Edit</a>
         </div>
-        {% endfor %}
-        <div class="column-2__row--btn-row">
-            <a href="{{url_for('add_tag')}}" class="waves-effect waves-light column-2__row--btn-row-btn btn">Add
-                Tag</a>
+        <div class="column-2">
+            <h5 class="column-2__title">Tags</h5>
+            {% for tag in tags %}
+            <div class="column-2__row collapsible-header">
+                <div class="column-2__row--item-1">
+                    <strong>{{tag.tag_name}}</strong>
+                </div>
+                <a class="column-2__row--item-2" href="{{url_for('delete_tag', tag_id=tag._id)}}"
+                    class="waves-effect waves-light btn btn_small">Del</a>
+                <a class="column-2__row--item-3" href="{{url_for('edit_tag', tag_id=tag._id)}}"
+                    class="waves-effect waves-light btn btn_small blue">Edit</a>
+            </div>
+            {% endfor %}
+            <div class="column-2__row--btn-row">
+                <a href="{{url_for('add_tag')}}" class="waves-effect waves-light column-2__row--btn-row-btn btn">Add
+                    Tag</a>
+            </div>
         </div>
     </div>
 </div>
+
 
 {% endblock %}

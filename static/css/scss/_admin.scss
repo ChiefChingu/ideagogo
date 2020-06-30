@@ -1,3 +1,13 @@
+.container-admin {
+    margin: 0 auto;
+    max-width: 1125px;
+    width: 90%;
+
+    @include l_laptop {
+        width: 1125px;
+    }
+}
+
 .column-1, .column-2 {
 
     &__row {
@@ -23,7 +33,7 @@
             &-btn {
                 margin: 1rem 0 2rem 0;
                 justify-self: center;
-                width: 50%;
+                width: 110px;
             }
         }
     }
@@ -41,7 +51,7 @@
     &-btn {
         margin: 1rem 0 2rem 0;
         justify-self: center;
-        width: 50%;
+        width: 110px;
     }
 
     &-link {

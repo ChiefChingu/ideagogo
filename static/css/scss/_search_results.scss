@@ -9,6 +9,12 @@
         width: 90%;
 
     }
+
+    @include l_laptop {
+        max-width: 1280px;
+        width: 45%;
+
+    }
 }
 
 .search-results {
