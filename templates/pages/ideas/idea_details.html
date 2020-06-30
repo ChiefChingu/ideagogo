@@ -12,11 +12,11 @@
         <p class="secundary-nav__text"><a href="{{url_for('ideas')}}">Ideas</a> > Idea details</p>
     </div>
     <div class="idea-details">
-    
+
         <h1>{{idea.idea_title}}</h1>
         <img class="image-container__detail" src="{{ url_for('file', filename=idea.image_name) }}" max-width="800"
             height="300" alt="{{idea.image_name}}">
-    
+
         <!-- Edit: only visible for idea owner and admin -->
         {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
         <div class="idea-details__edit-idea">
@@ -34,16 +34,16 @@
             </div>
         </div>
         {% endif %}
-    
-    
+
+
         {% if (idea.username == session["username"]) or (session["username"] == "Master") %}
-    
+
         {% endif %}
-    
+
         <div class="divider"></div>
-    
+
         <div class="grid-wrapper">
-    
+
             <div class="idea-details__votes">
                 <div class="idea-details__votes__fr1">
                     <i class="material-icons">thumb_up</i>
@@ -72,11 +72,12 @@
         {% set ns.found = true %}
         {% endif %}
         {% endfor %}
-    
+
         {% if ns.found == true %}
         <form action="{{ url_for('downvote_idea', idea_id=idea._id) }}" method="POST">
             <div class="idea-details__cta">
-                <button class="btn-secundary waves-effect waves-light idea-details__cta--btn" type="submit" name="action">
+                <button class="btn-secundary waves-effect waves-light idea-details__cta--btn" type="submit"
+                    name="action">
                     Remove my vote
                 </button>
             </div>
@@ -93,15 +94,15 @@
         <div class="sharethis">
             <h6>Do you really like this idea? Ask your friends to like it too!</h6>
         </div>
-    
+
         <div class="sharethis-inline-share-buttons"></div>
-    
+
         <div class="divider"></div>
-    
+
         <p>Details: {{idea.idea_details}}</p>
-    
+
         <div class="divider"></div>
-    
+
         <form action="{{ url_for('search_by_category') }}" method="POST">
             <div class="idea-details__wrapper">
                 <div class="input-field">
@@ -113,7 +114,7 @@
                 <button class="idea-details__category--item" type="submit">{{idea.category_name}}</button>
             </div>
         </form>
-    
+
         <div class="idea-details__tags">
             <h6 class="idea-details__tags--title">Tags:</h6>
             <div class="idea-details__tags--row2">
@@ -137,9 +138,9 @@
                 </form>
             </div>
         </div>
-    
+
         <div class="divider divider__bottom-margin"></div>
-    
+
         <div class="idea-details__secundary grey-text">
             <div class="idea-details__secundary--date">
                 <p>Date added:</p>
@@ -150,7 +151,7 @@
                 <p>{{idea.username}}</p>
             </div>
         </div>
-    
+
         <!-- Modal edit image -->
         <div id="modal1" class="modal">
             <div class="modal-content">
@@ -160,10 +161,10 @@
                     <div class="edit-idea__add-image">
                         <div class="input-field">
                             <label>Select a new picture from your own device</label>
-                            <input type="file" name="image" id="image">
+                            <input type="file" name="image" id="image" required>
                         </div>
                     </div>
-                    
+
                     <div class="modal-footer">
                         <button class="btn waves-effect waves-light" type="submit">Save new picture</button>
                         <a href="{{url_for('idea_details', idea_id=idea._id)}}"
@@ -172,7 +173,7 @@
                 </form>
             </div>
         </div>
-    
+
         <!-- Modal delete idea -->
         <div id="modal2" class="modal">
             <div class="modal-content">
