@@ -184,6 +184,10 @@ nav {
 .desktop-nav {
     display: none;
 
+    ul li {
+        color: $mainPink;
+    }
+
     ul li a {
         color: $mainPink;
     }

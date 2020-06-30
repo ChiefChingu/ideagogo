@@ -669,6 +669,9 @@ nav {
 .desktop-nav {
   display: none;
 }
+.desktop-nav ul li {
+  color: #e84d74;
+}
 .desktop-nav ul li a {
   color: #e84d74;
 }

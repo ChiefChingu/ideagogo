@@ -5,8 +5,8 @@
     </div>
     <div class="site-nav__overlay">
         <div class="site-nav__overlay-content">
-            <a href="{{url_for('home')}}"><img class="logo" src={{url_for('static', filename='images/chingu-logo-cropped.png')}} 
-                    alt="logo"></a>
+            <a href="{{url_for('home')}}"><img class="logo"
+                    src={{url_for('static', filename='images/chingu-logo-cropped.png')}} alt="logo"></a>
             <nav class="primary-nav">
                 <ul>
                     <li><a href="{{url_for('home')}}">Home</a></li>
@@ -51,7 +51,7 @@
             <li><a href="{{url_for('login')}}">Log in</a></li>
             {% endif %}
             {% if 'username' in session %}
-            <li>{{session["username"]}}</li>    
+            <li>{{session["username"]}}</li>
             <li><a class="" href="{{url_for('logout')}}">Log Out</a></li>
             {% endif %}
             {% if session["username"] == "Master" %}
