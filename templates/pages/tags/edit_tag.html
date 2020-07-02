@@ -1,23 +1,26 @@
 {% extends 'layouts/base.html'%} {% block content %}
 <main>
-    <h3 class="h3-heading">Edit Tag</h3>
-    <div class=" row">
-        <form action="{{ url_for('update_tag', tag_id=tag._id) }}" method="POST" class="col s12">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="tag_name" name="tag_name" type="text" class="validate" value="{{tag.tag_name}}" />
-                    <label for="tag_name">tag Name</label>
+    <div class="container">
+        <h3 class="h3-heading">Edit Tag</h3>
+        <div class=" row">
+            <form action="{{ url_for('update_tag', tag_id=tag._id) }}" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="tag_name" name="tag_name" type="text" class="validate" value="{{tag.tag_name}}" />
+                        <label for="tag_name">tag Name</label>
+                    </div>
                 </div>
-            </div>
-            <div class="btn-row">
-                <button class="btn btn-row-btn waves-effect waves-light" type="submit" name="action">
-                    Save Changes
-                </button>
-                <a href="{{ url_for('admin') }}" class="btn-row-link waves-effect waves-light btn grey">Cancel
-                </a>
-            </div>
-        </form>
+                <div class="btn-row">
+                    <button class="btn btn-row-btn waves-effect waves-light" type="submit" name="action">
+                        Save Changes
+                    </button>
+                    <a href="{{ url_for('admin') }}" class="btn-row-link waves-effect waves-light btn grey">Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
     </div>
+
 
 </main>
 {% endblock %}
