@@ -266,7 +266,7 @@ def delete_idea(idea_id):
 #########################
 
 
-@app.route("/search_by_category", methods=["POST"])
+@app.route("/search_by_category", methods=["GET", "POST"])
 def search_by_category():
     ideas = mongo.db.ideas
     searched_category = request.form.get("category_name")
