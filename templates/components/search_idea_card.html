@@ -2,7 +2,8 @@
 
     <!-- Image -->
     <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="{{ url_for('file', filename=idea.image_name) }}">
+        <img class="activator" src="{{ url_for('file', filename=idea.image_name) }}"
+            alt="Picture of idea with name: {{idea.image_alt}}">
     </div>
 
 
