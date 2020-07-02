@@ -113,8 +113,11 @@ def insert_image(idea_id):
     if "image" in request.files:
         image = request.files["image"]
         mongo.save_file(image.filename, image)
+        alt_image = image.filename
+        alt = os.path.splitext(alt_image)[0]
         ideas.update(
-            {"_id": ObjectId(idea_id)}, {"$set": {"image_name": image.filename}}
+            {"_id": ObjectId(idea_id)},
+            {"$set": {"image_name": image.filename, "image_alt": alt}},
         )
 
         flash(f"Image updated!", "success")
@@ -187,11 +190,15 @@ def insert_idea():
     x = ideas.insert_one(request.form.to_dict())
     idea_id = x.inserted_id
     ideas.update({"_id": ObjectId(idea_id)}, {"$set": {"total_votes": 0, "views": 0}})
+
     if "image" in request.files:
         image = request.files["image"]
         mongo.save_file(image.filename, image)
+        alt_image = image.filename
+        alt = os.path.splitext(alt_image)[0]
         ideas.update(
-            {"_id": ObjectId(idea_id)}, {"$set": {"image_name": image.filename}}
+            {"_id": ObjectId(idea_id)},
+            {"$set": {"image_name": image.filename, "image_alt": alt}},
         )
 
     today = date.today()
