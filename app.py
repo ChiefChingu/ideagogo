@@ -282,7 +282,7 @@ def search_by_category():
     )
 
 
-@app.route("/search_by_tag", methods=["POST"])
+@app.route("/search_by_tag", methods=["GET", "POST"])
 def search_by_tag():
     ideas = mongo.db.ideas
     searched_tag = request.form.get("tag_name")
