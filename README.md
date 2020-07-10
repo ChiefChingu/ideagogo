@@ -1,4 +1,4 @@
-# Idea needs Problem
+# Ideagogo: vote on the best ideas!
 
 ## Table of content
 
