@@ -1,45 +1,85 @@
-# Ideagogo: vote on the best ideas!
+[Introduction](#introduction)
 
-## Table of content
+[UX](#ux)
+
+[Features](#features)
+
+[Data structure](#data-structure)
+
+[Technologies used](#technologies-used)
+
+[Testing](#testing)
+
+[Deployment](#deployment)
+
+[Credits](#credits)
+
+[Future updates of coding structure](#future-updates-of-coding-structure)
 
 ## Introduction
+This is the third milestone project of the fullstack software development course of Code Institute. I choose to create a 'light' Indiegogo clone: users can upload ideas. Other users can 'back' the idea by casting a vote on the project. The most popular project will be highlighted at the top of the page.
+
+The project uses the required base functionality of CRUD: users can create, read, update and delete their projects. As a bonus a voting system is implemented, which requires user authentication.
+
+To keep the project within a manageable scope you can only upload projects within the energy and green tech section. The live project can be found here: [https://ideagogo.herokuapp.com](https://ideagogo.herokuapp.com).
 
 ## UX
+All designs start from the mobile perspective. Larger viewports are handled with media queries.
 
-### Strategy
+### Strategy Plane
+#### Product objectives
+As a site owner my objective is: show my skills and qualifications in order to pass the third milestone project.
+I added one more objective to this: I want to get a score of at least 80% in order to receive 'first grade honors' at the end of the complete course.
 
-### Scope
+#### User needs
+There are two types of users in addition to the site owner role. A user who has an idea and a user who is curious and wants to view other persons' ideas. 
+- A user who has an idea can post this idea. This user type is the idea owner. 
+- A user who wants to see ideas can view all ideas that are posted. This user type is the idea viewer.
+- An idea owner is an idea viewer by default (they always view their own idea).
+- An idea viewer can become an idea owner when he or she posts an idea.
 
-### Structure
+##### User needs idea owner
+- Easy and intuitive way to post an idea.
+- Make the idea 'findable': add categorization and/or labels.
+- Let the world know about the idea: social sharing options.
 
-### Skeleton
+##### User needs idea viewer
+- Easy and intuitive way to browse ideas.
+- Pick favorites: vote on ideas that are interesting.
 
-### Surface
+##### User needs site owner
+- Authority to edit and delete all ideas of all users.
+- Manage (CRUD) categories and tags.
 
-### User stories
+### Scope Plane
+When designing this project a lot of ideas came up. Keeping the main objective in mind (pass the third milestone project) I decided to have these basic features (Full details on features: [Features](#features).)
 
-## Features
+#### Basic Features
+- idea cards: quickly glance over an idea. Click to show more details on the card.
+- CRUD on ideas: create, read, update and delete for site owner and idea owner.
+- categorization: add a category to which your idea belongs.
+- specification: add 3 tags to specify what your idea is about.
 
-### Existing features
+#### Advanced Features
+Advanced features for a high grade are:
+- vote on ideas.
+- account creation.
+- idea authorisation: only idea owners and site owner can perform edit and delete actions.
+- limit the votes: a user cannot vote multiple times on the same project.
+- make all labels clickable and initiate a search query.
+- store images in MongoDB.
+- manage ideas, categories and tags via a custom made backend.
 
-### Features left to implement
+### Structure Plane
+The structure of the site is straightforward: a homepage connects to the idea overview page, an about page, a contact page, a registration page and a login page.
 
-## Technologies used
+The idea overview page connects to all idea detail pages. From each idea detail page you can access the edit idea page (if you are the idea owner). Only visible to the site owner: an admin page where the categories and tags are managed (CRUD).
 
-### Languages
+There is one special page: the account required page. This page is triggered when a user wants to perform an action while not logged in (vote, add idea).
 
-### Libraries
+![structure-plane]()
 
-### Other tools
+### Skeleton Plane
+This project is designed with the mobile user in mind: mobile first and desktop second. The mobile viewport is the baseline. Media queries are used to handle the larger  viewports.
 
-### Testing
-
-## Deployment
-
-## Credits
-
-### Content
-
-### Media
-
-### Acknowledgements
+The wireframes are found [here](). 
