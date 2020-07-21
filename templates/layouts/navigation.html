@@ -6,7 +6,7 @@
     <div class="site-nav__overlay">
         <div class="site-nav__overlay-content">
             <a href="{{url_for('home')}}"><img class="logo"
-                    src={{url_for('static', filename='images/chingu-logo-cropped.png')}} alt="logo"></a>
+                    src={{url_for('static', filename='images/logo-blue-bg.jpg')}} alt="logo"></a>
             <nav class="primary-nav">
                 <ul>
                     <li><a href="{{url_for('home')}}">Home</a></li>
@@ -60,7 +60,7 @@
         </ul>
     </nav>
     <a href="{{url_for('home')}}"><img class="logo desktop-nav__middle"
-            src="http://ideagogo.herokuapp.com/static/images/chingu-logo-cropped.png" alt="logo"></a>
+        src={{url_for('static', filename='images/logo-white-bg.jpg')}} alt="logo"></a>
 </div>
 {% with messages = get_flashed_messages(with_categories=true) %}
 {% if messages %}
