@@ -83,3 +83,17 @@ There is one special page: the account required page. This page is triggered whe
 This project is designed with the mobile user in mind: mobile first and desktop second. The mobile viewport is the baseline. Media queries are used to handle the larger  viewports.
 
 The wireframes are found [here](https://github.com/ChiefChingu/ideagogo/blob/master/Ideagogo%20-%20wireframes.pdf).
+
+### Surface Plane
+The final product can be viewed [here](https://ideagogo.herokuapp.com).
+
+#### Typography
+For this project the Google font Roboto is used. Roboto is an open source, sans-serif font originally developed by Google for Android. Its a modern, crisp typeface which fits perfectly in this project.
+
+#### Color palette
+The background color is white: easy on the eye, provides a clean and clear background. This makes it possible to add accents with these contrasting colors:
+
+- Blue for background of hero and mobile menu (#e0f0fa).
+- Pink for contrast (#e84d74).
+
+The contrasting colors are checked in a [color blind web page filter](https://www.toptal.com/designers/colorfilter) with good results on all filters.
