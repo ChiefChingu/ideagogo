@@ -1007,6 +1007,12 @@ h5 {
   .container-about p {
     font-size: 1.2rem;
   }
+  .container-about .first-p {
+    margin-top: 2rem;
+  }
+  .container-about .last-p {
+    margin-bottom: 4rem;
+  }
 }
 
 .alert-box {
