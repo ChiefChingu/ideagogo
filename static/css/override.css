@@ -942,6 +942,16 @@ h5 {
   height: 2.4rem;
 }
 
+.container-contact {
+  margin-top: 2rem;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1025px) {
+  .container-contact {
+    width: 40%;
+  }
+}
+
 @media screen and (min-width: 1025px) {
   /* Contact form only for desktop*/
   #contact-form {
