@@ -936,6 +936,7 @@ h5 {
 }
 #contact-form textarea {
   height: 150px;
+  margin-bottom: 2rem;
 }
 #contact-form .btn {
   width: 120px;

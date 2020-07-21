@@ -45,6 +45,7 @@
 
     textarea {
         height: 150px;
+        margin-bottom: 2rem;
     }
 
     .btn {
@@ -73,11 +74,13 @@
     /* Contact form only for desktop*/
 
     #contact-form {
+
         font-size: 1.2rem;
         display: -ms-grid;
         display: grid;
         grid-template-columns: 10% 80% 10%;
         grid-template-rows: auto;
+
     }
 
     .contact-form-text {
