@@ -82,4 +82,4 @@ There is one special page: the account required page. This page is triggered whe
 ### Skeleton Plane
 This project is designed with the mobile user in mind: mobile first and desktop second. The mobile viewport is the baseline. Media queries are used to handle the larger  viewports.
 
-The wireframes are found [here]().
+The wireframes are found [here](https://github.com/ChiefChingu/ideagogo/blob/master/Ideagogo%20-%20wireframes.pdf).
