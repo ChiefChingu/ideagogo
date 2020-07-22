@@ -97,3 +97,195 @@ The background color is white: easy on the eye, provides a clean and clear backg
 - Pink for contrast (#e84d74).
 
 The contrasting colors are checked in a [color blind web page filter](https://www.toptal.com/designers/colorfilter) with good results on all filters.
+
+### User Stories
+There are three different roles (site owner, idea owner and idea viewer). For each role the user stories are as follows:
+
+#### As a site owner I want to be able to
+1. Deal with upload of unwanted content.
+2. Manage the idea category names.
+3. Manage the idea tag names.
+
+#### As an idea owner I want to be able to
+4. Post my idea.
+5. Upload a picture.
+6. Change my uploaded picture.
+7. Review my post.
+8. Edit my post.
+9. Invite my friends to view and vote for my idea.
+
+#### As an idea viewer I want to be able to
+
+10. Find interesting ideas.
+11. Vote on ideas that interest me.
+12. See that my vote was successful.
+13. Remove my vote.
+14. See that my vote was removed succesfully.
+15. Share ideas to friends.
+
+## Features
+### Existing features
+#### Site wide
+- Clickable logo leading to the homepage.
+- Hamburger menu that opens a modal for navigation.
+- For larger viewports: navigation is shown in the header.
+- Navigation linking to all pages.
+- In case of a logged in user: the modal shows the logged in user name and a link to log out.
+- In case of a logged in admin: the modal shows a link to the admin page.
+
+#### Pages for logged in and logged out users
+##### Home page
+- Hero box that explains the purpose of the site.
+- Secundary explanation to explain what you -the visitor- can do.
+- Call to action: stimulate the user to take action. In this case cast a vote.
+
+##### Ideas overview page
+- Hero box that displays the top voted idea.
+- A call to action bar to add your own idea. The button leads to the add idea page. Defensive design: in case user is not logged in an account needed page is rendered (see account needed).
+- A search bar to quickly search for ideas. You can search by category name or by tag name.
+- Idea cards: the ideas represented by cards. Each card has a 'front-side' and 'back-side'.
+    - 'front-side': the card as rendered. This displays an image, title, number of votes and number of page views.
+    - 'back-side': on click a panel slides up with more information. This shows the title, a short summary, the category name, three tags and a button to view the details of the project.
+    - The category and tags are clickable and start a search query for categories and tags respectively (see [Search results](#search-results-page)).
+
+##### Idea details page
+- A 'bread crumb' to show where you are. Clickable to get back to the idea overview.
+- Title of the idea.
+- Hero image of the idea.
+- Number of votes for idea.
+- Number of page views of idea.
+- Call to action button: like the idea. More details see voting. Defensive design: in case user is not logged in an account needed page is rendered (see [Account needed](#account-needed-page)).
+- Social sharing bar: share the idea with your friends.
+- Idea details to explain the idea.
+- Label to indicate the category. On click all ideas within this category are displayed on a new page (see [Search results](#search-results-page)).
+- Tags to describe characteristics of the idea.  On click all ideas with this tag are displayed on a new page (see [Search results](#search-results-page)).
+- Date added.
+- Idea owner.
+
+##### Search results page
+Search by category or tag leads to a search result page.
+- A 'bread crumb' to show where you are. Clickable to get back to the idea overview.
+- Title with number of search results.
+- Subtitle to show what the search query is. It differentiates between category and tags.
+- Idea cards: same cards as in [Ideas overview](#ideas-overview-page).
+
+##### About page
+- Title.
+- Explanation.
+- Call to action to feel free to send any inquiry.
+- Call to action button to go to contact page.
+
+##### Contact page
+- Title.
+- Call to action to feel free to send any inquiry.
+- Contact form.
+- Send button.
+
+##### Account needed page
+When a user is not logged in certain interactions are not possible. Defensive design: user is directed to this page.
+- Title.
+- Explanation why you need an account.
+- Call to action button to create an account.
+- Secundary call to action to check if user alreay has an account with link to login page.
+
+##### Create account page
+- Signup form.
+- Signup button.
+- Secundary call to action to check if user alreay has an account with link to login page.
+
+##### Log in page
+- Log in form.
+- Log in button.
+- Secundary call to action to check if user has an account with link to create account page.
+
+#### Pages and features only for logged in users
+##### Contact
+- Username and email address are prefilled.
+
+##### Add idea page
+- Text fields for title, summary and details.
+- File picker for picture upload.
+- Drop down selectors for category and tags.
+- Not visible to user, but also added to database: date of creation, username of creator, number of votes and number of views (both with zero as starting value).
+
+##### Voting feature
+- If idea is liked: a notification appears at the top of the page to tell that the vote was successful.
+- If idea is liked: the button changes to remove vote.
+- If vote is removed: a notification appears at the top of the page to tell that the vote was removed successfully.
+- If vote is removed: button changes to initial state.
+
+#### Features only for logged in users viewing their own idea pages
+##### Idea details page - features
+- Edit idea button leading to edit idea page.
+- Edit picture button opening the edit picture modal.
+- Delete button leading to delete idea modal.
+
+##### Edit picture modal
+- File picker to upload picture.
+- Save button.
+- Cancel button to return to idea detail page.
+
+##### Edit idea page
+- All fields are pre-filled with information from database and are editable.
+- Update idea button to save changes.
+- Cancel button to return to idea detail page.
+
+##### Delete idea modal
+- Warning that deletion is permanent.
+- Delete idea button.
+- Cancel button to return to idea detail page.
+
+#### Pages and features only for admins
+##### Admin features
+- Admin can edit all ideas.
+- Admin can edit all pictures.
+- Admin can delete all ideas.
+
+##### Admin functionalities page
+- Title.
+- Overview of category names.
+- Per category name: delete button and edit category button.
+- Add category button.
+- Overview of tag names.
+- Per tag name: delete button and edit tag button.
+- Add tag button.
+
+##### Add category page
+- Title.
+- Overview of all categories in label style.
+- Input field for new category.
+- Add category button.
+- Back to admin link.
+
+##### Edit category page
+- Title.
+- Prefilled category name in input field.
+- Save changes button.
+- Cancel button.
+
+##### Add tag page
+- Title.
+- Overview of all tags in label style.
+- Input field for new tag.
+- Add tag button.
+- Back to admin link.
+
+##### Edit tag page
+- Title.
+- Prefilled tag name in input field.
+- Save changes button.
+- Cancel button.
+
+### Features left to implement
+#### Ideas
+- Allow unlimited tags (currently three tags allowed), all displayed in a grid.
+- Allow user generated tags and categories.
+- Mark down for idea details.
+- Comments and reactions on ideas.
+- Free text search: search on title, tag, category and idea details.
+
+#### User accounts
+- Double opt-in at account creation.
+- Reset password.
+- Account overview page: display ideas, votes, comments.
+- Editable profile: edit username, email and password.
