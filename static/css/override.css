@@ -516,6 +516,10 @@ nav {
   background-color: #e0f0fa;
 }
 
+.secundary-nav {
+  padding-top: 0.1rem;
+}
+
 .primary-nav {
   padding-top: 5rem;
 }
