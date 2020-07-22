@@ -112,16 +112,19 @@ There are three different roles (site owner, idea owner and idea viewer). For ea
 6. Change my uploaded picture.
 7. Review my post.
 8. Edit my post.
-9. Invite my friends to view and vote for my idea.
+9. Delete my post.
+10. Invite my friends to view and vote for my idea.
 
-#### As an idea viewer I want to be able to
+#### As an idea viewer (and idea owner) I want to be able to
 
-10. Find interesting ideas.
-11. Vote on ideas that interest me.
-12. See that my vote was successful.
-13. Remove my vote.
-14. See that my vote was removed succesfully.
-15. Share ideas to friends.
+11. Find interesting ideas.
+12. Vote on ideas that interest me.
+13. See that my vote was successful.
+14. Remove my vote.
+15. See that my vote was removed succesfully.
+16. Share ideas to friends.
+17. Send a message to the site owner.
+18. View information about the site.
 
 ## Features
 ### Existing features
