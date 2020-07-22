@@ -415,3 +415,7 @@ In the end this proved to be too complex at the front end: using jinja if statem
     - to add vendor prefixes
     - [https://autoprefixer.github.io](https://autoprefixer.github.io)
 
+## Testing
+All standard online tests passed without any major problems.
+
+The online and manual tests are detailed in the [TEST.md](https://github.com/ChiefChingu/ideagogo/blob/master/TEST.md).
