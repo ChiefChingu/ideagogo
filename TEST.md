@@ -15,7 +15,7 @@ Note that I did not bother to check the materialize CSS.
 
 ## W3C Markup Validation Service
 Many errors resulting from customizing materializecss components. After fixing these, no errors or warnings were shown.
-valigit
+
 ### JSHint
 #### email.js
 - Undefined variable: ```emailjs``` (lines 3 and 22). This is out of my control, I use the EmailJS code as per instruction. 
