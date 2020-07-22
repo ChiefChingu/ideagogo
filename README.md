@@ -77,7 +77,7 @@ The idea overview page connects to all idea detail pages. From each idea detail 
 
 There is one special page: the account required page. This page is triggered when a user wants to perform an action while not logged in (vote, add idea).
 
-[structure-plane](https://github.com/ChiefChingu/ideagogo/blob/master/Structure%20plane.jpg)
+![](https://github.com/ChiefChingu/ideagogo/blob/master/Structure%20plane.jpg?raw=true)
 
 ### Skeleton Plane
 This project is designed with the mobile user in mind: mobile first and desktop second. The mobile viewport is the baseline. Media queries are used to handle the larger  viewports.
