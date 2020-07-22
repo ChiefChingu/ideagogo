@@ -62,14 +62,20 @@
     margin-top: 2rem;
     margin: 0 auto;
 
-    @media screen and (min-width: 1025px) {
+    @include tablet {
+
+        width: 50%;
+    
+    }
+    
+    @include laptop {
 
         width: 40%;
     
     }
 }
 
-@media screen and (min-width: 1025px) {
+@include laptop {
 
     /* Contact form only for desktop*/
 

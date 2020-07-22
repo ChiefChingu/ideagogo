@@ -949,13 +949,18 @@ h5 {
   margin-top: 2rem;
   margin: 0 auto;
 }
-@media screen and (min-width: 1025px) {
+@media (min-width: 768px) {
+  .container-contact {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
   .container-contact {
     width: 40%;
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media (min-width: 992px) {
   /* Contact form only for desktop*/
   #contact-form {
     font-size: 1.2rem;
