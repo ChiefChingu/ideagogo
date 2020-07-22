@@ -343,3 +343,75 @@ Removed. Initially created to design the logic for a one vote per user per proje
 
 In the end this proved to be too complex at the front end: using jinja if statements I wanted to display or hide the vote button, but ran into too many problems. See commit [04b75f1e290593f460efd8893e12c2a2f8cb5ca2](https://github.com/ChiefChingu/ideagogo/commit/04b75f1e290593f460efd8893e12c2a2f8cb5ca2) and following commits.
 
+## Technologies Used
+### Languages
+- HTML
+    - to create the elements
+    - [https://whatwg.org](https://whatwg.org)
+- CSS
+    - to style the html elements
+    - [https://www.w3.org/Style/CSS/](https://www.w3.org/Style/CSS/)
+- JavaScript
+    - to provide interactivity and logic
+    - [https://developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- Python
+    - for backend application
+    - for all packages, see [requirements.txt](https://github.com/ChiefChingu/ideagogo/blob/master/requirements.txt)
+    - [https://www.python.org](https://www.python.org)
+- Jinja
+    - for templating logic
+    - [https://jinja.palletsprojects.com/en/2.11.x/](https://jinja.palletsprojects.com/en/2.11.x/)
+
+
+### Libraries
+- Flask
+    - micro web server framework
+    - [https://flask.palletsprojects.com/en/1.1.x/](https://flask.palletsprojects.com/en/1.1.x/)
+- PyMongo
+    - enable CRUD operations in MOngoDB
+    - [https://flask-pymongo.readthedocs.io/en/latest/](https://flask-pymongo.readthedocs.io/en/latest/)
+- JQuery
+    - only for the shuffle cards function (see [Credits](#credits))
+    - [https://jquery.com](https://jquery.com)
+- Google Fonts
+    - to use Lato fonts
+    - [https://fonts.google.com/specimen/Lato](https://fonts.google.com/specimen/Lato)
+- Font Awesome
+    - to use icons
+    - [https://fontawesome.com](https://fontawesome.com)
+- EmailJS
+    - to send contact form
+    - [https://www.emailjs.com](https://www.emailjs.com)
+- Materialize
+    - to quickly add styling and interactivity
+    - [https://materializecss.com](https://materializecss.com)
+
+### Other tools
+- MongoDB
+    - the database used in this project
+    - [https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas)
+- SCSS
+    - to write custom CSS, especially for grids
+    - [https://sass-lang.com](https://sass-lang.com)
+- npm
+    - to install SCSS
+    - [https://www.npmjs.com](https://www.npmjs.com)
+- Color blind filter
+    - to check the used color palette
+    - [https://www.toptal.com/designers/colorfilter](https://www.toptal.com/designers/colorfilter)
+- GT Metrix
+    - to check the loading times
+    - [https://gtmetrix.com](https://gtmetrix.com)
+- JSHint
+    - to check JavaScript
+    - [https://jshint.com](https://jshint.com)
+- Markup Validation Service
+    - to check HTML
+    - [https://validator.w3.org](https://validator.w3.org)
+- CSS Validation Service
+    - to check CSS
+    - [https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)
+- Autoprefixer CSS online
+    - to add vendor prefixes
+    - [https://autoprefixer.github.io](https://autoprefixer.github.io)
+
