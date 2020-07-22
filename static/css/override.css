@@ -929,11 +929,9 @@ h5 {
   grid-column: 2;
   display: block;
   text-align: start;
-  margin-left: 1rem;
 }
 #contact-form input, #contact-form textarea {
   grid-column: 2;
-  width: 90%;
   height: 2rem;
   margin: 0.5rem 0;
   justify-self: center;
