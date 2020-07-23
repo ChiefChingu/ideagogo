@@ -29,6 +29,7 @@ def home():
 
 #########################
 # User related
+# All code here is based on the tutorial from Corey Schafer. See readme - credits.  
 #########################
 
 
@@ -99,6 +100,7 @@ def account_required():
 
 #########################
 # Images
+# Code here is based on the tutorial from Pretty Printed. See readme - credits.
 #########################
 
 
