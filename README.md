@@ -422,3 +422,23 @@ In the end this proved to be too complex at the front end: using jinja if statem
 All standard online tests passed without any major problems.
 
 The online and manual tests are detailed in the [TEST.md](https://github.com/ChiefChingu/ideagogo/blob/master/TEST.md).
+
+## Deployment
+
+## Credits
+### Content
+All idea copy originates from [indiegogo.com](https://www.indiegogo.com).
+The logo is my own.
+
+### Media
+All media comes from [indiegogo.com](https://www.indiegogo.com).
+
+### Acknowledgements
+- Account creation and form validation are from [Corey Schafer](https://www.youtube.com/watch?v=CSHx6eCkmv0).
+- Mixins for media queries are from [Łukasz Florczak](https://medium.com/codeartisan/breakpoints-and-media-queries-in-scss-46e8f551e2f2).
+- Method to strip file extension for alt img comes from [SO](https://stackoverflow.com/questions/4444923/get-filename-without-extension-in-python).
+- Storing images in Mongodb is based on the tutorial from [Pretty Printed](https://www.youtube.com/watch?v=DsgAuceHha4).\
+
+
+## Disclaimer
+This project is for educational purposes only.
