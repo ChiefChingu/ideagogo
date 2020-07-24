@@ -515,7 +515,8 @@ git push -u origin master
 - In your code editor make a slight change to the readme file. Add and commit. Then push to github. This will start an automatical deploy on Heroku.
 - On Heroku click the open app button to start your live app.
 
-Note: the debug mode is still on. To disable: 
+Note: the debug mode is still on. To disable: change ```debug=True``` to ```debug=False``` in app.py at the bottom line:
+```app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)```
 
 ## Credits
 ### Content
