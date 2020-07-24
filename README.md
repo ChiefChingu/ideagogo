@@ -417,6 +417,9 @@ In the end this proved to be too complex at the front end: using jinja if statem
 - Autoprefixer CSS online
     - to add vendor prefixes
     - [https://autoprefixer.github.io](https://autoprefixer.github.io)
+- Heroku
+    - to host the web app
+    - [https://www.heroku.com](https://www.heroku.com/home)
 
 ## Testing
 All standard online tests passed without any major problems.
@@ -478,6 +481,39 @@ With all things set:
 - Make sure you are in the activated virtual environment.
 - Type ```$env:FLASK_APP = "app.py"``` and ```flask run``` to run the app in normal mode.
 - Type ```$env:FLASK_DEBUG=1``` and ```flask run```  to run the app in debug mode.
+
+### Deploy to Heroku
+After deploying locally, you can now deploy on a live site via Heroku.
+
+#### Create a GitHub repository
+- Create a repository on github.com.
+- Open a terminal and navigate to the project folder. Type:
+
+```
+echo "# NAME-REPO" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote set-url origin https://github.com/YOUR-GITHUB-ACCOUNT/NAME-REPO.git
+git push -u origin master
+```
+
+#### Setup Heroku
+- Go to [heroku.com](https://www.heroku.com/home) and create an account or log in.
+- Create a new app.
+- To configure GitHub integration, you have to authenticate with GitHub. You only have to do this once per Heroku account. Follow the instructions.
+- In the deploy tab, select GitHub - connect to GitHub.
+- Select the right repository in your GitHub account.
+- Select enable automatic deploys.
+- Go to the settings tab.
+- Click in reveal config vars and add:
+    - Key ```bashrc``` with value ```mongodb+srv://root:<yourpassword>@cluster0-36t8l.mongodb.net/ideas?retryWrites=true&w=majority```.
+    - Key ```IP``` with value ```0.0.0.0```.
+    - Key ```Port``` with value ```5000```.
+    - Key ```SECRET_KEY``` with value ```ohsosecret```.
+- At Buildpacks: select Python.
+- In your code editor make a slight change to the readme file. Add and commit. Then push to github. This will start an automatical deploy on Heroku.
+- On Heroku click the open app button to start your live app.
 
 ## Credits
 ### Content
