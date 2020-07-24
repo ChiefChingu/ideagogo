@@ -424,6 +424,62 @@ All standard online tests passed without any major problems.
 The online and manual tests are detailed in the [TEST.md](https://github.com/ChiefChingu/ideagogo/blob/master/TEST.md).
 
 ## Deployment
+Assumption: VSC and Python are installed locally. If not, please refer to these installation guides:
+- [Python](https://realpython.com/installing-python/)
+- [VSC](https://code.visualstudio.com/docs/setup/setup-overview)
+
+### Deploy locally
+#### Database Setup
+- Create a database on [Mongodb](https://www.mongodb.com/cloud/atlas).
+- Create collections as specified under [Data structure](#data-structure).
+- Add some tags and categories to be able to add ideas later on via the front end.
+
+#### Clone GitHub repo
+- Start VSC and open the folder where you want to clone the project to.
+- Open the terminal (ctrl + `) and type ```git clone https://github.com/ChiefChingu/ideagogo.git```.
+- Navigate to the folder ideagogo and rename if preferred.
+
+#### Create and activate virtual environment
+Create a virtual environment to make sure dependencies only apply to this project.
+
+- Type ```python -m venv env```.
+- Open the command palette (ctrl + shift + p).
+- Type 'Python select interpreter' and select.
+- Select your Python version in the dropdown (in my case 'Python 3.7.7 64-bit ('env':venv)').
+- Then activate your virtual environment (ctrl + shift + `).
+- You'll see ```(env)``` before the directory name in your terminal.
+
+#### Install Flask and packages
+- Type ```pip3 install -r requirements.txt```. This will install all necessary programs and packages.
+
+#### Set valid connection Pymongo
+- The authentication is omitted from the app.py on purpose. Leaving credentials in a publicly visible file is bad practice.
+- To specify the correct credentals:
+    - Create a file named env.py
+    - Make sure this file is registered in your .gitignore.
+    - Copy the following into the env.py file:
+
+```
+import os
+
+os.environ[
+    "bashrc"
+] = "mongodb+srv://root:<password>@cluster0-36t8l.mongodb.net/ideas?retryWrites=true&w=majority"
+
+os.environ["SECRET_KEY"] = "ohsosecret"
+```
+
+    - Replace <password> with your own password (make sure to remove the <>).
+
+#### Add a dummy idea
+The web app cannot run without an entry for ideas. You can add an idea via the admin of Mongodb.
+
+#### Run the web app
+With all things set:
+
+- Make sure you are in the activated virtual environment.
+- Type ```$env:FLASK_APP = "app.py"``` and ```flask run``` to run the app in normal mode.
+- Type ```$env:FLASK_DEBUG=1``` and ```flask run```  to run the app in debug mode.
 
 ## Credits
 ### Content
