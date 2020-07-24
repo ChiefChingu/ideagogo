@@ -457,7 +457,7 @@ Create a virtual environment to make sure dependencies only apply to this projec
 - To specify the correct credentals:
     - Create a file named env.py
     - Make sure this file is registered in your .gitignore.
-    - Copy the following into the env.py file:
+    - Copy the following into the env.py file and replace <password> with your own password (make sure to remove the <>).
 
 ```
 import os
@@ -468,8 +468,6 @@ os.environ[
 
 os.environ["SECRET_KEY"] = "ohsosecret"
 ```
-
-    - Replace <password> with your own password (make sure to remove the <>).
 
 #### Add a dummy idea
 The web app cannot run without an entry for ideas. You can add an idea via the admin of Mongodb.
@@ -493,7 +491,7 @@ All media comes from [indiegogo.com](https://www.indiegogo.com).
 - Account creation and form validation are from [Corey Schafer](https://www.youtube.com/watch?v=CSHx6eCkmv0).
 - Mixins for media queries are from [Łukasz Florczak](https://medium.com/codeartisan/breakpoints-and-media-queries-in-scss-46e8f551e2f2).
 - Method to strip file extension for alt img comes from [SO](https://stackoverflow.com/questions/4444923/get-filename-without-extension-in-python).
-- Storing images in Mongodb is based on the tutorial from [Pretty Printed](https://www.youtube.com/watch?v=DsgAuceHha4).\
+- Storing images in Mongodb is based on the tutorial from [Pretty Printed](https://www.youtube.com/watch?v=DsgAuceHha4).
 
 
 ## Disclaimer
