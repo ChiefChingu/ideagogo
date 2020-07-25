@@ -73,16 +73,6 @@ def login():
     return render_template("pages/users/login.html", title="Login", form=form)
 
 
-# make all user data available at a later stage - nice to have
-# @app.route("/account")
-# def account():
-#     if not session.get("username") is None:
-#         username = session.get("username")
-#         return render_template("pages/users/account.html", title="Account")
-#     else:
-#         return redirect(url_for("register"))
-
-
 @app.route("/logout")
 def logout():
     session.pop("username")
@@ -157,8 +147,6 @@ def idea_details(idea_id):
     ideas.update_one(
         {"_id": ObjectId(idea_id)}, {"$inc": {"views": 1},},
     )
-    # Control statement to check output in terminal
-    # print(the_idea)
 
     return render_template(
         "pages/ideas/idea_details.html",
