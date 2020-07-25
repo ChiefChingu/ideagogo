@@ -241,4 +241,7 @@ There are several ways to find ideas.
 Most of the features are covered by the test of user stories. Remaining features are tested individually and work as intended.
 
 ## Known error(s)
-There is one issue I cannot fix. In Vivaldi on a real mobile device (Galaxy S10) the date added and submitted by are glitched. [See this screenshot](https://github.com/ChiefChingu/ideagogo/blob/master/Screenshot_20200725-110113_Vivaldi.jpg)
+In Vivaldi on a real mobile device (Galaxy S10) the date added and submitted by are glitched. [See this screenshot](https://github.com/ChiefChingu/ideagogo/blob/master/Screenshot_20200725-110113_Vivaldi.jpg)
+
+On iPhone X the select dropdowns are bugged. The wrong value is selected and thus the wrong search result is presented. For example: if you select the tag 'eco' it shows the results for 'air filter'. I searched for a solution and added a file select.js and added the reference in the base.html template. Unfortunately, this does not fix the issue.
+
