@@ -2,6 +2,11 @@
 
     margin-top: 2rem;
     margin: 0 auto;
+    padding: 0 1rem;
+
+    @include tablet {
+        width: 70%;
+    }
 
     @include laptop {
 

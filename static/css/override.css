@@ -1006,6 +1006,12 @@ h5 {
 .container-about {
   margin-top: 2rem;
   margin: 0 auto;
+  padding: 0 1rem;
+}
+@media (min-width: 768px) {
+  .container-about {
+    width: 70%;
+  }
 }
 @media (min-width: 992px) {
   .container-about {
