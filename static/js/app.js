@@ -17,6 +17,3 @@ class MobileMenu {
 }
 
 var mobile = new MobileMenu();
-
-// In case of modules for js. For now only a small file, so one file will do.
-// export default MobileMenu 
