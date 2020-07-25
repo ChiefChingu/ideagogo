@@ -1,107 +1,115 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-<main>
-    <div class="container">
-        <div class="edit-idea">
-            <h3>Edit idea</h3>
-            <form action="{{ url_for('update_idea', idea_id=idea._id) }}" method="POST">
+    <main>
+        <div class="container">
 
-                <!-- Set idea name -->
-                <div class="input-field">
-                    <textarea id="textarea1" name="idea_title" class="materialize-textarea" data-length="50"
-                        maxlength="50" required>{{idea.idea_title}}</textarea>
-                    <label>Idea Name (max. 50 characters)</label>
-                </div>
+            <div class="edit-idea">
 
-                <!-- Set short description -->
-                <div class="input-field">
-                    <textarea name="idea_summary" id="textarea2" class="materialize-textarea" data-length="120"
-                        maxlength="120" required>{{idea.idea_summary}}</textarea>
-                    <label>Describe your idea in a short sentence (max. 130 characters)</label>
-                </div>
+                <h3>Edit idea</h3>
 
-                <!-- Set details -->
-                <div class="input-field">
-                    <textarea name="idea_details" id="textarea3" class="materialize-textarea" data-length="1000"
-                        maxlength="1000" required>{{idea.idea_details}}</textarea>
-                    <label>Idea Details</label>
-                </div>
+                <form action="{{ url_for('update_idea', idea_id=idea._id) }}" method="POST">
 
-                <!-- Set category -->
-                <div class="input-field">
-                    <select id="category" name="category_name" required>
-                        <option value="" disabled selected>Choose Category</option>
-                        {% for cat in categories %}
-                        {% if cat.category_name ==
-                    idea.category_name%}
-                        <option value="{{cat.category_name}}" selected>{{cat.category_name}}</option>
-                        {% else %}
-                        <option value="{{cat.category_name}}">{{cat.category_name}}</option>
-                        {% endif %} {% endfor %}
-                    </select>
-                    <label>Select a category</label>
-                </div>
+                    <!-- Set idea name -->
+                    <div class="input-field">
+                        <textarea id="textarea1" name="idea_title" class="materialize-textarea" data-length="50"
+                            maxlength="50" required>{{idea.idea_title}}</textarea>
+                        <label>Idea Name (max. 50 characters)</label>
+                    </div>
 
-                <!-- Set tag -->
-                <div class="input-field">
-                    <select id="idea_tag1" name="idea_tag1" required>
-                        <option value="" disabled selected>Choose Tag</option>
-                        {% for tag in all_tags %} {% if tag.tag_name ==
-                    idea.idea_tag1%}
-                        <option value="{{tag.tag_name}}" selected>{{tag.tag_name}}</option>
-                        {% else %}
-                        <option value="{{tag.tag_name}}">{{tag.tag_name}}</option>
-                        {% endif %} {% endfor %}
-                    </select>
-                    <label>Select a tag for your idea</label>
-                </div>
+                    <!-- Set short description -->
+                    <div class="input-field">
+                        <textarea name="idea_summary" id="textarea2" class="materialize-textarea" data-length="120"
+                            maxlength="120" required>{{idea.idea_summary}}</textarea>
+                        <label>Describe your idea in a short sentence (max. 130 characters)</label>
+                    </div>
 
-                <div class="input-field">
-                    <select id="idea_tag2" name="idea_tag2" required>
-                        <option value="" disabled selected>Choose Tag</option>
-                        {% for tag2 in all_tags_two %} {% if tag2.tag_name ==
-                    idea.idea_tag2%}
-                        <option value="{{tag2.tag_name}}" selected>{{tag2.tag_name}}</option>
-                        {% else %}
-                        <option value="{{tag2.tag_name}}">{{tag2.tag_name}}</option>
-                        {% endif %} {% endfor %}
-                    </select>
-                    <label>Select a tag for your idea</label>
-                </div>
+                    <!-- Set details -->
+                    <div class="input-field">
+                        <textarea name="idea_details" id="textarea3" class="materialize-textarea" data-length="1000"
+                            maxlength="1000" required>{{idea.idea_details}}</textarea>
+                        <label>Idea Details</label>
+                    </div>
 
-                <div class="input-field">
-                    <select id="idea_tags3" name="idea_tag3" required>
-                        <option value="" disabled selected>Choose Tag</option>
-                        {% for tag3 in all_tags_three %} {% if tag3.tag_name ==
-                            idea.idea_tag3%}
-                        <option value="{{tag3.tag_name}}" selected>{{tag3.tag_name}}</option>
-                        {% else %}
-                        <option value="{{tag3.tag_name}}">{{tag3.tag_name}}</option>
-                        {% endif %} {% endfor %}
-                    </select>
-                    <label>Select a tag for your idea</label>
-                </div>
+                    <!-- Set category -->
+                    <div class="input-field">
+                        <select id="category" name="category_name" required>
+                            <option value="" disabled selected>Choose Category</option>
+                            {% for cat in categories %}
+                                {% if cat.category_name == idea.category_name%}
+                                    <option value="{{cat.category_name}}" selected>{{cat.category_name}}</option>
+                                {% else %}
+                                    <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+                                {% endif %} 
+                            {% endfor %}
+                        </select>
+                        <label>Select a category</label>
+                    </div>
 
-                <!-- Not editable, so invisible: fixed username -->
-                <input type="hidden" name="username" id="idea_author" class="materialize-textarea"
-                    value="{{session['username']}}">
+                    <!-- Set tag -->
+                    <div class="input-field">
+                        <select id="idea_tag1" name="idea_tag1" required>
+                            <option value="" disabled selected>Choose Tag</option>
+                            {% for tag in all_tags %} 
+                                {% if tag.tag_name == idea.idea_tag1%}
+                                    <option value="{{tag.tag_name}}" selected>{{tag.tag_name}}</option>
+                                {% else %}
+                                    <option value="{{tag.tag_name}}">{{tag.tag_name}}</option>
+                                {% endif %} 
+                            {% endfor %}
+                        </select>
+                        <label>Select a tag for your idea</label>
+                    </div>
 
-                <!-- Not editable, so invisible: fixed total votes -->
-                <input type="hidden" name="total_votes" id="total_votes" class="materialize-textarea"
-                    value="{{total_votes}}">
+                    <div class="input-field">
+                        <select id="idea_tag2" name="idea_tag2" required>
+                            <option value="" disabled selected>Choose Tag</option>
+                            {% for tag2 in all_tags_two %} 
+                                {% if tag2.tag_name == idea.idea_tag2%}
+                                    <option value="{{tag2.tag_name}}" selected>{{tag2.tag_name}}</option>
+                                {% else %}
+                                    <option value="{{tag2.tag_name}}">{{tag2.tag_name}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label>Select a tag for your idea</label>
+                    </div>
 
-                <div class="edit-idea__cta">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">
-                        Update Idea
-                    </button>
-                    <a href="{{url_for('idea_details', idea_id=idea._id)}}"
-                        class="waves-effect waves-light btn-secundary">cancel</a>
-                </div>
-            </form>
+                    <div class="input-field">
+                        <select id="idea_tags3" name="idea_tag3" required>
+                            <option value="" disabled selected>Choose Tag</option>
+                            {% for tag3 in all_tags_three %} 
+                                {% if tag3.tag_name == idea.idea_tag3%}
+                                    <option value="{{tag3.tag_name}}" selected>{{tag3.tag_name}}</option>
+                                {% else %}
+                                    <option value="{{tag3.tag_name}}">{{tag3.tag_name}}</option>
+                                {% endif %} 
+                            {% endfor %}
+                        </select>
+                        <label>Select a tag for your idea</label>
+                    </div>
+
+                    <!-- Not editable, so invisible: fixed username -->
+                    <input type="hidden" name="username" id="idea_author" class="materialize-textarea"
+                        value="{{session['username']}}">
+
+                    <!-- Not editable, so invisible: fixed total votes -->
+                    <input type="hidden" name="total_votes" id="total_votes" class="materialize-textarea"
+                        value="{{total_votes}}">
+
+                    <div class="edit-idea__cta">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">
+                            Update Idea
+                        </button>
+                        <a href="{{url_for('idea_details', idea_id=idea._id)}}"
+                            class="waves-effect waves-light btn-secundary">cancel</a>
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
-    </div>
-</main>
-
-
+        
+    </main>
 {% endblock %}

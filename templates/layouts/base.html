@@ -1,76 +1,87 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="{{url_for('static', filename='css/override.css')}}" type="text/css" />
-  <link rel="icon" href="{{ url_for('static', filename='favicon1.ico') }}" type="image/x-icon" />
+  <head>
 
-  {% if title %}
-  <title>Rate it - {{ title }}</title>
-  {% else %}
-  <title>IdeaGoGo! - good ideas need support</title>
-  {% endif %}
-  {% block head %}
-  {% endblock %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-W2GRB46');</script>
-  <!-- End Google Tag Manager -->
-</head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/override.css')}}" type="text/css" />
+    <link rel="icon" href="{{ url_for('static', filename='favicon1.ico') }}" type="image/x-icon" />
 
-<body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2GRB46" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+    {% if title %}
+      <title>Rate it - {{ title }}</title>
+    {% else %}
+      <title>IdeaGoGo! - good ideas need support</title>
+    {% endif %}
 
-  <header>
-    {% block headerbutton %}
+    {% block head %}
     {% endblock %}
-    {% include 'layouts/navigation.html' %}
-  </header>
-  {% block hero %}
-  {% endblock %}
-  <!-- <div class="container container-desktop"> -->
-  {% block content %}
-  {% endblock %}
-  <!-- </div> -->
-  <footer class="site-footer">
-    {% include 'layouts/footer.html' %}
-  </footer>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-W2GRB46');</script>
+    <!-- End Google Tag Manager -->
+
+  </head>
+
+  <body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2GRB46" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+      {% block headerbutton %}
+      {% endblock %}
+      {% include 'layouts/navigation.html' %}
+    </header>
+
+    {% block hero %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+    
+    <footer class="site-footer">
+      {% include 'layouts/footer.html' %}
+    </footer>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('.sidenav').sidenav();
-      $('select').formSelect();
-      $('input#input_text, textarea#textarea1, textarea#textarea2, textarea#textarea3').characterCounter();
-      $('form:first *:input[type!=hidden]:first').focus();
-      $(".dropdown-trigger").dropdown();
-      $('.modal').modal();
-      $("select[required]").css({ display: "block", height: 0, padding: 0, width: 0, position: 'absolute', left: 120 });
-      setTimeout(function () {
-        $('.alert-box').fadeOut('fast');
-      }, 3000);
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
 
-    });
-  </script>
-  <script src="/static/js/app.js"></script>
-  {% block javascript %}
-  {% endblock %}
-</body>
+      $(document).ready(function () {
+
+        $('.sidenav').sidenav();
+        $('select').formSelect();
+        $('input#input_text, textarea#textarea1, textarea#textarea2, textarea#textarea3').characterCounter();
+        $('form:first *:input[type!=hidden]:first').focus();
+        $(".dropdown-trigger").dropdown();
+        $('.modal').modal();
+        $("select[required]").css({ display: "block", height: 0, padding: 0, width: 0, position: 'absolute', left: 120 });
+        setTimeout(function () {
+          $('.alert-box').fadeOut('fast');
+        }, 3000);
+
+      });
+    </script>
+
+    <script src="/static/js/app.js"></script>
+    
+    {% block javascript %}
+    {% endblock %}
+  </body>
 
 </html>

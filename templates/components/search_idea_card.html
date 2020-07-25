@@ -6,80 +6,117 @@
             alt="Picture of idea with name: {{idea.image_alt}}">
     </div>
 
-
     <!-- "Front side" -->
     <div class="card-content activator">
+
         <div class="card-title grey-text text-darken-4">
+
             <h4 class="activator card-content-title">{{idea.idea_title}}</h4>
+
             <div class="grid-wrapper">
+
                 <div class="card-grid-front">
+
                     <div class="card-grid-front__fr1">
                         <i class="material-icons">thumb_up</i>
                     </div>
+
                     <div class="card-grid-front__fr2">
                         <p>{{idea.total_votes}}</p>
                     </div>
+
                     <div class="card-grid-front__fr3">
                         <i class="material-icons">visibility</i>
                     </div>
+
                     <div class="card-grid-front__fr4">
                         <p>{{idea.views}}</p>
                     </div>
+
                     <div class="card-grid-front__row2--left">
                         votes
                     </div>
+
                     <div class="card-grid-front__row2--right">
                         views
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
     <!-- "Back side" -->
     <div class="card-reveal">
+
         <div class="card-reveal-grid">
+
             <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
             <h5 class="card-content-title card-reveal-grid__row2">{{idea.idea_title}}</h5>
             <h6 class="card-reveal-grid__row3">Summary:</h6>
             <p class="card-reveal-grid__row4">{{idea.idea_summary}}</p>
-
             <h6 class="activator card-reveal-grid__row5">Category:</h6>
+
             <div class="activator card-reveal-grid__row6">
+
                 <form action="{{ url_for('search_by_category') }}" method="POST">
+
                     <div class="input-field">
                         <input type="hidden" name="category_name" value="{{idea.category_name}}">
                     </div>
+
                     <button class="card-reveal-grid__row6--item" type="submit">{{idea.category_name}}</button>
+
                 </form>
+
             </div>
+
         </div>
 
         <div class="card-reveal-grid__row7">
             <h6>Tags:</h6>
         </div>
+
         <div class="card-reveal-grid__row8">
+
             <form action="{{ url_for('search_by_tag') }}" method="POST">
+
                 <div class="input-field">
                     <input type="hidden" name="tag_name" value="{{idea.idea_tag1}}">
                 </div>
+
                 <button class="card-reveal-grid__row8--tag" type="submit">{{idea.idea_tag1}}</button>
+
             </form>
+
             <form action="{{ url_for('search_by_tag') }}" method="POST">
+
                 <div class="input-field">
                     <input type="hidden" name="tag_name" value="{{idea.idea_tag2}}">
                 </div>
+
                 <button class="card-reveal-grid__row8--tag" type="submit">{{idea.idea_tag2}}</button>
+            
             </form>
+            
             <form action="{{ url_for('search_by_tag') }}" method="POST">
+
                 <div class="input-field">
                     <input type="hidden" name="tag_name" value="{{idea.idea_tag3}}">
                 </div>
+
                 <button class="card-reveal-grid__row8--tag" type="submit">{{idea.idea_tag3}}</button>
+
             </form>
         </div>
+
         <p class="card-reveal-grid__row9"><a class="card-reveal-grid__row9--item waves-effect waves-light btn"
                 href="{{url_for('idea_details', idea_id=idea._id)}}">view details</a>
         </p>
+
     </div>
+    
 </div>

@@ -1,32 +1,43 @@
-{% extends 'layouts/base.html'%} {% block content %}
-<main>
-    <div class="container">
-        <h3 class="h3-heading">Add Tags</h3>
-        <div class="overview">
-            {% for tag in tags %}
-            <div class="chip chip__tag">
-                {{tag.tag_name}}
+{% extends 'layouts/base.html'%}
+
+{% block content %}
+    <main>
+        
+        <div class="container">
+
+            <h3 class="h3-heading">Add Tags</h3>
+
+            <div class="overview">
+                {% for tag in tags %}
+                    <div class="chip chip__tag">
+                        {{tag.tag_name}}
+                    </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+
+            <form action="{{ url_for('insert_tag') }}" method="POST" class="col s12" name="formfocus">
+                
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <input id="tag_name" name="tag_name" type="text" class="validate" />
+                        <label for="tag_name">Tag Name</label>
+                    </div>
+
+                </div>
+
+                <div class="btn-row">
+
+                    <button class="btn-row-btn btn waves-effect waves-light" type="submit" name="action">
+                        Add Tag
+                    </button>
+                    <a class="btn-row-link" href="{{url_for('admin')}}">back</a>
+                    
+                </div>
+
+            </form>
+
         </div>
 
-        <form action="{{ url_for('insert_tag') }}" method="POST" class="col s12" name="formfocus">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="tag_name" name="tag_name" type="text" class="validate" />
-                    <label for="tag_name">Tag Name</label>
-                </div>
-            </div>
-            <div class="btn-row">
-                <button class="btn-row-btn btn waves-effect waves-light" type="submit" name="action">
-                    Add Tag
-                </button>
-                <a class="btn-row-link" href="{{url_for('admin')}}">back</a>
-            </div>
-        </form>
-    </div>
-
-
-</main>
-
+    </main>
 {% endblock %}

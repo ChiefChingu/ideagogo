@@ -1,76 +1,97 @@
 {% block navigation %}
-<div class="site-nav">
-    <div class="site-nav__menu-icon">
-        <div class="site-nav__menu-icon__middle"></div>
-    </div>
-    <div class="site-nav__overlay">
-        <div class="site-nav__overlay-content">
-            <a href="{{url_for('home')}}"><img class="logo"
-                    src={{url_for('static', filename='images/logo-blue-bg.jpg')}} alt="logo"></a>
-            <nav class="primary-nav">
-                <ul>
-                    <li><a href="{{url_for('home')}}">Home</a></li>
-                    <li><a href="{{url_for('ideas')}}">Ideas</a></li>
-                    <li><a href="{{url_for('about')}}">About</a></li>
-                    <li><a href="{{url_for('contact')}}">Contact</a></li>
-                    {% if not 'username' in session %}
+    <div class="site-nav">
+
+        <div class="site-nav__menu-icon">
+            <div class="site-nav__menu-icon__middle"></div>
+        </div>
+
+        <div class="site-nav__overlay">
+            
+            <div class="site-nav__overlay-content">
+
+                <a href="{{url_for('home')}}"><img class="logo" src={{url_for('static', filename='images/logo-blue-bg.jpg')}} alt="logo"></a>
+                
+                <nav class="primary-nav">
+
+                    <ul>
+                        <li><a href="{{url_for('home')}}">Home</a></li>
+                        <li><a href="{{url_for('ideas')}}">Ideas</a></li>
+                        <li><a href="{{url_for('about')}}">About</a></li>
+                        <li><a href="{{url_for('contact')}}">Contact</a></li>
+
+                        {% if not 'username' in session %}
+                            <li><a href="{{url_for('register')}}">Register</a></li>
+                            <li><a href="{{url_for('login')}}">Log in</a></li>
+                        {% endif %}
+
+                    </ul>
+
+                </nav>
+
+                <div class="site-nav__overlay-content">
+
+                    {% if 'username' in session %}
+                        <p>You are logged in as:</p>
+                        <h5><span class="bold">{{session["username"]}}</span></h5>
+                        <a class="" href="{{url_for('logout')}}">Log Out</a>
+                    {% endif %}
+
+                    {% if session["username"] == "Master" %}
+                        <br><br><br>
+                        <a href="{{url_for('admin')}}">Admin</a>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <nav class="desktop-nav desktop-nav__left">
+
+            <ul>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('ideas')}}">Ideas</a></li>
+                <li><a href="{{url_for('about')}}">About</a></li>
+                <li><a href="{{url_for('contact')}}">Contact</a></li>
+            </ul>
+
+        </nav>
+
+        <nav class="desktop-nav desktop-nav__right">
+            
+            <ul>
+                {% if not 'username' in session %}
                     <li><a href="{{url_for('register')}}">Register</a></li>
                     <li><a href="{{url_for('login')}}">Log in</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
+                {% endif %}
 
-            <div class="site-nav__overlay-content">
                 {% if 'username' in session %}
-                <p>You are logged in as:</p>
-                <h5><span class="bold">{{session["username"]}}</span></h5>
-
-                <a class="" href="{{url_for('logout')}}">Log Out</a>
+                    <li>{{session["username"]}}</li>
+                    <li><a class="" href="{{url_for('logout')}}">Log Out</a></li>
                 {% endif %}
 
                 {% if session["username"] == "Master" %}
-                <br><br><br>
-                <a href="{{url_for('admin')}}">Admin</a>
+                    <li><a href="{{url_for('admin')}}">Admin</a></li>
                 {% endif %}
+            </ul>
 
-            </div>
-        </div>
+        </nav>
+
+        <a href="{{url_for('home')}}"><img class="logo desktop-nav__middle"
+            src={{url_for('static', filename='images/logo-white-bg.jpg')}} alt="logo"></a>
     </div>
-    <nav class="desktop-nav desktop-nav__left">
-        <ul>
-            <li><a href="{{url_for('home')}}">Home</a></li>
-            <li><a href="{{url_for('ideas')}}">Ideas</a></li>
-            <li><a href="{{url_for('about')}}">About</a></li>
-            <li><a href="{{url_for('contact')}}">Contact</a></li>
-        </ul>
-    </nav>
-    <nav class="desktop-nav desktop-nav__right">
-        <ul>
-            {% if not 'username' in session %}
-            <li><a href="{{url_for('register')}}">Register</a></li>
-            <li><a href="{{url_for('login')}}">Log in</a></li>
-            {% endif %}
-            {% if 'username' in session %}
-            <li>{{session["username"]}}</li>
-            <li><a class="" href="{{url_for('logout')}}">Log Out</a></li>
-            {% endif %}
-            {% if session["username"] == "Master" %}
-            <li><a href="{{url_for('admin')}}">Admin</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    <a href="{{url_for('home')}}"><img class="logo desktop-nav__middle"
-        src={{url_for('static', filename='images/logo-white-bg.jpg')}} alt="logo"></a>
-</div>
-{% with messages = get_flashed_messages(with_categories=true) %}
-{% if messages %}
-{% for category, message in messages %}
-<div class="alert-box">
-    <div class="alert-box__alert alert-{{ category }}">
-        {{ message }}
-    </div>
-</div>
-{% endfor %}
-{% endif %}
-{% endwith %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert-box">
+                    <div class="alert-box__alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
 {% endblock %}
