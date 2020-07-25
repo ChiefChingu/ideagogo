@@ -239,3 +239,6 @@ There are several ways to find ideas.
 
 ## Features
 Most of the features are covered by the test of user stories. Remaining features are tested individually and work as intended.
+
+## Known error(s)
+There is one issue I cannot fix. In Vivaldi on a real mobile device (Galaxy S10) the date added and submitted by are glitched. [See this screenshot](https://github.com/ChiefChingu/ideagogo/blob/master/Screenshot_20200725-110113_Vivaldi.jpg)
