@@ -17,8 +17,6 @@
         padding: 0 1rem 3rem 1rem;
     }
 
-    
-
     &__icon {
 
         color: $mainPink;
@@ -46,9 +44,9 @@
 
 h5 {
 
-        text-align: center;
-        line-height: 2rem;
-        padding: 0 1rem 1rem 1rem;
+    text-align: center;
+    line-height: 2rem;
+    padding: 0 1rem 1rem 1rem;
     }
 
 .material-icons-hero {
@@ -57,7 +55,6 @@ h5 {
     display: block;
     margin: 2rem auto;
     text-align: center;
-    
 }
 
 .hero-ideas {
@@ -69,8 +66,7 @@ h5 {
 
         font-weight: 600;
         text-align: center;
-        padding-top: 1rem;
-        
+        padding-top: 1rem;  
     }
 
     &__grid {
@@ -89,9 +85,9 @@ h5 {
             width: 35%;
 
             .card-image {
+
                 height: 380px;
             }
-            
         }
 
         @include laptop {
@@ -117,6 +113,7 @@ h5 {
         padding-bottom: 1rem;
 
         @include tablet {
+            
             box-shadow: none;
             padding-bottom: 3rem;
         }

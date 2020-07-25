@@ -1,28 +1,32 @@
 h1 {
+
     text-align: center;
     margin: 1.5rem 0 1rem 0;
 }
 
 header {
+
     margin-bottom: 5rem;
 }
 
 .h3-heading {
+
     text-align: center;
     padding-top: 1rem;
 }
 
 .container {
+
     margin-top: 2rem;
 
     @include laptop {
         
         width: 20%;
-
     }
 }
 
 .wrapper {
+
     width: 800px;
     margin: 0 auto;
 }
@@ -30,18 +34,22 @@ header {
 
 
 .my-grid-2 {
+
     display: grid;
    
     @include tablet {
+
         grid-template-columns: 1fr 1fr;
     }
 }
 
 
 .divider {
+
     margin: 1rem 0 1rem 0;
 
     &__bottom-margin {
+
         margin: 2rem 0 1rem 0;
     }
 }
@@ -50,15 +58,18 @@ header {
 @media screen and (min-width: 1025px) {
 
     .my-grid-2 {
+
         grid-template-columns: 1fr 1fr;
     }
 }
 
 .btn {
+
     background-color: $mainPink;
 }
 
 .btn-secundary {
+
     height: 36px;
     line-height: 36px;
     padding: 0 16px;
@@ -70,52 +81,63 @@ header {
     text-align: center;
 
     &:focus {
+
         background-color: $secBlue;
     }
     
 }
 
 .btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
+
     background-color: $darkPink;
 }
 
 .set-width__200px {
+
     width: 200px;
 }
 
 .margin-top {
+
     margin-top: 2rem;
 }
 
 .margin-bottom {
+
     margin-bottom: 2rem;
 }
 
 .bold {
+
     color: $mainPink;
     font-weight: 700;
   }
 
 // Forms
 .input-field label {
+
     color: $darkGrey;
     font-size: 0.8rem;
 }
 
 textarea.materialize-textarea:focus:not([readonly])+label {
+
     color: $mainPink;
 }
 
 textarea.materialize-textarea:focus:not([readonly]) {
+
     border-bottom: 1px solid $mainPink;
     box-shadow: 0 1px 0 0 $mainPink;
 }
 
 .select-wrapper .caret {
+
     fill: $mainPink;
 }
 
 .dropdown-content li>span {
+    
     color: $mainPink;
 }
 

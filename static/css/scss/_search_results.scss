@@ -1,27 +1,30 @@
 
 .container-search {
+
     width: 90%;
     margin-top: 2rem;
     margin: 0 auto;
 
     @include laptop {
+
         max-width: 1280px;
         width: 90%;
-
     }
 
     @include l_laptop {
+
         max-width: 1280px;
         width: 65%;
-
     }
 }
 
 .search-results {
+
     text-align: center;
     margin: 1rem 0 0 0;
 
     &__sub {
+        
         margin-top: 0.5rem;
     }
 }

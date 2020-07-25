@@ -1,4 +1,5 @@
 .chip {
+
     color: white;
     max-width: 125px;
     width: 90%;
@@ -9,16 +10,18 @@
     font-weight: initial;
 
     &__category {
+
         background-color: $secBlue;
     }
 
     &__tag {
+
         background-color: $tagcolor;
         color: black;
     }
-
 }
 
 .card-tags {
+    
     display: grid;
 }

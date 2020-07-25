@@ -1,22 +1,27 @@
 .container-ideas {
+
     margin: 0 auto;
     max-width: 1125px;
     width: 90%;
 
     @include l_laptop {
+
         width: 1125px;
     }
 }
 
 .my-grid {
+
     display: grid;
 
     @include tablet {
+
         grid-template-columns: repeat(2, minmax(280px, 1fr));
         grid-gap: 1rem;
     }
     
     @include laptop {
+        
         grid-template-columns: repeat(4, minmax(225px, 1fr));
         grid-gap: 1rem;
     }

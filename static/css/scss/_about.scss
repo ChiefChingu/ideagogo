@@ -5,6 +5,7 @@
     padding: 0 1rem;
 
     @include tablet {
+
         width: 70%;
     }
 
@@ -16,7 +17,6 @@
         p {
 
             font-size: 1.2rem;
-        
         }
 
         .first-p {

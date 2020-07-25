@@ -12,28 +12,36 @@ $screen-xl-min: 1200px;
 
 // Small devices
 @mixin s_tablet {
+
     @media (min-width: #{$screen-sm-min}) {
+
         @content;
     }
  }
  
  // Medium devices
  @mixin tablet {
+
     @media (min-width: #{$screen-md-min}) {
+
         @content;
     }
  }
  
  // Large devices
  @mixin laptop {
+
     @media (min-width: #{$screen-lg-min}) {
+
         @content;
     }
  }
  
  // Extra large devices
  @mixin l_laptop {
+
     @media (min-width: #{$screen-xl-min}) {
+        
         @content;
     }
  }

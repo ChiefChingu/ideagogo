@@ -1,6 +1,7 @@
 
 // Offset Materialize styling
 nav {
+
     box-shadow: none;
     height: auto;
     background-color: $mainBlue;
@@ -14,18 +15,22 @@ nav {
 
 // Default nav = mobile
 .primary-nav {
+
     padding-top: 5rem;
     
     ul {
+
         list-style: none;
         text-align: center;
         padding: 0;
 
         li {
+
             float: none; //Offset Materialize styling
         }
 
         a {
+
             text-decoration: none;
             font-size: 1.3rem;
             text-transform: uppercase;
@@ -37,6 +42,7 @@ nav {
 }
 
 .site-nav {
+
     top: 0;
     border-top: 2px solid $mainPink;
     border-bottom: 1px solid #e5e5e5;
@@ -49,25 +55,30 @@ nav {
     grid-template-rows: 1fr;
 
     @include laptop {
+
         grid-template-columns: 5% 1fr 1fr 1fr 5%;
         grid-template-rows: 1fr;
     }
 
     @include l_laptop {
+
         grid-template-columns: 15% 1fr 1fr 1fr 15%;
         grid-template-rows: 1fr;
     }
     
     a {
+
         grid-column: 2;
         grid-row: 1;
 
         @include laptop {
+
             grid-column: 3;
         
         }
         
         .logo {
+
             height: 55px;
             margin: 0.5rem auto;
             display: block;
@@ -75,6 +86,7 @@ nav {
     } 
 
     &__menu-icon {
+
         width: 20px;
         height: 19px;
         position: absolute;
@@ -89,6 +101,7 @@ nav {
         }
 
         &::before {
+
             content: "";    
             position: absolute;
             top: 0;
@@ -101,6 +114,7 @@ nav {
         }
 
         &__middle {
+
             position: absolute;
             top: 8px;
             left: 0;
@@ -111,6 +125,7 @@ nav {
         }
 
         &::after {
+
             content: "";  
             position: absolute;
             bottom: 0px;
@@ -124,21 +139,25 @@ nav {
     }
 
     &__menu-icon--close-x {
+
         &::before {
+
             transform: rotate(45deg) scaleX(1.25);
         }
     
         .site-nav__menu-icon__middle {
+
             opacity: 0;
         }
-
     
         &::after {
+
             transform: rotate(-45deg) scaleX(1.25) translateY(1px);
         }
     }
 
     &__overlay {
+
         height: 100%;
         width: 100%;
         position: fixed;
@@ -153,26 +172,29 @@ nav {
         display: none;
 
         &--is-visible {
+
             display: block;
         }  
     }
 
       &__overlay-content {
+
         position: relative;
         width: 100%;
         text-align: center;
 
         p {
+
             margin-top: 3rem;
         }
 
         h5 {
+
             font-size: 1.5rem;
             line-height: normal;
             padding: 0;
             margin: 0;
         }
-
       }
       
       &__overlay a {
@@ -182,19 +204,23 @@ nav {
       }
       
       &__overlay a:hover, .overlay a:focus {
+
         color: $mainPink;
       }
 }
 
 
 .desktop-nav {
+
     display: none;
 
     ul li {
+
         color: $mainPink;
     }
 
     ul li a {
+
         color: $mainPink;
     }
 
@@ -206,21 +232,18 @@ nav {
         &__left {
             
             grid-column: 2;
-            
         }
 
         &__middle {
             
             grid-column: 3;
-            
         }
 
         &__right {
 
             grid-column: 4;
             display: grid;
-            justify-items: right;
-            
+            justify-items: right;   
         }
 
     }

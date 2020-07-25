@@ -1,9 +1,11 @@
 
 #contact-form-invisible {
+
     display: none;
 }
 
 .contact-form-text {
+
     padding-bottom: 1rem;
     font-size: 1.2rem;
     line-height: 1.6rem;
@@ -14,20 +16,24 @@
 }
 
 #contact-form-thank-you {
+
     display: none;
 }
 
 #contact-form-thank-you-visible {
+
     display: initial;
     text-align: center;
 }
 
 #contact-form {
+
     display: grid;
     grid-template-columns: 5% 90% 5%;
     justify-content: center;
 
     label {
+
         grid-column: 2;
         display: block;
         text-align: start;
@@ -35,6 +41,7 @@
     }
 
     input, textarea {
+
         grid-column: 2;
         // width: 90%;
         height: 2rem;
@@ -44,6 +51,7 @@
     }
 
     textarea {
+
         height: 150px;
         margin-bottom: 2rem;
     }
@@ -52,7 +60,6 @@
 
         width: 120px;
         height: 2.4rem;
-
     }
 
 }
@@ -65,13 +72,11 @@
     @include tablet {
 
         width: 50%;
-    
     }
     
     @include laptop {
 
         width: 40%;
-    
     }
 }
 
@@ -90,6 +95,7 @@
     }
 
     .contact-form-text {
+
         padding-bottom: 2rem;
         font-size: 1.5rem;
         line-height: 1.6rem;
@@ -99,11 +105,13 @@
     }
 
     #contact-form-thank-you-visible {
+
         display: initial;
         text-align: center;
     }
 
     label {
+
         grid-column: 2;
         justify-self: start;
         align-self: center;
@@ -111,12 +119,14 @@
     }
 
     input, textarea {
+
         width: 100%;
         height: 2rem;
         grid-column: 2;
     }
 
     textarea {
+        
         height: 150px;
     }   
 

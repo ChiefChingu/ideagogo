@@ -1,9 +1,9 @@
-
-
 .edit-idea, .add-idea {
+
     display: grid;
 
     &__cta {
+
         display: grid;
         grid-template-columns: 1fr 1fr;
         margin-top: 3rem;
@@ -12,7 +12,9 @@
     }
 
     &__add-image {
+
         .input-field label {
+
             position: relative;
             top: -12px;
         }
@@ -20,6 +22,7 @@
 }
 
 .input-field {
+    
     margin-top: 3rem;
 }
 
